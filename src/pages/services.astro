@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+<BaseLayout title="Services | WILLDUET">
+  <Header />
+
+  <main class="container" style="padding:34px 0 22px;">
+    <h1 style="margin:0 0 10px;">Services</h1>
+    <p class="muted" style="margin:0 0 18px;max-width:860px;line-height:1.6;">
+      Clear deliverables, fast execution, and documentation so your team can own the work long term.
+    </p>
+
+    <div class="grid grid-3">
+      <div class="card" style="padding:18px;">
+        <h3 style="margin:0 0 8px;">Analytics and Reporting</h3>
+        <p class="muted" style="margin:0;line-height:1.6;">Dashboards, KPI definitions, stakeholder alignment.</p>
+      </div>
+      <div class="card" style="padding:18px;">
+        <h3 style="margin:0 0 8px;">Data Modeling</h3>
+        <p class="muted" style="margin:0;line-height:1.6;">Star schema, semantic layers, metric logic, dbt.</p>
+      </div>
+      <div class="card" style="padding:18px;">
+        <h3 style="margin:0 0 8px;">Tutoring and Training</h3>
+        <p class="muted" style="margin:0;line-height:1.6;">Power BI, SQL, analytics fundamentals for individuals or teams.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:18px;">
+      <a class="btn btn-primary" href="/contact">Request a quote</a>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

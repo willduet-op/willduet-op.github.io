@@ -1,0 +1,293 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const WHATSAPP_NUMBER = "13472842834";
+const WHATSAPP_MESSAGE = "Me interesa el curso de Power BI.";
+const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+---
+
+<BaseLayout title="Curso Power BI para Analistas | RD" description="Curso de Power BI en vivo en República Dominicana.">
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="/src/styles/rd-powerbi.css" />
+  </Fragment>
+
+  <main class="rd-wrap">
+    <!-- HERO -->
+    <section class="rd-hero">
+      <div class="container rd-grid">
+        <div>
+          <div class="rd-pill">Cupos limitados. Solo 20 participantes</div>
+          <h1 class="rd-title">Power BI para Analistas</h1>
+          <p class="rd-sub">
+            Clases en vivo los sábados 10:00am a 12:00pm (RD). Del 7 de Feb al 21 de Mar 2026.
+            Aprende el ciclo completo de una solución BI, desde conectar datos hasta publicar dashboards.
+          </p>
+
+          <div class="rd-highlights">
+            <div class="card rd-mini">
+              <div class="rd-mini-title">En vivo</div>
+              <div class="rd-mini-text">Sábados 10am a 12pm (RD)</div>
+            </div>
+            <div class="card rd-mini">
+              <div class="rd-mini-title">Incluye</div>
+              <div class="rd-mini-text">Acompañamiento personalizado</div>
+            </div>
+            <div class="card rd-mini">
+              <div class="rd-mini-title">Final</div>
+              <div class="rd-mini-text">Proyecto final para tu portafolio</div>
+            </div>
+          </div>
+
+          <div class="rd-cta">
+            <a class="btn btn-primary" href={waUrl} target="_blank" rel="noopener">Quiero mi cupo por WhatsApp</a>
+            <a class="btn" href="#inversion">Ver inversión</a>
+          </div>
+
+          <div class="rd-trust">
+            <div>✅ Enfocado en analistas</div>
+            <div>✅ Ejercicios guiados</div>
+            <div>✅ Orientación a empleo (opcional)</div>
+          </div>
+        </div>
+
+        <div class="rd-media">
+          <div class="rd-media-frame">
+            <img src="/rd/flyer.png" alt="Flyer del curso Power BI para analistas (República Dominicana)" />
+          </div>
+          <div class="rd-note">
+            Esta página no está enlazada desde el sitio principal. Se usa para anuncios y acceso directo.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIRIGIDO A -->
+    <section class="rd-section" id="dirigido">
+      <div class="container">
+        <div class="rd-head">
+          <h2>Dirigido a</h2>
+          <p>Ideal si ya entiendes Excel (básico o más) y quieres avanzar a BI con una guía clara.</p>
+        </div>
+
+        <div class="rd-grid-3">
+          <div class="card rd-card-pad">
+            <h3 style="margin:0 0 8px;">Personas con base en Excel</h3>
+            <p class="muted" style="margin:0;line-height:1.6;">Que quieren avanzar a Power BI paso a paso, con práctica real.</p>
+          </div>
+          <div class="card rd-card-pad">
+            <h3 style="margin:0 0 8px;">Profesionales</h3>
+            <p class="muted" style="margin:0;line-height:1.6;">Que desean aprender a analizar y presentar datos de forma profesional.</p>
+          </div>
+          <div class="card rd-card-pad">
+            <h3 style="margin:0 0 8px;">Quienes quieren iniciar o formalizar</h3>
+            <p class="muted" style="margin:0;line-height:1.6;">Su carrera en análisis de datos con un proyecto final para su portafolio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APRENDERAS -->
+    <section class="rd-section rd-section-alt" id="aprenderas">
+      <div class="container">
+        <div class="rd-head">
+          <h2>Aprenderás a</h2>
+          <p>Con enfoque analítico y aplicable a escenarios reales.</p>
+        </div>
+
+        <div class="rd-list">
+          <div class="rd-item">Entender el proceso completo de una solución BI.</div>
+          <div class="rd-item">Pensar y preguntar como analista antes de construir reportes.</div>
+          <div class="rd-item">Limpiar y transformar datos con Power Query.</div>
+          <div class="rd-item">Modelar datos y relaciones correctamente.</div>
+          <div class="rd-item">Crear medidas DAX, KPIs y métricas útiles al negocio.</div>
+          <div class="rd-item">Diseñar dashboards que apoyen decisiones reales.</div>
+        </div>
+
+        <div style="margin-top:18px;max-width:520px;display:grid;gap:10px;">
+          <a class="btn btn-primary" href={waUrl} target="_blank" rel="noopener">Enviar mensaje y reservar</a>
+          <div class="muted" style="font-size:13px;line-height:1.5;">Te respondo con detalles del cupo y forma de pago.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMA -->
+    <section class="rd-section" id="programa">
+      <div class="container">
+        <div class="rd-head">
+          <h2>Programa de clases</h2>
+          <p>7 clases (una opcional) + proyecto final.</p>
+        </div>
+
+        <div class="rd-timeline">
+          <div class="rd-t">
+            <div class="rd-num">1</div>
+            <div>
+              <div class="rd-ttitle">Rol del analista de datos y estructura de solución BI</div>
+              <div class="rd-ttext">Qué construir, por qué y cómo hacerlo bien desde el inicio.</div>
+            </div>
+          </div>
+
+          <div class="rd-t">
+            <div class="rd-num">2</div>
+            <div>
+              <div class="rd-ttitle">Conexión a fuentes de datos</div>
+              <div class="rd-ttext">Excel, CSV, bases de datos y carpetas.</div>
+            </div>
+          </div>
+
+          <div class="rd-t">
+            <div class="rd-num">3</div>
+            <div>
+              <div class="rd-ttitle">Limpieza y transformación con Power Query</div>
+              <div class="rd-ttext">Preparación de datos para análisis sin dolor.</div>
+            </div>
+          </div>
+
+          <div class="rd-t">
+            <div class="rd-num">4</div>
+            <div>
+              <div class="rd-ttitle">Modelado de datos y relaciones</div>
+              <div class="rd-ttext">Modelo estrella, buenas prácticas y errores comunes.</div>
+            </div>
+          </div>
+
+          <div class="rd-t">
+            <div class="rd-num">5</div>
+            <div>
+              <div class="rd-ttitle">Medidas, DAX y creación de KPIs</div>
+              <div class="rd-ttext">Medidas, contexto de filtro y KPIs útiles al negocio.</div>
+            </div>
+          </div>
+
+          <div class="rd-t">
+            <div class="rd-num">6</div>
+            <div>
+              <div class="rd-ttitle">Visualización, dashboards y publicación en Power BI Service</div>
+              <div class="rd-ttext">Diseño, narrativa y entrega profesional.</div>
+            </div>
+          </div>
+
+          <div class="rd-t">
+            <div class="rd-num">7</div>
+            <div>
+              <div class="rd-ttitle">Opcional: CV, portafolio y búsqueda de empleo</div>
+              <div class="rd-ttext">Cómo presentar tu trabajo y destacar.</div>
+            </div>
+          </div>
+
+          <div class="rd-t rd-t-final">
+            <div class="rd-num">★</div>
+            <div>
+              <div class="rd-ttitle">Proyecto final</div>
+              <div class="rd-ttext">Un proyecto completo para mostrar en tu portafolio.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px;max-width:520px;display:grid;gap:10px;">
+          <a class="btn btn-primary" href={waUrl} target="_blank" rel="noopener">Quiero el programa por WhatsApp</a>
+          <div class="muted" style="font-size:13px;line-height:1.5;">Te lo envío y coordinamos tu inscripción.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVERSION -->
+    <section class="rd-section rd-section-alt" id="inversion">
+      <div class="container">
+        <div class="rd-pricing">
+          <div>
+            <h2 style="margin:0 0 10px;">Inversión</h2>
+            <p class="rd-lead">RD$ 3,000 <span class="muted" style="font-weight:600;">| Primer cohorte fundador</span></p>
+
+            <ul class="rd-bullets">
+              <li>Acompañamiento personalizado.</li>
+              <li>Clases en vivo y práctica guiada.</li>
+              <li>Proyecto final para portafolio.</li>
+              <li>Cupos limitados (20).</li>
+            </ul>
+
+            <div style="margin-top:18px;max-width:520px;display:grid;gap:10px;">
+              <a class="btn btn-primary" href={waUrl} target="_blank" rel="noopener">Reservar mi cupo por WhatsApp</a>
+              <div class="muted" style="font-size:13px;line-height:1.5;">Se abre WhatsApp con el mensaje listo para enviar.</div>
+            </div>
+          </div>
+
+          <div class="card rd-card-pad">
+            <h3 style="margin:0 0 8px;">Detalles rápidos</h3>
+
+            <div class="rd-kv">
+              <div class="rd-kv-row"><span>Modalidad</span><span>En vivo</span></div>
+              <div class="rd-kv-row"><span>Horario</span><span>Sábados 10am a 12pm (RD)</span></div>
+              <div class="rd-kv-row"><span>Fechas</span><span>7 Feb al 21 Mar 2026</span></div>
+              <div class="rd-kv-row"><span>Incluye</span><span>Guía personalizada</span></div>
+            </div>
+
+            <div class="muted" style="margin-top:12px;line-height:1.6;font-size:14px;">
+              Si tienes preguntas antes de pagar, escríbeme y te respondo rápido.
+            </div>
+
+            <div style="margin-top:12px;">
+              <a class="btn" href={waUrl} target="_blank" rel="noopener">Tengo preguntas, escríbeme</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="rd-section" id="faq">
+      <div class="container">
+        <div class="rd-head">
+          <h2>Preguntas frecuentes</h2>
+          <p>Respuestas rápidas para que tomes la decisión sin estrés.</p>
+        </div>
+
+        <div class="rd-faq">
+          <details class="rd-faq-item">
+            <summary>¿Necesito experiencia previa en Power BI?</summary>
+            <div class="rd-faq-body">
+              No. Lo ideal es tener base en Excel. Te llevo paso a paso desde lo esencial hasta publicar en Power BI Service.
+            </div>
+          </details>
+
+          <details class="rd-faq-item">
+            <summary>¿Qué necesito para participar?</summary>
+            <div class="rd-faq-body">
+              Una laptop, internet estable y ganas de practicar. Recomendado: Excel básico o más.
+            </div>
+          </details>
+
+          <details class="rd-faq-item">
+            <summary>¿Cómo reservo el cupo?</summary>
+            <div class="rd-faq-body">
+              Haz clic en WhatsApp, envías el mensaje y te paso los pasos de inscripción y pago.
+            </div>
+          </details>
+
+          <details class="rd-faq-item">
+            <summary>¿Qué pasa si no puedo asistir a un sábado?</summary>
+            <div class="rd-faq-body">
+              Escríbeme por WhatsApp y te doy opciones. Lo importante es que completes el proyecto final.
+            </div>
+          </details>
+        </div>
+
+        <div style="margin-top:18px;max-width:520px;">
+          <a class="btn btn-primary" href={waUrl} target="_blank" rel="noopener">Me interesa el curso, quiero inscribirme</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="rd-final">
+      <div class="container rd-final-inner">
+        <div>
+          <h2>¿Listo para dominar Power BI como analista?</h2>
+          <p>Escríbeme ahora y te confirmo disponibilidad de cupo y forma de inscripción.</p>
+        </div>
+        <a class="btn btn-primary" href={waUrl} target="_blank" rel="noopener">Enviar WhatsApp ahora</a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

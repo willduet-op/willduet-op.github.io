@@ -1,0 +1,18 @@
+---
+const { title = "WILLDUET", description = "Data analytics, BI, analytics engineering, tutoring y training." } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    <slot name="head" />  
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const EMAIL = "hello@willduet.com"; // cámbialo
+const CAL_LINK = "#"; // si tienes Calendly/Cal.com, pega el link aquí
+---
+<BaseLayout title="Contact | WILLDUET">
+  <Header />
+
+  <main class="container" style="padding:34px 0 22px;">
+    <h1 style="margin:0 0 10px;">Contact</h1>
+    <p class="muted" style="margin:0 0 18px;max-width:860px;line-height:1.6;">
+      Tell me what you are trying to achieve and I will reply with the fastest plan.
+    </p>
+
+    <div class="card" style="padding:18px;max-width:760px;">
+      <div class="grid">
+        <div>
+          <div class="muted" style="font-size:13px;">Email</div>
+          <a href={`mailto:${EMAIL}`} style="font-weight:800;">{EMAIL}</a>
+        </div>
+
+        <div>
+          <div class="muted" style="font-size:13px;">Schedule</div>
+          <a class="btn btn-primary" href={CAL_LINK} target="_blank" rel="noopener">Book a call</a>
+        </div>
+
+        <div class="muted" style="font-size:13px;line-height:1.6;">
+          Prefer WhatsApp for training inquiries. We can add a WhatsApp CTA here later.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
