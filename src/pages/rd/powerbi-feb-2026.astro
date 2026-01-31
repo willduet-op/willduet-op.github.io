@@ -3,8 +3,18 @@ import "../../styles/rd-powerbi.css";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const WHATSAPP_NUMBER = "13472842834";
-const WHATSAPP_MESSAGE = "Me interesa el curso de Power BI.";
-const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+const waUrl = (message) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+const WA_MSG_RESERVA = "Hola, quiero reservar mi cupo para el curso de Power BI.";
+const WA_MSG_DETALLES_CUPO = "Hola, me interesa el curso de Power BI. ¿Me puedes dar detalles del cupo y la forma de pago?";
+const WA_MSG_PROGRAMA = "Me interesa el curso de Power BI, ¿me puedes enviar el programa?";
+const WA_MSG_PREGUNTAS = "Hola, tengo algunas preguntas sobre el curso de Power BI.";
+const WA_MSG_INSCRIBIRME = "Hola, me interesa el curso de Power BI y quiero inscribirme.";
+const waReservaUrl = waUrl(WA_MSG_RESERVA);
+const waDetallesUrl = waUrl(WA_MSG_DETALLES_CUPO);
+const waProgramaUrl = waUrl(WA_MSG_PROGRAMA);
+const waPreguntasUrl = waUrl(WA_MSG_PREGUNTAS);
+const waInscribirUrl = waUrl(WA_MSG_INSCRIBIRME);
+const VIDEO_SRC = "/rd/video-ad-comunidad.mp4";
 ---
 
 <BaseLayout title="Curso Power BI para Analistas | RD" description="Curso de Power BI en vivo en República Dominicana.">
@@ -17,46 +27,59 @@ const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSA
     <section class="rd-hero">
       <div class="container rd-grid">
         <div>
-          <div class="rd-pill">Cupos limitados. Solo 20 participantes</div>
-          <h1 class="rd-title">Power BI para Analistas</h1>
+          <div class="rd-pill">Cupos limitados · Solo 20 participantes</div>
+          <h1 class="rd-title">Power BI para Analistas que quieren resultados reales</h1>
           <p class="rd-sub">
-            Clases en vivo los sábados 10:00am a 12:00pm (RD). Del 7 de Feb al 21 de Mar 2026.
-            Aprende el ciclo completo de una solución BI, desde conectar datos hasta publicar dashboards.
+            Pasa de Excel a dashboards que sí responden preguntas de negocio. Clases en vivo los sábados
+            10:00am a 12:00pm (RD). Del 7 de Feb al 21 de Mar 2026.
           </p>
 
           <div class="rd-highlights">
             <div class="card rd-mini">
-              <div class="rd-mini-title">En vivo</div>
+              <div class="rd-mini-title">Clases en vivo</div>
               <div class="rd-mini-text">Sábados 10am a 12pm (RD)</div>
             </div>
             <div class="card rd-mini">
-              <div class="rd-mini-title">Incluye</div>
-              <div class="rd-mini-text">Acompañamiento personalizado</div>
+              <div class="rd-mini-title">Acompañamiento personalizado</div>
+              <div class="rd-mini-text">Feedback directo durante el curso</div>
             </div>
             <div class="card rd-mini">
-              <div class="rd-mini-title">Final</div>
-              <div class="rd-mini-text">Proyecto final para tu portafolio</div>
+              <div class="rd-mini-title">Proyecto final</div>
+              <div class="rd-mini-text">Listo para tu portafolio</div>
             </div>
           </div>
 
           <div class="rd-cta">
-            <a class="btn btn-primary" href={waUrl} target="_blank" rel="noopener">Quiero mi cupo por WhatsApp</a>
+            <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Reservar cupo por WhatsApp</a>
             <a class="btn" href="#inversion">Ver inversión</a>
           </div>
 
           <div class="rd-trust">
             <div>✅ Enfocado en analistas</div>
             <div>✅ Ejercicios guiados</div>
-            <div>✅ Orientación a empleo (opcional)</div>
+            <div>✅ Proyecto aplicable</div>
           </div>
         </div>
 
         <div class="rd-media">
-          <div class="rd-media-frame">
-            <img src="/rd/flyer.png" alt="Flyer del curso Power BI para analistas (República Dominicana)" />
+          <div class="rd-video-frame" aria-label="Video de presentación del curso">
+            <div class="rd-video-badge">Video 60s</div>
+            <video class="rd-video" autoplay muted playsinline loop preload="metadata">
+              <source src={VIDEO_SRC} type="video/mp4" />
+              Tu navegador no soporta video HTML5.
+            </video>
+            <button class="rd-video-sound" type="button" aria-label="Activar sonido">
+              🔇
+            </button>
+            <div class="rd-video-text">Conoce la dinámica del curso en un minuto.</div>
           </div>
-          <div class="rd-note">
-            Esta página no está enlazada desde el sitio principal. Se usa para anuncios y acceso directo.
+          <div class="rd-media-frame">
+            <div class="rd-media-title">Un ejemplo real de lo que podrás hacer</div>
+            <img src="/rd/demo-dashboard.png" alt="Ejemplo de dashboard creado en Power BI" />
+          </div>
+          <div class="rd-media-frame">
+            <div class="rd-media-title">Programa de clases</div>
+            <img src="/rd/flyer.png" alt="Flyer del curso Power BI para analistas (República Dominicana)" />
           </div>
         </div>
       </div>
@@ -96,16 +119,16 @@ const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSA
         </div>
 
         <div class="rd-list">
-          <div class="rd-item">Entender el proceso completo de una solución BI.</div>
+          <div class="rd-item">Diseñar dashboards que impresionen y apoyen decisiones reales.</div>
+          <div class="rd-item">Conectar datos desde Excel, CSV, bases de datos y carpetas.</div>
+          <div class="rd-item">Limpiar y transformar datos con Power Query sin enredarte.</div>
+          <div class="rd-item">Modelar datos y relaciones como se hace en la industria.</div>
+          <div class="rd-item">Crear medidas DAX, KPIs y métricas que el negocio entiende.</div>
           <div class="rd-item">Pensar y preguntar como analista antes de construir reportes.</div>
-          <div class="rd-item">Limpiar y transformar datos con Power Query.</div>
-          <div class="rd-item">Modelar datos y relaciones correctamente.</div>
-          <div class="rd-item">Crear medidas DAX, KPIs y métricas útiles al negocio.</div>
-          <div class="rd-item">Diseñar dashboards que apoyen decisiones reales.</div>
         </div>
 
         <div style="margin-top:18px;max-width:520px;display:grid;gap:10px;">
-          <a class="btn btn-primary" href={waUrl} target="_blank" rel="noopener">Enviar mensaje y reservar</a>
+          <a class="btn btn-primary" href={waDetallesUrl} target="_blank" rel="noopener">Quiero detalles del cupo</a>
           <div class="muted" style="font-size:13px;line-height:1.5;">Te respondo con detalles del cupo y forma de pago.</div>
         </div>
       </div>
@@ -186,7 +209,7 @@ const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSA
         </div>
 
         <div style="margin-top:18px;max-width:520px;display:grid;gap:10px;">
-          <a class="btn btn-primary" href={waUrl} target="_blank" rel="noopener">Quiero el programa por WhatsApp</a>
+          <a class="btn btn-primary" href={waProgramaUrl} target="_blank" rel="noopener">Quiero el programa por WhatsApp</a>
           <div class="muted" style="font-size:13px;line-height:1.5;">Te lo envío y coordinamos tu inscripción.</div>
         </div>
       </div>
@@ -198,7 +221,7 @@ const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSA
         <div class="rd-pricing">
           <div>
             <h2 style="margin:0 0 10px;">Inversión</h2>
-            <p class="rd-lead">RD$ 3,000 <span class="muted" style="font-weight:600;">| Primer cohorte fundador</span></p>
+            <p class="rd-lead">RD$ 3,000</p>
 
             <ul class="rd-bullets">
               <li>Acompañamiento personalizado.</li>
@@ -208,7 +231,7 @@ const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSA
             </ul>
 
             <div style="margin-top:18px;max-width:520px;display:grid;gap:10px;">
-              <a class="btn btn-primary" href={waUrl} target="_blank" rel="noopener">Reservar mi cupo por WhatsApp</a>
+              <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Reservar mi cupo por WhatsApp</a>
               <div class="muted" style="font-size:13px;line-height:1.5;">Se abre WhatsApp con el mensaje listo para enviar.</div>
             </div>
           </div>
@@ -228,7 +251,7 @@ const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSA
             </div>
 
             <div style="margin-top:12px;">
-              <a class="btn" href={waUrl} target="_blank" rel="noopener">Tengo preguntas, escríbeme</a>
+              <a class="btn" href={waPreguntasUrl} target="_blank" rel="noopener">Tengo preguntas, escríbeme</a>
             </div>
           </div>
         </div>
@@ -261,7 +284,7 @@ const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSA
           <details class="rd-faq-item">
             <summary>¿Cómo reservo el cupo?</summary>
             <div class="rd-faq-body">
-              Haz clic en WhatsApp, envías el mensaje y te paso los pasos de inscripción y pago.
+              Haz clic en el botón "Reservar cupo por WhatsApp", envía el mensaje y te paso los pasos de inscripción y pago.
             </div>
           </details>
 
@@ -274,7 +297,7 @@ const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSA
         </div>
 
         <div style="margin-top:18px;max-width:520px;">
-          <a class="btn btn-primary" href={waUrl} target="_blank" rel="noopener">Me interesa el curso, quiero inscribirme</a>
+          <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Reservar cupo por WhatsApp</a>
         </div>
       </div>
     </section>
@@ -286,8 +309,19 @@ const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSA
           <h2>¿Listo para dominar Power BI como analista?</h2>
           <p>Escríbeme ahora y te confirmo disponibilidad de cupo y forma de inscripción.</p>
         </div>
-        <a class="btn btn-primary" href={waUrl} target="_blank" rel="noopener">Enviar WhatsApp ahora</a>
+        <a class="btn btn-primary" href={waInscribirUrl} target="_blank" rel="noopener">Enviar WhatsApp ahora</a>
       </div>
     </section>
   </main>
+  <script>
+    const video = document.querySelector(".rd-video");
+    const soundBtn = document.querySelector(".rd-video-sound");
+    if (video && soundBtn) {
+      soundBtn.addEventListener("click", () => {
+        video.muted = !video.muted;
+        soundBtn.textContent = video.muted ? "🔇" : "🔊";
+        soundBtn.setAttribute("aria-label", video.muted ? "Activar sonido" : "Silenciar sonido");
+      });
+    }
+  </script>
 </BaseLayout>
