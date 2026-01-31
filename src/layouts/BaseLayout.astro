@@ -1,5 +1,10 @@
 ---
-const { title = "WILLDUET", description = "Data analytics, BI, analytics engineering, tutoring y training." } = Astro.props;
+import "../styles/global.css";
+
+const { 
+  title = "WILLDUET", 
+  description = "Data analytics, BI, analytics engineering, tutoring y training." 
+  } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -9,7 +14,6 @@ const { title = "WILLDUET", description = "Data analytics, BI, analytics enginee
     <meta name="description" content={description} />
     <title>{title}</title>
 
-    <link rel="stylesheet" href="/src/styles/global.css" />
     <slot name="head" />  
   </head>
   <body>
