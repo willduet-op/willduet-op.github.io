@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-const EMAIL = "hello@willduet.com"; // cámbialo
+const EMAIL = "contact@willduet.com";
 const CAL_LINK = "#"; // si tienes Calendly/Cal.com, pega el link aquí
 ---
 <BaseLayout title="Contact | WILLDUET">
@@ -12,25 +12,46 @@ const CAL_LINK = "#"; // si tienes Calendly/Cal.com, pega el link aquí
   <main class="container" style="padding:34px 0 22px;">
     <h1 style="margin:0 0 10px;">Contact</h1>
     <p class="muted" style="margin:0 0 18px;max-width:860px;line-height:1.6;">
-      Tell me what you are trying to achieve and I will reply with the fastest plan.
+      Tell us what you are trying to achieve and we will reply with the fastest plan.
     </p>
 
-    <div class="card" style="padding:18px;max-width:760px;">
-      <div class="grid">
-        <div>
-          <div class="muted" style="font-size:13px;">Email</div>
-          <a href={`mailto:${EMAIL}`} style="font-weight:800;">{EMAIL}</a>
+    <div class="card" style="padding:18px;max-width:860px;">
+      <form action={`mailto:${EMAIL}`} method="post" enctype="text/plain" class="grid" style="gap:12px;">
+        <div class="grid" style="gap:12px;">
+          <label>
+            <div class="muted" style="font-size:13px;margin-bottom:6px;">Full name</div>
+            <input name="name" type="text" required style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text);" />
+          </label>
+          <label>
+            <div class="muted" style="font-size:13px;margin-bottom:6px;">Work email</div>
+            <input name="email" type="email" required style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text);" />
+          </label>
+          <label>
+            <div class="muted" style="font-size:13px;margin-bottom:6px;">Company</div>
+            <input name="company" type="text" style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text);" />
+          </label>
+          <label>
+            <div class="muted" style="font-size:13px;margin-bottom:6px;">How can we help?</div>
+            <select name="service" style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text);">
+              <option value="Business Intelligence">Business Intelligence</option>
+              <option value="Data Engineering">Data Engineering</option>
+              <option value="Analytics Engineering">Analytics Engineering</option>
+              <option value="Power BI Training & Tutoring">Power BI Training & Tutoring</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
         </div>
 
-        <div>
-          <div class="muted" style="font-size:13px;">Schedule</div>
-          <a class="btn btn-primary" href={CAL_LINK} target="_blank" rel="noopener">Book a call</a>
-        </div>
+        <label>
+          <div class="muted" style="font-size:13px;margin-bottom:6px;">Project details</div>
+          <textarea name="message" rows="6" required style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text);resize:vertical;"></textarea>
+        </label>
 
-        <div class="muted" style="font-size:13px;line-height:1.6;">
-          Prefer WhatsApp for training inquiries. We can add a WhatsApp CTA here later.
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+          <button class="btn btn-primary" type="submit">Send message</button>
+          <div class="muted" style="font-size:13px;">Or email us directly at <a href={`mailto:${EMAIL}`} style="font-weight:700;">{EMAIL}</a>.</div>
         </div>
-      </div>
+      </form>
     </div>
   </main>
 

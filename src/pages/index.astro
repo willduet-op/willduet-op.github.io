@@ -7,40 +7,112 @@ import Footer from "../components/Footer.astro";
   <Header />
 
   <main class="container" style="padding:34px 0 22px;">
-    <section class="card" style="padding:22px;">
-      <div class="muted" style="display:inline-block;border:1px solid var(--border);padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.04);font-size:13px;">
-        US business | Analytics services and training
-      </div>
-
-      <h1 style="margin:14px 0 10px;font-size: clamp(34px, 5vw, 56px);line-height:1.02;">
-        Data Analytics, BI, and Analytics Engineering
-      </h1>
-
-      <p class="muted" style="margin:0;max-width:820px;line-height:1.6;">
-        I help teams build reliable metrics, dashboards, and data pipelines so they can make better decisions faster.
-      </p>
-
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;">
-        <a class="btn btn-primary" href="/contact">Talk to me</a>
-        <a class="btn" href="/services">See services</a>
+    <section class="card reveal" style="padding:24px;">
+      <div class="split">
+        <div>
+          <div class="eyebrow">Business Intelligence & Power BI training</div>
+          <h1 style="margin:14px 0 10px;font-size: clamp(34px, 5vw, 56px);line-height:1.02;">
+            Business Intelligence, Data Engineering, and Analytics Engineering
+          </h1>
+          <p class="muted" style="margin:0;max-width:900px;line-height:1.6;">
+            We turn raw data into trusted dashboards, automated reporting, and reliable pipelines.
+            The outcome: faster decisions, cleaner metrics, and analytics your team actually uses.
+          </p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;">
+            <a class="btn btn-primary" href="/contact">Book a discovery call</a>
+            <a class="btn" href="/services">View services</a>
+          </div>
+        </div>
+        <div class="image-slot tall reveal-delay-1" aria-hidden="true">Hero image placeholder</div>
       </div>
     </section>
 
-    <section style="padding:22px 0;">
-      <h2 style="margin:0 0 10px;">What I do</h2>
-      <div class="grid grid-3">
-        <div class="card" style="padding:18px;">
-          <h3 style="margin:0 0 8px;">Business Intelligence</h3>
-          <p class="muted" style="margin:0;line-height:1.6;">Dashboards, KPI definitions, reporting strategy, adoption.</p>
+    <section class="section reveal section-band" style="padding:26px 0 6px;">
+      <div class="split reverse">
+        <div>
+          <h2 class="section-title">What clients gain</h2>
+          <div class="grid grid-3">
+            <div class="card reveal-delay-1" style="padding:18px;">
+              <h3 style="margin:0 0 8px;">Clear, trusted KPIs</h3>
+              <p class="muted" style="margin:0;line-height:1.6;">
+                Definitions everyone agrees on, documented logic, and metrics that stay consistent.
+              </p>
+            </div>
+            <div class="card reveal-delay-2" style="padding:18px;">
+              <h3 style="margin:0 0 8px;">Faster reporting</h3>
+              <p class="muted" style="margin:0;line-height:1.6;">
+                Automated pipelines and dashboards that refresh on schedule with minimal manual work.
+              </p>
+            </div>
+            <div class="card reveal-delay-3" style="padding:18px;">
+              <h3 style="margin:0 0 8px;">Analytics your team uses</h3>
+              <p class="muted" style="margin:0;line-height:1.6;">
+                Reports built for real workflows, plus training so teams can self-serve insights.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="card" style="padding:18px;">
-          <h3 style="margin:0 0 8px;">Analytics Engineering</h3>
-          <p class="muted" style="margin:0;line-height:1.6;">dbt modeling, metric layers, data quality, incremental pipelines.</p>
+        <div class="image-slot wide reveal-delay-2" aria-hidden="true">Value/impact image placeholder</div>
+      </div>
+    </section>
+
+    <section class="section reveal section-band alt" style="padding:22px 0 6px;">
+      <div class="card" style="padding:18px;">
+        <div class="split">
+          <div>
+            <h2 class="section-title">How we can help</h2>
+            <p class="muted" style="margin:0;line-height:1.6;">
+              Support can range from a single Power BI dashboard to a full analytics foundation.
+              Engagements are tailored to your goals, stack, and timelines.
+            </p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;">
+              <a class="btn btn-primary" href="/services">Explore services</a>
+              <a class="btn" href="/contact">Discuss your needs</a>
+            </div>
+          </div>
+          <div class="image-slot wide reveal-delay-2" aria-hidden="true">How we help image placeholder</div>
         </div>
-        <div class="card" style="padding:18px;">
-          <h3 style="margin:0 0 8px;">Tutoring and Training</h3>
-          <p class="muted" style="margin:0;line-height:1.6;">Power BI, SQL, analytics foundations, practical projects.</p>
+      </div>
+    </section>
+
+    <section class="section reveal section-band" style="padding:22px 0;">
+      <div class="split reverse">
+        <div>
+          <h2 class="section-title">How projects run</h2>
+          <div class="grid grid-3">
+            <div class="card reveal-delay-1" style="padding:18px;">
+              <h3 style="margin:0 0 8px;">Discover</h3>
+              <p class="muted" style="margin:0;line-height:1.6;">
+                Align on goals, current stack, and the decisions your team needs to make.
+              </p>
+            </div>
+            <div class="card reveal-delay-2" style="padding:18px;">
+              <h3 style="margin:0 0 8px;">Build</h3>
+              <p class="muted" style="margin:0;line-height:1.6;">
+                Model data, define metrics, and create dashboards that are fast, clear, and trusted.
+              </p>
+            </div>
+            <div class="card reveal-delay-3" style="padding:18px;">
+              <h3 style="margin:0 0 8px;">Enable</h3>
+              <p class="muted" style="margin:0;line-height:1.6;">
+                Documentation, training, and handoff so your team can run analytics without friction.
+              </p>
+            </div>
+          </div>
         </div>
+        <div class="image-slot wide reveal-delay-2" aria-hidden="true">Process image placeholder</div>
+      </div>
+    </section>
+
+    <section class="section reveal" style="padding:0 0 18px;">
+      <div class="card reveal-delay-1" style="padding:18px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;">
+        <div>
+          <h2 style="margin:0 0 8px;">Ready to turn data into decisions?</h2>
+          <p class="muted" style="margin:0;max-width:700px;line-height:1.6;">
+            Get a BI and data engineering partner focused on outcomes, not just dashboards.
+          </p>
+        </div>
+        <a class="btn btn-primary" href="/contact">Start a project</a>
       </div>
     </section>
   </main>
