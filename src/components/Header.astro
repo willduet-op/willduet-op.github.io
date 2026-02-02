@@ -5,8 +5,8 @@ const nav = [
   { href: "/contact", label: "Contact" },
 ];
 ---
-<header style="position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);background:rgba(7,22,44,.55);border-bottom:1px solid var(--border);">
-  <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0;">
+<header style="position:fixed;top:0;left:0;right:0;z-index:40;backdrop-filter:blur(10px);background:rgba(7,22,44,.7);border-bottom:1px solid var(--border);">
+  <div class="header-inner" style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 24px;">
     <a href="/" style="display:flex;align-items:center;gap:10px;">
       <img
         src="/logo-willduet-sin-fondo.png"
@@ -16,19 +16,19 @@ const nav = [
         style="display:block;object-fit:contain;"
       />
       <div>
-        <div style="font-weight:900;letter-spacing:.04em;">WILLDUET</div>
-        <div class="muted" style="font-size:12px;">Analytics and BI</div>
+        <div style="font-weight:900;letter-spacing:.04em;font-size:18px;line-height:1;">WILLDUET</div>
+        <div class="muted" style="font-size:14px;line-height:1.2;">Analytics and BI</div>
       </div>
     </a>
 
-    <nav class="muted" style="display:flex;gap:16px;font-size:14px;">
+    <nav class="muted" style="display:flex;gap:18px;font-size:16px;">
       {nav.map(item => (
-        <a href={item.href} style="padding:8px 10px;border-radius:10px;">
+        <a href={item.href} style="padding:10px 12px;border-radius:10px;font-weight:600;">
           {item.label}
         </a>
       ))}
     </nav>
 
-    <a class="btn btn-primary" href="/contact">Book a call</a>
+    <a class="btn btn-primary" href="/contact" style="padding:13px 18px;font-size:15px;">Book a call</a>
   </div>
 </header>

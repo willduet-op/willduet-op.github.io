@@ -6,98 +6,89 @@ import Footer from "../components/Footer.astro";
 <BaseLayout title="Services | WILLDUET">
   <Header />
 
-  <main class="container" style="padding:34px 0 22px;">
-    <section class="reveal section-band">
-      <div class="split">
-        <div>
-          <div class="eyebrow">Services for analytics teams and business leaders</div>
-          <h1 class="section-title" style="margin:10px 0;">Business Intelligence, Data Engineering, and Power BI Training</h1>
-          <p class="muted" style="margin:0 0 18px;max-width:900px;line-height:1.6;">
-            Clear deliverables, fast execution, and documentation so your team can own the work long term.
-            Engage me for a full BI build, data engineering support, analytics engineering, or Power BI tutoring.
-          </p>
-        </div>
-        <div class="image-slot tall reveal-delay-1" aria-hidden="true">Services hero image placeholder</div>
-      </div>
-    </section>
-
-    <section class="section reveal section-band alt" style="padding:6px 0 0;">
-      <div class="split reverse">
-        <div>
-          <div class="grid grid-3">
-            <div class="card reveal-delay-1" style="padding:18px;">
-              <h3 style="margin:0 0 8px;">Business Intelligence Consulting</h3>
-              <p class="muted" style="margin:0;line-height:1.6;">
-                Dashboard development, KPI design, executive reporting, and stakeholder alignment.
-              </p>
-            </div>
-            <div class="card reveal-delay-2" style="padding:18px;">
-              <h3 style="margin:0 0 8px;">Data Engineering</h3>
-              <p class="muted" style="margin:0;line-height:1.6;">
-                Data pipelines, integration, quality checks, and documentation for trusted datasets.
-              </p>
-            </div>
-            <div class="card reveal-delay-3" style="padding:18px;">
-              <h3 style="margin:0 0 8px;">Analytics Engineering</h3>
-              <p class="muted" style="margin:0;line-height:1.6;">
-                dbt modeling, semantic layers, metric logic, and analytics-ready marts.
-              </p>
-            </div>
-            <div class="card reveal-delay-4" style="padding:18px;">
-              <h3 style="margin:0 0 8px;">Power BI Training & Tutoring</h3>
-              <p class="muted" style="margin:0;line-height:1.6;">
-                DAX, data modeling, visualization, and hands-on projects for individuals or teams.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="image-slot wide reveal-delay-2" aria-hidden="true">Capabilities image placeholder</div>
-      </div>
-    </section>
-
-    <section class="section reveal section-band" style="padding:22px 0;">
-      <div class="split">
-        <div>
-          <h2 class="section-title">Typical deliverables</h2>
-          <div class="grid grid-3">
-            <div class="card reveal-delay-1" style="padding:18px;">
-              <h3 style="margin:0 0 8px;">BI Dashboards</h3>
-              <p class="muted" style="margin:0;line-height:1.6;">
-                Power BI dashboards with clear narratives, drill-downs, and performance tracking.
-              </p>
-            </div>
-            <div class="card reveal-delay-2" style="padding:18px;">
-              <h3 style="margin:0 0 8px;">Metrics & Data Models</h3>
-              <p class="muted" style="margin:0;line-height:1.6;">
-                KPI definitions, metric layers, star schema models, and business logic.
-              </p>
-            </div>
-            <div class="card reveal-delay-3" style="padding:18px;">
-              <h3 style="margin:0 0 8px;">Enablement</h3>
-              <p class="muted" style="margin:0;line-height:1.6;">
-                Training, documentation, and playbooks so your team can self-serve analytics.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="image-slot wide reveal-delay-2" aria-hidden="true">Deliverables image placeholder</div>
-      </div>
-    </section>
-
-    <section class="section reveal section-band alt" style="padding:0 0 12px;">
-      <div class="split reverse">
-        <div class="card reveal-delay-1" style="padding:18px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;">
-          <div>
-            <h2 class="section-title">Tell us what you need</h2>
-            <p class="muted" style="margin:0;max-width:700px;line-height:1.6;">
-              We’ll respond with a clear plan, timeline, and scope for your analytics project.
+  <main style="padding:0 0 22px;">
+    <section class="hero-full reveal">
+      <div class="container" style="padding:42px 0;">
+        <div class="hero-panel">
+          <div class="hero-copy">
+            <h1 class="hero-title">Services Built for Clear Reports, Clean Data Pipelines, and Documented Analytics</h1>
+            <p class="muted hero-subtitle">
+              Work with a team that helps decision-makers trust the numbers, understand performance faster, and scale analytics with confidence.
             </p>
           </div>
-          <a class="btn btn-primary" href="/contact">Request a quote</a>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/contact">Book a discovery call</a>
+          </div>
         </div>
-        <div class="image-slot wide reveal-delay-2" aria-hidden="true">CTA image placeholder</div>
       </div>
     </section>
+
+    <div class="container" style="padding-top:40px;">
+      <section class="section reveal section-band">
+        <div class="split service-section">
+          <div class="service-copy">
+            <h2 class="section-title">Business Intelligence</h2>
+            <p class="muted">
+              Get clear dashboards and reports that answer real business questions. We design KPI frameworks,
+              improve report performance, and organize visuals so leaders can see what matters quickly.
+            </p>
+            <p class="muted">
+              The result is faster decisions, less confusion around metrics, and reporting that teams actually use.
+            </p>
+          </div>
+          <img src="/bi.png" alt="Business Intelligence dashboard with key KPIs and trends" class="service-image" />
+        </div>
+      </section>
+
+      <section class="section reveal section-band alt">
+        <div class="split reverse service-section">
+          <div class="service-copy">
+            <h2 class="section-title">Data Engineering</h2>
+            <p class="muted">
+              We build and improve data pipelines that move data from source systems into clean, reliable analytics
+              tables. This reduces manual work, broken reports, and delays.
+            </p>
+            <p class="muted">
+              Your team gets structured data that is easier to maintain, easier to trust, and ready for reporting at scale.
+            </p>
+          </div>
+          <img src="/de.png" alt="Data pipeline and project workflow planning" class="service-image" />
+        </div>
+      </section>
+
+      <section class="section reveal section-band">
+        <div class="split service-section">
+          <div class="service-copy">
+            <h2 class="section-title">Analytics Engineering</h2>
+            <p class="muted">
+              We organize business logic into documented, reusable data models so your numbers stay consistent
+              across dashboards, teams, and departments.
+            </p>
+            <p class="muted">
+              With strong modeling and testing practices, analytics becomes more reliable and easier to scale.
+            </p>
+          </div>
+          <img src="/ae.png" alt="Analytics engineering planning and model documentation" class="service-image" />
+        </div>
+      </section>
+
+      <section class="section reveal section-band alt" style="margin-bottom:16px;">
+        <div class="split reverse service-section">
+          <div class="service-copy">
+            <h2 class="section-title">Power BI Training</h2>
+            <p class="muted">
+              We train teams and professionals to use Power BI with confidence, from fundamentals to advanced
+              modeling and DAX.
+            </p>
+            <p class="muted">
+              Sessions are practical and tailored to your use cases, so learning translates directly into better reports.
+            </p>
+            <a class="btn btn-primary" href="/contact">Ask about training</a>
+          </div>
+          <img src="/training.png" alt="Power BI training session with collaborative team learning" class="service-image" />
+        </div>
+      </section>
+    </div>
   </main>
 
   <Footer />

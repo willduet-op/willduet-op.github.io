@@ -6,32 +6,39 @@ import Footer from "../components/Footer.astro";
 <BaseLayout title="WILLDUET | Data Analytics and BI">
   <Header />
 
-  <main class="container" style="padding:34px 0 22px;">
-    <section class="card reveal" style="padding:24px;">
-      <div class="split">
-        <div>
-          <div class="eyebrow">Business Intelligence & Power BI training</div>
-          <h1 style="margin:14px 0 10px;font-size: clamp(34px, 5vw, 56px);line-height:1.02;">
-            Business Intelligence, Data Engineering, and Analytics Engineering
-          </h1>
-          <p class="muted" style="margin:0;max-width:900px;line-height:1.6;">
-            We turn raw data into trusted dashboards, automated reporting, and reliable pipelines.
-            The outcome: faster decisions, cleaner metrics, and analytics your team actually uses.
-          </p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;">
+  <main style="padding:0 0 22px;">
+    <section class="hero-full reveal">
+      <div class="container" style="padding:42px 0;">
+        <div class="hero-panel">
+          <div class="hero-copy">
+            <h1 class="hero-title">Turn Data Into Clear, Fast, Confident Decisions</h1>
+            <p class="muted hero-subtitle">
+              Build a reliable analytics foundation with modern BI, clean pipelines, and reporting that teams explain and trust.
+            </p>
+          </div>
+          <div class="hero-actions">
             <a class="btn btn-primary" href="/contact">Book a discovery call</a>
             <a class="btn" href="/services">View services</a>
           </div>
         </div>
-        <div class="image-slot tall reveal-delay-1" aria-hidden="true">Hero image placeholder</div>
       </div>
     </section>
 
+    <div class="container" style="padding-top:140px;">
     <section class="section reveal section-band" style="padding:26px 0 6px;">
-      <div class="split reverse">
-        <div>
-          <h2 class="section-title">What clients gain</h2>
-          <div class="grid grid-3">
+      <div class="what-gain-layout">
+        <div class="what-gain-media reveal-delay-2">
+          <img
+            src="/dashboard.jpg"
+            alt="Business dashboard with KPIs and performance trends"
+            class="section-image what-gain-image"
+          />
+        </div>
+        <div class="what-gain-content">
+          <div class="what-gain-title">
+            <h2 class="section-title">What clients gain</h2>
+          </div>
+          <div class="grid grid-3 what-gain-cards">
             <div class="card reveal-delay-1" style="padding:18px;">
               <h3 style="margin:0 0 8px;">Clear, trusted KPIs</h3>
               <p class="muted" style="margin:0;line-height:1.6;">
@@ -52,25 +59,36 @@ import Footer from "../components/Footer.astro";
             </div>
           </div>
         </div>
-        <div class="image-slot wide reveal-delay-2" aria-hidden="true">Value/impact image placeholder</div>
       </div>
     </section>
 
     <section class="section reveal section-band alt" style="padding:22px 0 6px;">
       <div class="card" style="padding:18px;">
-        <div class="split">
-          <div>
+        <div class="split help-layout">
+          <div class="help-copy">
             <h2 class="section-title">How we can help</h2>
             <p class="muted" style="margin:0;line-height:1.6;">
               Support can range from a single Power BI dashboard to a full analytics foundation.
-              Engagements are tailored to your goals, stack, and timelines.
+              Engagements are tailored to your goals, data stack, and timelines.
             </p>
-            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;">
+            <p class="muted" style="margin:0;line-height:1.6;">
+              We help teams turn raw data into clear, reliable insights by designing modern Business Intelligence solutions that support real business decisions. This includes building and improving dashboards, defining the right metrics and KPIs, and ensuring reports are fast, accurate, and trusted by stakeholders.
+            </p>
+            <p class="muted" style="margin:0;line-height:1.6;">
+              On the data engineering side, we design and maintain data pipelines that move data from source systems into analytics-ready models. We focus on clean, well-structured data that scales as your business grows, reducing manual work and eliminating reporting inconsistencies.
+            </p>
+            <div class="help-actions" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;">
               <a class="btn btn-primary" href="/services">Explore services</a>
               <a class="btn" href="/contact">Discuss your needs</a>
             </div>
           </div>
-          <div class="image-slot wide reveal-delay-2" aria-hidden="true">How we help image placeholder</div>
+          <div class="help-media reveal-delay-2">
+            <img
+              src="/teamwork.jpeg"
+              alt="Team collaborating on analytics planning and reporting"
+              class="section-image help-image"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -100,7 +118,11 @@ import Footer from "../components/Footer.astro";
             </div>
           </div>
         </div>
-        <div class="image-slot wide reveal-delay-2" aria-hidden="true">Process image placeholder</div>
+        <img
+          src="/project.jpeg"
+          alt="Project planning workflow for analytics implementation"
+          class="section-image reveal-delay-2"
+        />
       </div>
     </section>
 
@@ -115,6 +137,7 @@ import Footer from "../components/Footer.astro";
         <a class="btn btn-primary" href="/contact">Start a project</a>
       </div>
     </section>
+    </div>
   </main>
 
   <Footer />
