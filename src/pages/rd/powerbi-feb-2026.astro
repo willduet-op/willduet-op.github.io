@@ -2,7 +2,7 @@
 import "../../styles/rd-powerbi.css";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const WHATSAPP_NUMBER = "13472842834";
+const WHATSAPP_NUMBER = "19149437575";
 const waUrl = (message) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 const WA_MSG_RESERVA = "Hola, quiero reservar mi cupo para el curso de Power BI.";
 const WA_MSG_DETALLES_CUPO = "Hola, me interesa el curso de Power BI. ¿Me puedes dar detalles del cupo y la forma de pago?";
@@ -324,4 +324,21 @@ const VIDEO_SRC = "/rd/video-ad-comunidad.mp4";
       });
     }
   </script>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof fbq !== 'function') return;
+
+  // Selecciona TODOS los links que van a WhatsApp
+  const whatsappLinks = document.querySelectorAll('a[href^="https://wa.me/"]');
+
+  whatsappLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      fbq('track', 'Lead');
+    });
+  });
+});
+</script>
+
+
 </BaseLayout>
