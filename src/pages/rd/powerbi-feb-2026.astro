@@ -9,12 +9,14 @@ const WA_MSG_DETALLES_CUPO = "Hola, me interesa el curso de Power BI. ¿Me puede
 const WA_MSG_PROGRAMA = "Me interesa el curso de Power BI, ¿me puedes enviar el programa?";
 const WA_MSG_PREGUNTAS = "Hola, tengo algunas preguntas sobre el curso de Power BI.";
 const WA_MSG_INSCRIBIRME = "Hola, me interesa el curso de Power BI y quiero inscribirme.";
+const WA_MSG_APRENDER = "Hola, quiero aprender Power BI. ¿Me ayudas a reservar mi cupo?";
 const waReservaUrl = waUrl(WA_MSG_RESERVA);
 const waDetallesUrl = waUrl(WA_MSG_DETALLES_CUPO);
 const waProgramaUrl = waUrl(WA_MSG_PROGRAMA);
 const waPreguntasUrl = waUrl(WA_MSG_PREGUNTAS);
 const waInscribirUrl = waUrl(WA_MSG_INSCRIBIRME);
-const VIDEO_SRC = "/rd/video-ad-comunidad.mp4";
+const waAprenderUrl = waUrl(WA_MSG_APRENDER);
+const VIDEO_SRC = "/rd/vid-landing.mp4";
 ---
 
 <BaseLayout title="Curso Power BI para Analistas | RD" description="Curso de Power BI en vivo en República Dominicana.">
@@ -71,11 +73,13 @@ const VIDEO_SRC = "/rd/video-ad-comunidad.mp4";
             <button class="rd-video-sound" type="button" aria-label="Activar sonido">
               🔇
             </button>
-            <div class="rd-video-text">Conoce la dinámica del curso en un minuto.</div>
           </div>
           <div class="rd-media-frame">
             <div class="rd-media-title">Un ejemplo real de lo que podrás hacer</div>
             <img src="/rd/demo-dashboard.png" alt="Ejemplo de dashboard creado en Power BI" />
+          </div>
+          <div style="display:flex;justify-content:center;">
+            <a class="btn btn-primary" href={waAprenderUrl} target="_blank" rel="noopener">¡Quiero aprender!</a>
           </div>
           <div class="rd-media-frame">
             <div class="rd-media-title">Programa de clases</div>
