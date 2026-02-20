@@ -3,8 +3,33 @@
   padding: 34px 0 0;
 }
 
+/* Swap CTA hierarchy only for RD landing pages */
+.rd-wrap .btn-primary{
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border-color: transparent;
+  color: #fff;
+}
+
+.rd-wrap .btn:not(.btn-primary){
+  background: linear-gradient(135deg, rgba(8,167,255,1), rgba(15,208,255,1));
+  border-color: transparent;
+  color: #00162b;
+}
+
 .rd-hero{
   padding: 34px 0 18px;
+}
+
+@media (max-width: 640px){
+  :root{
+    --header-height: 36px;
+  }
+  .rd-wrap{
+    padding-top: 14px;
+  }
+  .rd-hero{
+    padding-top: 16px;
+  }
 }
 
 .rd-pill{
