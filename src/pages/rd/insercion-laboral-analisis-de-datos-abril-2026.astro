@@ -1,0 +1,265 @@
+---
+import "../../styles/rd-powerbi.css";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const WHATSAPP_NUMBER = "19149437575";
+const waUrl = (message) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+const WA_MSG_RESERVA = "Hola, quiero reservar mi cupo con RD$ 3,000 para el programa de inserción laboral en análisis de datos.";
+const WA_MSG_DETALLES = "Hola, me interesa el programa de inserción laboral en análisis de datos. ¿Me puedes explicar si aplico y cómo funciona el pago?";
+const WA_MSG_PERFIL = "Hola, quiero saber si este programa es para mi perfil.";
+const WA_MSG_PREGUNTAS = "Hola, tengo preguntas sobre el programa de inserción laboral en análisis de datos.";
+const WA_MSG_INSCRIBIRME = "Hola, quiero iniciar mi proceso de inscripción para el programa de inserción laboral en análisis de datos.";
+
+const waReservaUrl = waUrl(WA_MSG_RESERVA);
+const waDetallesUrl = waUrl(WA_MSG_DETALLES);
+const waPerfilUrl = waUrl(WA_MSG_PERFIL);
+const waPreguntasUrl = waUrl(WA_MSG_PREGUNTAS);
+const waInscribirmeUrl = waUrl(WA_MSG_INSCRIBIRME);
+
+const VIDEO_SRC = "/rd/vid-landing.mp4";
+---
+
+<BaseLayout
+  title="Inserción Laboral en Análisis de Datos | RD"
+  description="Programa en vivo para conseguir tu primer empleo en análisis de datos en República Dominicana."
+>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, nofollow" />
+  </Fragment>
+
+  <main class="rd-wrap rd-insercion">
+    <section class="rd-hero">
+      <div class="container rd-grid">
+        <div>
+          <div class="rd-pill">Cupos limitados. Solo 15 cupos por sesión. Inicio: lunes 20 de abril 2026</div>
+          <h1 class="rd-title">Inserción Laboral en Análisis de Datos</h1>
+          <p class="rd-sub">
+            Te preparo para tu primer empleo en análisis de datos con metodología práctica.
+            Aprendes Excel, SQL y Power BI, desarrollas un proyecto durante el programa y sales con portafolio en Notion.
+            Duración: 12 semanas. Horario: lunes de 7:30pm a 9:30pm (RD).
+          </p>
+
+          <div class="rd-highlights">
+            <div class="card rd-mini">
+              <div class="rd-mini-title">Objetivo</div>
+              <div class="rd-mini-text">Conseguir tu primer empleo en análisis de datos</div>
+            </div>
+            <div class="card rd-mini">
+              <div class="rd-mini-title">Herramientas</div>
+              <div class="rd-mini-text">Excel, SQL, Power BI y portafolio en Notion</div>
+            </div>
+            <div class="card rd-mini">
+              <div class="rd-mini-title">Modalidad</div>
+              <div class="rd-mini-text">En vivo, 12 semanas, acompañamiento directo</div>
+            </div>
+          </div>
+
+          <div class="rd-cta">
+            <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Reservar con RD$ 3,000</a>
+            <a class="btn" href="#inversion">Ver inversión</a>
+          </div>
+          <div class="rd-scarcity">Solo 15 cupos por sesión.</div>
+
+          <div class="rd-trust">
+            <div>✅ Enfoque 100% empleabilidad</div>
+            <div>✅ Proyecto guiado de principio a fin</div>
+            <div>✅ Soporte por WhatsApp durante el programa</div>
+          </div>
+        </div>
+
+        <div class="rd-media">
+          <div class="rd-video-frame" aria-label="Video de presentación del programa">
+            <div class="rd-video-badge">Video</div>
+            <video class="rd-video" autoplay muted playsinline loop preload="metadata">
+              <source src={VIDEO_SRC} type="video/mp4" />
+              Tu navegador no soporta video HTML5.
+            </video>
+            <button class="rd-video-sound" type="button" aria-label="Activar sonido">🔇</button>
+          </div>
+
+          <div class="rd-media-frame">
+            <div class="rd-media-title">Ejemplo del tipo de reporte que aprenderás a construir</div>
+            <img src="/rd/demo-dashboard.png" alt="Ejemplo de reporte de análisis de datos en Power BI" />
+          </div>
+
+          <div style="display:flex;justify-content:center;">
+            <a class="btn btn-primary" href={waPerfilUrl} target="_blank" rel="noopener">Quiero saber si este programa es para mí</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rd-section" id="dirigido">
+      <div class="container">
+        <div class="rd-head">
+          <h2>Dirigido a</h2>
+          <p>Para personas comprometidas con entrar al mercado laboral de análisis de datos.</p>
+        </div>
+
+        <div class="rd-grid-3">
+          <div class="card rd-card-pad">
+            <h3 style="margin:0 0 8px;">Principiantes con disciplina</h3>
+            <p class="muted" style="margin:0;line-height:1.6;">No necesitas experiencia laboral previa en datos, pero sí compromiso para practicar semanalmente.</p>
+          </div>
+          <div class="card rd-card-pad">
+            <h3 style="margin:0 0 8px;">Personas en transición laboral</h3>
+            <p class="muted" style="margin:0;line-height:1.6;">Si vienes de otra área y quieres cambiar a análisis de datos con una ruta clara.</p>
+          </div>
+          <div class="card rd-card-pad">
+            <h3 style="margin:0 0 8px;">Quienes quieren primer empleo</h3>
+            <p class="muted" style="margin:0;line-height:1.6;">Si tu meta es construir perfil, proyecto y portafolio para postular a vacantes reales.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rd-section rd-section-alt" id="aprenderas">
+      <div class="container">
+        <div class="rd-head">
+          <h2>Transformación que te llevas</h2>
+          <p>Pasas de tener dudas a mostrar evidencia real de tus habilidades como analista.</p>
+        </div>
+
+        <div class="rd-list">
+          <div class="rd-item">Entender que hace un analista en una empresa real y como aportar valor.</div>
+          <div class="rd-item">Pensar como analista: hacer preguntas correctas antes de tocar herramientas.</div>
+          <div class="rd-item">Trabajar datos en Excel para análisis y limpieza inicial.</div>
+          <div class="rd-item">Consultar datos con SQL para responder preguntas de negocio.</div>
+          <div class="rd-item">Construir dashboards en Power BI orientados a decisiones.</div>
+          <div class="rd-item">Presentar un proyecto final y publicarlo en un portafolio en Notion.</div>
+        </div>
+
+        <div style="margin-top:18px;max-width:560px;display:grid;gap:10px;">
+          <a class="btn btn-primary" href={waDetallesUrl} target="_blank" rel="noopener">Quiero detalles y saber si aplico</a>
+          <div class="muted" style="font-size:13px;line-height:1.5;">Te respondo por WhatsApp con perfil recomendado, metodología y forma de pago.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rd-section" id="inversion">
+      <div class="container">
+        <div class="rd-pricing">
+          <div>
+            <h2 style="margin:0 0 10px;">Inversión y reserva</h2>
+            <p class="rd-lead">RD$ 12,000</p>
+
+            <ul class="rd-bullets">
+              <li>Reserva tu cupo con RD$ 3,000.</li>
+              <li>El restante (RD$ 9,000) se paga en cuotas durante las 12 semanas.</li>
+              <li>La reserva confirma tu cupo y se descuenta del total.</li>
+              <li>Solo se abren 15 cupos por sesión.</li>
+              <li>Programa para personas listas para ejecutar, no solo para curiosos.</li>
+            </ul>
+
+            <div style="margin-top:18px;max-width:560px;display:grid;gap:10px;">
+              <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Reservar mi cupo con RD$ 3,000</a>
+              <div class="muted" style="font-size:13px;line-height:1.5;">Al hacer clic se abre WhatsApp con el mensaje listo para iniciar tu reserva.</div>
+            </div>
+          </div>
+
+          <div class="card rd-card-pad">
+            <h3 style="margin:0 0 8px;">Detalles rápidos</h3>
+
+            <div class="rd-kv">
+              <div class="rd-kv-row"><span>Modalidad</span><span>En vivo</span></div>
+              <div class="rd-kv-row"><span>Inicio</span><span>Lunes 20 de abril 2026</span></div>
+              <div class="rd-kv-row"><span>Horario</span><span>Lunes 7:30pm a 9:30pm (RD)</span></div>
+              <div class="rd-kv-row"><span>Duración</span><span>12 semanas</span></div>
+              <div class="rd-kv-row"><span>Incluye</span><span>Proyecto guiado + portafolio en Notion</span></div>
+            </div>
+
+            <div class="muted" style="margin-top:12px;line-height:1.6;font-size:14px;">
+              Si aún estás comparando opciones, escríbeme cuando estés listo para reservar y ejecutar el plan completo.
+            </div>
+
+            <div style="margin-top:12px;">
+              <a class="btn" href={waPreguntasUrl} target="_blank" rel="noopener">Tengo preguntas antes de reservar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rd-section rd-section-alt" id="faq">
+      <div class="container">
+        <div class="rd-head">
+          <h2>Preguntas frecuentes</h2>
+          <p>Lo esencial para tomar decisión rápido.</p>
+        </div>
+
+        <div class="rd-faq">
+          <details class="rd-faq-item">
+            <summary>¿Necesito experiencia previa en análisis de datos?</summary>
+            <div class="rd-faq-body">
+              No. Este programa inicia desde fundamentos y te lleva a ejecutar un proyecto real paso a paso.
+            </div>
+          </details>
+
+          <details class="rd-faq-item">
+            <summary>¿Cómo reservo el cupo?</summary>
+            <div class="rd-faq-body">
+              Haz clic en "Reservar mi cupo con RD$ 3,000", envías el mensaje por WhatsApp y te indico los pasos.
+            </div>
+          </details>
+
+          <details class="rd-faq-item">
+            <summary>¿Qué pasa si falto a una clase?</summary>
+            <div class="rd-faq-body">
+              Tendrás acceso a la grabación y soporte por WhatsApp para resolver dudas y mantener tu avance.
+            </div>
+          </details>
+
+          <details class="rd-faq-item">
+            <summary>¿Qué entregable tendré para aplicar a vacantes?</summary>
+            <div class="rd-faq-body">
+              Terminas con un proyecto completo y un portafolio en Notion listo para mostrar en procesos de selección.
+            </div>
+          </details>
+        </div>
+
+        <div style="margin-top:18px;max-width:560px;">
+          <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Reservar cupo por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="rd-final">
+      <div class="container rd-final-inner">
+        <div>
+          <h2>Si tu meta es tu primer empleo en datos, este es tu siguiente paso</h2>
+          <p>Escríbeme y te confirmo disponibilidad para iniciar el lunes 20 de abril.</p>
+        </div>
+        <a class="btn btn-primary" href={waInscribirmeUrl} target="_blank" rel="noopener">Iniciar inscripción por WhatsApp</a>
+      </div>
+    </section>
+
+    <div class="rd-mobile-sticky-cta">
+      <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Reservar con RD$ 3,000</a>
+    </div>
+  </main>
+
+  <script>
+    const video = document.querySelector(".rd-video");
+    const soundBtn = document.querySelector(".rd-video-sound");
+    if (video && soundBtn) {
+      soundBtn.addEventListener("click", () => {
+        video.muted = !video.muted;
+        soundBtn.textContent = video.muted ? "🔇" : "🔊";
+        soundBtn.setAttribute("aria-label", video.muted ? "Activar sonido" : "Silenciar sonido");
+      });
+    }
+  </script>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof fbq !== "function") return;
+      const whatsappLinks = document.querySelectorAll('a[href^="https://wa.me/"]');
+      whatsappLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          fbq("track", "Lead");
+        });
+      });
+    });
+  </script>
+</BaseLayout>
