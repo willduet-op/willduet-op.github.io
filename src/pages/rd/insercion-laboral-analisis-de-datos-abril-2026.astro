@@ -5,11 +5,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 const WHATSAPP_NUMBER = "19149437575";
 const waUrl = (message) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
-const WA_MSG_RESERVA = "Hola, quiero reservar mi cupo con RD$ 3,000 para el programa de inserción laboral en análisis de datos.";
-const WA_MSG_DETALLES = "Hola, me interesa el programa de inserción laboral en análisis de datos. ¿Me puedes explicar si aplico y cómo funciona el pago?";
-const WA_MSG_PERFIL = "Hola, quiero saber si este programa es para mi perfil.";
-const WA_MSG_PREGUNTAS = "Hola, tengo preguntas sobre el programa de inserción laboral en análisis de datos.";
-const WA_MSG_INSCRIBIRME = "Hola, quiero iniciar mi proceso de inscripción para el programa de inserción laboral en análisis de datos.";
+const WA_MSG_RESERVA = "Hola, me interesa el programa de inserción laboral en análisis de datos. ¿Me puedes compartir más información sobre la reserva?";
+const WA_MSG_DETALLES = "Hola, me interesa el programa de inserción laboral en análisis de datos. ¿Me puedes explicar cómo funciona y la forma de pago?";
+const WA_MSG_PERFIL = "Hola, quiero saber si este programa es adecuado para mi perfil.";
+const WA_MSG_PREGUNTAS = "Hola, tengo algunas preguntas sobre el programa de inserción laboral en análisis de datos.";
+const WA_MSG_INSCRIBIRME = "Hola, me interesa el programa de inserción laboral en análisis de datos. ¿Me puedes enviar más información para empezar?";
 
 const waReservaUrl = waUrl(WA_MSG_RESERVA);
 const waDetallesUrl = waUrl(WA_MSG_DETALLES);
@@ -32,7 +32,7 @@ const VIDEO_SRC = "/rd/vid-landing.mp4";
     <section class="rd-hero">
       <div class="container rd-grid">
         <div>
-          <div class="rd-pill">Cupos limitados. Solo 15 cupos por sesión. Inicio: lunes 20 de abril 2026</div>
+          <div class="rd-pill">Cupos limitados. <strong>Solo 15 cupos por sesión.</strong> Inicio: lunes 20 de abril 2026</div>
           <h1 class="rd-title">Inserción Laboral en Análisis de Datos</h1>
           <p class="rd-sub">
             Te preparo para tu primer empleo en análisis de datos con metodología práctica.
@@ -56,10 +56,10 @@ const VIDEO_SRC = "/rd/vid-landing.mp4";
           </div>
 
           <div class="rd-cta">
-            <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Reservar con RD$ 3,000</a>
+            <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Quiero más información</a>
             <a class="btn" href="#inversion">Ver inversión</a>
           </div>
-          <div class="rd-scarcity">Solo 15 cupos por sesión.</div>
+          <div class="rd-scarcity"><strong>Solo 15 cupos por sesión.</strong></div>
 
           <div class="rd-trust">
             <div>✅ Enfoque 100% empleabilidad</div>
@@ -84,7 +84,7 @@ const VIDEO_SRC = "/rd/vid-landing.mp4";
           </div>
 
           <div style="display:flex;justify-content:center;">
-            <a class="btn btn-primary" href={waPerfilUrl} target="_blank" rel="noopener">Quiero saber si este programa es para mí</a>
+            <a class="btn btn-primary" href={waPerfilUrl} target="_blank" rel="noopener">Quiero saber si es para mí</a>
           </div>
         </div>
       </div>
@@ -131,7 +131,7 @@ const VIDEO_SRC = "/rd/vid-landing.mp4";
         </div>
 
         <div style="margin-top:18px;max-width:560px;display:grid;gap:10px;">
-          <a class="btn btn-primary" href={waDetallesUrl} target="_blank" rel="noopener">Quiero detalles y saber si aplico</a>
+          <a class="btn btn-primary" href={waDetallesUrl} target="_blank" rel="noopener">Quiero más información</a>
           <div class="muted" style="font-size:13px;line-height:1.5;">Te respondo por WhatsApp con perfil recomendado, metodología y forma de pago.</div>
         </div>
       </div>
@@ -148,13 +148,13 @@ const VIDEO_SRC = "/rd/vid-landing.mp4";
               <li>Reserva tu cupo con RD$ 3,000.</li>
               <li>El restante (RD$ 9,000) se paga en cuotas durante las 12 semanas.</li>
               <li>La reserva confirma tu cupo y se descuenta del total.</li>
-              <li>Solo se abren 15 cupos por sesión.</li>
+              <li>Solo se abren <strong>15 cupos por sesión</strong>.</li>
               <li>Programa para personas listas para ejecutar, no solo para curiosos.</li>
             </ul>
 
             <div style="margin-top:18px;max-width:560px;display:grid;gap:10px;">
-              <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Reservar mi cupo con RD$ 3,000</a>
-              <div class="muted" style="font-size:13px;line-height:1.5;">Al hacer clic se abre WhatsApp con el mensaje listo para iniciar tu reserva.</div>
+              <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Quiero información sobre la reserva</a>
+              <div class="muted" style="font-size:13px;line-height:1.5;">Al hacer clic se abre WhatsApp con un mensaje listo para pedir detalles.</div>
             </div>
           </div>
 
@@ -174,7 +174,7 @@ const VIDEO_SRC = "/rd/vid-landing.mp4";
             </div>
 
             <div style="margin-top:12px;">
-              <a class="btn" href={waPreguntasUrl} target="_blank" rel="noopener">Tengo preguntas antes de reservar</a>
+              <a class="btn" href={waPreguntasUrl} target="_blank" rel="noopener">Tengo algunas preguntas</a>
             </div>
           </div>
         </div>
@@ -199,7 +199,7 @@ const VIDEO_SRC = "/rd/vid-landing.mp4";
           <details class="rd-faq-item">
             <summary>¿Cómo reservo el cupo?</summary>
             <div class="rd-faq-body">
-              Haz clic en "Reservar mi cupo con RD$ 3,000", envías el mensaje por WhatsApp y te indico los pasos.
+              Haz clic en el botón de WhatsApp, envías el mensaje y te comparto los pasos y detalles de la reserva.
             </div>
           </details>
 
@@ -219,7 +219,7 @@ const VIDEO_SRC = "/rd/vid-landing.mp4";
         </div>
 
         <div style="margin-top:18px;max-width:560px;">
-          <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Reservar cupo por WhatsApp</a>
+          <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Pedir información por WhatsApp</a>
         </div>
       </div>
     </section>
@@ -230,12 +230,12 @@ const VIDEO_SRC = "/rd/vid-landing.mp4";
           <h2>Si tu meta es tu primer empleo en datos, este es tu siguiente paso</h2>
           <p>Escríbeme y te confirmo disponibilidad para iniciar el lunes 20 de abril.</p>
         </div>
-        <a class="btn btn-primary" href={waInscribirmeUrl} target="_blank" rel="noopener">Iniciar inscripción por WhatsApp</a>
+        <a class="btn btn-primary" href={waInscribirmeUrl} target="_blank" rel="noopener">Escribirme por WhatsApp</a>
       </div>
     </section>
 
     <div class="rd-mobile-sticky-cta">
-      <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Reservar con RD$ 3,000</a>
+      <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Quiero más información</a>
     </div>
   </main>
 
