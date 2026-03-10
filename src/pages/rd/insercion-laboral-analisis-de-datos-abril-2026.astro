@@ -18,6 +18,7 @@ const waPreguntasUrl = waUrl(WA_MSG_PREGUNTAS);
 const waInscribirmeUrl = waUrl(WA_MSG_INSCRIBIRME);
 
 const VIDEO_SRC = "/rd/vid-landing.mp4";
+const WHATSAPP_ICON_SRC = "/rd/logo%20whatsapp.png";
 ---
 
 <BaseLayout
@@ -56,7 +57,10 @@ const VIDEO_SRC = "/rd/vid-landing.mp4";
           </div>
 
           <div class="rd-cta">
-            <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Quiero más información</a>
+            <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">
+              <img class="rd-btn-icon" src={WHATSAPP_ICON_SRC} alt="" aria-hidden="true" />
+              <span>Pregunta por WhatsApp</span>
+            </a>
             <a class="btn" href="#inversion">Ver inversión</a>
           </div>
           <div class="rd-scarcity"><strong>Solo 15 cupos por sesión.</strong></div>
@@ -94,21 +98,21 @@ const VIDEO_SRC = "/rd/vid-landing.mp4";
       <div class="container">
         <div class="rd-head">
           <h2>Dirigido a</h2>
-          <p>Para personas comprometidas con entrar al mercado laboral de análisis de datos.</p>
+          <p>Ideal para personas que quieren entrar al mundo de datos con una ruta práctica, acompañamiento y resultados visibles.</p>
         </div>
 
         <div class="rd-grid-3">
           <div class="card rd-card-pad">
-            <h3 style="margin:0 0 8px;">Principiantes con disciplina</h3>
-            <p class="muted" style="margin:0;line-height:1.6;">No necesitas experiencia laboral previa en datos, pero sí compromiso para practicar semanalmente.</p>
+            <h3 style="margin:0 0 8px;">Quienes están empezando en datos</h3>
+            <p class="muted" style="margin:0;line-height:1.6;">Si vienes de cero o tienes conocimientos básicos y quieres una guía clara para avanzar paso a paso.</p>
           </div>
           <div class="card rd-card-pad">
-            <h3 style="margin:0 0 8px;">Personas en transición laboral</h3>
-            <p class="muted" style="margin:0;line-height:1.6;">Si vienes de otra área y quieres cambiar a análisis de datos con una ruta clara.</p>
+            <h3 style="margin:0 0 8px;">Profesionales en transición</h3>
+            <p class="muted" style="margin:0;line-height:1.6;">Si trabajas en otra área y quieres moverte a análisis de datos con habilidades aplicables al mercado.</p>
           </div>
           <div class="card rd-card-pad">
-            <h3 style="margin:0 0 8px;">Quienes quieren primer empleo</h3>
-            <p class="muted" style="margin:0;line-height:1.6;">Si tu meta es construir perfil, proyecto y portafolio para postular a vacantes reales.</p>
+            <h3 style="margin:0 0 8px;">Personas que buscan su primer empleo</h3>
+            <p class="muted" style="margin:0;line-height:1.6;">Si tu objetivo es construir proyecto, portafolio en Notion y CV optimizado para postular con más confianza.</p>
           </div>
         </div>
       </div>
@@ -132,7 +136,7 @@ const VIDEO_SRC = "/rd/vid-landing.mp4";
 
         <div style="margin-top:18px;max-width:560px;display:grid;gap:10px;">
           <a class="btn btn-primary" href={waDetallesUrl} target="_blank" rel="noopener">Quiero más información</a>
-          <div class="muted" style="font-size:13px;line-height:1.5;">Te respondo por WhatsApp con perfil recomendado, metodología y forma de pago.</div>
+          <div class="muted" style="font-size:13px;line-height:1.5;">Escríbeme y te ayudo a verificar si este programa es para ti.</div>
         </div>
       </div>
     </section>
@@ -149,12 +153,10 @@ const VIDEO_SRC = "/rd/vid-landing.mp4";
               <li>El restante (RD$ 9,000) se paga en cuotas durante las 12 semanas.</li>
               <li>La reserva confirma tu cupo y se descuenta del total.</li>
               <li>Solo se abren <strong>15 cupos por sesión</strong>.</li>
-              <li>Programa para personas listas para ejecutar, no solo para curiosos.</li>
             </ul>
 
             <div style="margin-top:18px;max-width:560px;display:grid;gap:10px;">
               <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Quiero información sobre la reserva</a>
-              <div class="muted" style="font-size:13px;line-height:1.5;">Al hacer clic se abre WhatsApp con un mensaje listo para pedir detalles.</div>
             </div>
           </div>
 
@@ -166,11 +168,7 @@ const VIDEO_SRC = "/rd/vid-landing.mp4";
               <div class="rd-kv-row"><span>Inicio</span><span>Lunes 20 de abril 2026</span></div>
               <div class="rd-kv-row"><span>Horario</span><span>Lunes 7:30pm a 9:30pm (RD)</span></div>
               <div class="rd-kv-row"><span>Duración</span><span>12 semanas</span></div>
-              <div class="rd-kv-row"><span>Incluye</span><span>Proyecto guiado + portafolio en Notion</span></div>
-            </div>
-
-            <div class="muted" style="margin-top:12px;line-height:1.6;font-size:14px;">
-              Si aún estás comparando opciones, escríbeme cuando estés listo para reservar y ejecutar el plan completo.
+              <div class="rd-kv-row"><span>Incluye</span><span>Proyecto guiado, portafolio en Notion, certificado y CV optimizado.</span></div>
             </div>
 
             <div style="margin-top:12px;">
@@ -185,7 +183,6 @@ const VIDEO_SRC = "/rd/vid-landing.mp4";
       <div class="container">
         <div class="rd-head">
           <h2>Preguntas frecuentes</h2>
-          <p>Lo esencial para tomar decisión rápido.</p>
         </div>
 
         <div class="rd-faq">
@@ -235,7 +232,10 @@ const VIDEO_SRC = "/rd/vid-landing.mp4";
     </section>
 
     <div class="rd-mobile-sticky-cta">
-      <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">Quiero más información</a>
+      <a class="btn btn-primary" href={waReservaUrl} target="_blank" rel="noopener">
+        <img class="rd-btn-icon" src={WHATSAPP_ICON_SRC} alt="" aria-hidden="true" />
+        <span>Pregunta por WhatsApp</span>
+      </a>
     </div>
   </main>
 

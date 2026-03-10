@@ -108,6 +108,14 @@
   color: var(--text);
 }
 
+.rd-btn-icon{
+  width: 1.15em;
+  height: 1.15em;
+  object-fit: contain;
+  border-radius: 2px;
+  margin-right: 8px;
+}
+
 .rd-media{
   display:grid;
   gap: 10px;
