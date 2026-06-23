@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Power BI Consulting for US Businesses | WILLDUET";
+const description =
+  "Power BI consulting for US businesses that need trusted dashboards, clear KPIs, cleaner reporting workflows, and better decisions from business data.";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Power BI Consulting",
+  provider: {
+    "@type": "ProfessionalService",
+    name: "WILLDUET",
+    url: "https://willduet.com/",
+    email: "contact@willduet.com",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "United States",
+  },
+  serviceType: "Power BI consulting",
+  url: "https://willduet.com/power-bi-consulting/",
+  description,
+};
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/power-bi-consulting/"
+  image="/bi.webp"
+  structuredData={structuredData}
+>
+  <Header />
+
+  <main style="padding:0 0 22px;">
+    <section class="hero-full reveal">
+      <div class="container" style="padding:42px 0;">
+        <div class="hero-panel">
+          <div class="hero-copy">
+            <h1 class="hero-title">Power BI Consulting for US Businesses</h1>
+            <p class="muted hero-subtitle">
+              Build dashboards, KPI models, and reporting workflows your team can trust every week.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/contact">Book a Power BI consultation</a>
+            <a class="btn" href="/power-bi-dashboard-development/">Dashboard development</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container" style="padding-top:40px;">
+      <section class="section reveal section-band">
+        <div class="split service-section">
+          <div class="service-copy">
+            <h2 class="section-title">When Power BI consulting helps</h2>
+            <p class="muted">
+              Power BI works best when the data model, KPI definitions, dashboard design, and refresh process are built together. We help US teams clean up scattered reports, replace manual Excel workflows, and create dashboards that answer real business questions.
+            </p>
+            <p class="muted">
+              Engagements can include dashboard audits, model redesign, DAX improvements, report performance tuning, stakeholder requirements, and documentation for long-term maintenance.
+            </p>
+          </div>
+          <img src="/bi.webp" alt="Power BI dashboard consulting for business KPIs" class="service-image" loading="lazy" decoding="async" />
+        </div>
+      </section>
+
+      <section class="section reveal section-band alt">
+        <h2 class="section-title">Common Power BI projects</h2>
+        <div class="grid grid-3">
+          <div class="card" style="padding:18px;">
+            <h3 style="margin:0 0 8px;">Executive KPI dashboards</h3>
+            <p class="muted" style="margin:0;line-height:1.6;">Leadership views for revenue, operations, sales pipeline, finance, and customer performance.</p>
+          </div>
+          <div class="card" style="padding:18px;">
+            <h3 style="margin:0 0 8px;">Report cleanup</h3>
+            <p class="muted" style="margin:0;line-height:1.6;">Fix slow reports, inconsistent metrics, confusing visuals, and fragile manual refresh steps.</p>
+          </div>
+          <div class="card" style="padding:18px;">
+            <h3 style="margin:0 0 8px;">Self-service analytics</h3>
+            <p class="muted" style="margin:0;line-height:1.6;">Reusable datasets and documented models so teams can answer follow-up questions faster.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" style="padding:18px 0;">
+        <div class="card" style="padding:18px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;">
+          <div>
+            <h2 style="margin:0 0 8px;">Need better Power BI reporting?</h2>
+            <p class="muted" style="margin:0;max-width:720px;line-height:1.6;">Share your current reporting challenge and we will recommend the fastest path to cleaner dashboards.</p>
+          </div>
+          <a class="btn btn-primary" href="/contact">Start the conversation</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

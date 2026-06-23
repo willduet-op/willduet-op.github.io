@@ -3,16 +3,48 @@ import "../styles/global.css";
 
 const { 
   title = "WILLDUET", 
-  description = "Data analytics, BI, analytics engineering, tutoring y training." 
+  description = "WILLDUET helps US businesses build trusted Power BI dashboards, clean data pipelines, analytics engineering models, and practical data training.",
+  canonicalPath = Astro.url.pathname,
+  image = "/dashboard.jpg",
+  lang = "en",
+  robots = "index, follow",
+  structuredData,
 } = Astro.props;
+
+const site = Astro.site ?? new URL("https://willduet.com");
+const canonicalUrl = new URL(canonicalPath, site).toString();
+const imageUrl = new URL(image, site).toString();
+const isNoindex = robots.includes("noindex");
 ---
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <link rel="preload" href="/hero-image.webp" as="image" type="image/webp" />
     <title>{title}</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="WILLDUET" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:locale" content={lang === "es" ? "es_DO" : "en_US"} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    {!isNoindex && structuredData && (
+      <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    )}
 
     <slot name="head" /> 
     

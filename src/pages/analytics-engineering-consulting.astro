@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Analytics Engineering Consulting | WILLDUET";
+const description =
+  "Analytics engineering consulting for US teams that need documented metrics, reusable data models, tested business logic, and trustworthy BI reporting.";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Analytics Engineering Consulting",
+  provider: { "@type": "ProfessionalService", name: "WILLDUET", url: "https://willduet.com/" },
+  areaServed: { "@type": "Country", name: "United States" },
+  serviceType: "Analytics engineering consulting",
+  url: "https://willduet.com/analytics-engineering-consulting/",
+  description,
+};
+---
+<BaseLayout title={title} description={description} canonicalPath="/analytics-engineering-consulting/" image="/ae.webp" structuredData={structuredData}>
+  <Header />
+  <main style="padding:0 0 22px;">
+    <section class="hero-full reveal">
+      <div class="container" style="padding:42px 0;">
+        <div class="hero-panel">
+          <div class="hero-copy">
+            <h1 class="hero-title">Analytics Engineering Consulting</h1>
+            <p class="muted hero-subtitle">Turn business logic into documented, reusable data models so metrics stay consistent across dashboards and teams.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/contact">Improve your analytics models</a>
+            <a class="btn" href="/data-engineering-consulting/">Data engineering</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container" style="padding-top:40px;">
+      <section class="section reveal section-band">
+        <div class="split service-section">
+          <div class="service-copy">
+            <h2 class="section-title">Metrics that stay consistent</h2>
+            <p class="muted">Analytics engineering sits between raw data and BI dashboards. We help US teams define reusable models, document KPI logic, and reduce duplicated calculations across reports.</p>
+            <p class="muted">The goal is a trusted analytics layer where revenue, margin, retention, conversion, and operational metrics mean the same thing everywhere.</p>
+          </div>
+          <img src="/ae.webp" alt="Analytics engineering model documentation and KPI logic" class="service-image" loading="lazy" decoding="async" />
+        </div>
+      </section>
+
+      <section class="section reveal section-band alt">
+        <h2 class="section-title">Analytics engineering outcomes</h2>
+        <div class="grid grid-3">
+          <div class="card" style="padding:18px;"><h3 style="margin:0 0 8px;">Reusable models</h3><p class="muted" style="margin:0;line-height:1.6;">Business-ready tables that make dashboards faster to build and easier to understand.</p></div>
+          <div class="card" style="padding:18px;"><h3 style="margin:0 0 8px;">Documented KPIs</h3><p class="muted" style="margin:0;line-height:1.6;">Metric definitions, calculation logic, and ownership that stakeholders can review.</p></div>
+          <div class="card" style="padding:18px;"><h3 style="margin:0 0 8px;">Quality checks</h3><p class="muted" style="margin:0;line-height:1.6;">Basic tests and validation routines to catch reporting issues before leaders see them.</p></div>
+        </div>
+      </section>
+
+      <section class="section reveal" style="padding:18px 0;">
+        <div class="card" style="padding:18px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;">
+          <div><h2 style="margin:0 0 8px;">Do your metrics need cleanup?</h2><p class="muted" style="margin:0;max-width:720px;line-height:1.6;">We can review your current models and recommend a cleaner analytics structure.</p></div>
+          <a class="btn btn-primary" href="/contact">Request a model review</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

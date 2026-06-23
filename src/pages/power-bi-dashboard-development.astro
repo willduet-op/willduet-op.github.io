@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Power BI Dashboard Development Services | WILLDUET";
+const description =
+  "Power BI dashboard development for US teams that need executive KPI dashboards, automated reporting, clean data models, and decision-ready visuals.";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Power BI Dashboard Development",
+  provider: { "@type": "ProfessionalService", name: "WILLDUET", url: "https://willduet.com/" },
+  areaServed: { "@type": "Country", name: "United States" },
+  serviceType: "Power BI dashboard development",
+  url: "https://willduet.com/power-bi-dashboard-development/",
+  description,
+};
+---
+<BaseLayout title={title} description={description} canonicalPath="/power-bi-dashboard-development/" image="/dashboard.jpg" structuredData={structuredData}>
+  <Header />
+  <main style="padding:0 0 22px;">
+    <section class="hero-full reveal">
+      <div class="container" style="padding:42px 0;">
+        <div class="hero-panel">
+          <div class="hero-copy">
+            <h1 class="hero-title">Power BI Dashboard Development Services</h1>
+            <p class="muted hero-subtitle">Turn raw business data into clear dashboards for sales, finance, operations, leadership, and customer reporting.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/contact">Request dashboard help</a>
+            <a class="btn" href="/power-bi-consulting/">Power BI consulting</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container" style="padding-top:40px;">
+      <section class="section reveal section-band">
+        <div class="split service-section">
+          <div class="service-copy">
+            <h2 class="section-title">Dashboards built around decisions</h2>
+            <p class="muted">A useful Power BI dashboard is more than charts. It needs clear questions, trusted data, consistent KPIs, intuitive layout, and refresh logic that works after launch.</p>
+            <p class="muted">We design dashboards that help US teams monitor performance, spot problems, compare trends, and reduce time spent creating recurring reports.</p>
+          </div>
+          <img src="/dashboard.jpg" alt="Power BI dashboard development with KPI trends" class="service-image" loading="lazy" decoding="async" />
+        </div>
+      </section>
+
+      <section class="section reveal section-band alt">
+        <h2 class="section-title">Dashboard types</h2>
+        <div class="grid grid-3">
+          <div class="card" style="padding:18px;"><h3 style="margin:0 0 8px;">Sales dashboards</h3><p class="muted" style="margin:0;line-height:1.6;">Pipeline, revenue, conversion, territory, product, and account performance.</p></div>
+          <div class="card" style="padding:18px;"><h3 style="margin:0 0 8px;">Finance dashboards</h3><p class="muted" style="margin:0;line-height:1.6;">Budget, variance, margin, cash flow, expenses, and monthly performance views.</p></div>
+          <div class="card" style="padding:18px;"><h3 style="margin:0 0 8px;">Operations dashboards</h3><p class="muted" style="margin:0;line-height:1.6;">Throughput, service levels, productivity, backlog, quality, and process bottlenecks.</p></div>
+        </div>
+      </section>
+
+      <section class="section reveal" style="padding:18px 0;">
+        <div class="card" style="padding:18px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;">
+          <div><h2 style="margin:0 0 8px;">Have a dashboard idea or broken report?</h2><p class="muted" style="margin:0;max-width:720px;line-height:1.6;">Send the goal, audience, and data sources. We will map the next steps.</p></div>
+          <a class="btn btn-primary" href="/contact">Build a dashboard</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

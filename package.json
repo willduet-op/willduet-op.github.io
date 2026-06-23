@@ -4,8 +4,9 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "npm run sitemap && astro build",
     "preview": "astro preview",
+    "sitemap": "node scripts/generate-sitemap.mjs",
     "astro": "astro"
   },
   "dependencies": {

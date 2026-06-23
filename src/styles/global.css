@@ -101,7 +101,7 @@ select, option{
   min-height: 80vh;
   background:
     linear-gradient(115deg, rgba(7,22,44,.9), rgba(7,22,44,.62)),
-    url("/hero-image.png") center/cover no-repeat;
+    url("/hero-image.webp") center/cover no-repeat;
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;

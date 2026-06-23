@@ -2,8 +2,44 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+const title = "Power BI, Data Analytics and Data Engineering Consulting in the US | WILLDUET";
+const description =
+  "WILLDUET helps US teams turn business data into trusted Power BI dashboards, reliable data pipelines, documented KPIs, and analytics workflows that leaders can use.";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "WILLDUET",
+  url: "https://willduet.com/",
+  email: "contact@willduet.com",
+  areaServed: {
+    "@type": "Country",
+    name: "United States",
+  },
+  description,
+  serviceType: [
+    "Power BI consulting",
+    "Business intelligence consulting",
+    "Data engineering",
+    "Analytics engineering",
+    "Data analytics training",
+  ],
+  knowsAbout: [
+    "Power BI",
+    "business intelligence",
+    "data pipelines",
+    "analytics engineering",
+    "KPI reporting",
+  ],
+};
 ---
-<BaseLayout title="WILLDUET | Data Analytics and BI">
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/"
+  image="/dashboard.jpg"
+  structuredData={structuredData}
+>
   <Header />
 
   <main style="padding:0 0 22px;">
@@ -11,9 +47,9 @@ import Footer from "../components/Footer.astro";
       <div class="container" style="padding:42px 0;">
         <div class="hero-panel">
           <div class="hero-copy">
-            <h1 class="hero-title">Turn Data Into Clear, Fast, Confident Decisions</h1>
+            <h1 class="hero-title">Power BI and Data Analytics Consulting for US Teams</h1>
             <p class="muted hero-subtitle">
-              Build a reliable analytics foundation with modern BI, clean pipelines, and reporting that teams explain and trust.
+              Build a reliable analytics foundation with trusted dashboards, clean data pipelines, documented KPIs, and reporting that teams explain and trust.
             </p>
           </div>
           <div class="hero-actions">
@@ -32,6 +68,8 @@ import Footer from "../components/Footer.astro";
             src="/dashboard.jpg"
             alt="Business dashboard with KPIs and performance trends"
             class="section-image what-gain-image"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div class="what-gain-content">
@@ -75,7 +113,7 @@ import Footer from "../components/Footer.astro";
               We help teams turn raw data into clear, reliable insights by designing modern Business Intelligence solutions that support real business decisions. This includes building and improving dashboards, defining the right metrics and KPIs, and ensuring reports are fast, accurate, and trusted by stakeholders.
             </p>
             <p class="muted" style="margin:0;line-height:1.6;">
-              On the data engineering side, we design and maintain data pipelines that move data from source systems into analytics-ready models. We focus on clean, well-structured data that scales as your business grows, reducing manual work and eliminating reporting inconsistencies.
+              On the data engineering side, we design and maintain data pipelines that move data from source systems into analytics-ready models for US businesses. We focus on clean, well-structured data that scales as your business grows, reducing manual work and eliminating reporting inconsistencies.
             </p>
             <div class="help-actions" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;">
               <a class="btn btn-primary" href="/services">Explore services</a>
@@ -87,9 +125,41 @@ import Footer from "../components/Footer.astro";
               src="/teamwork.jpeg"
               alt="Team collaborating on analytics planning and reporting"
               class="section-image help-image"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section reveal section-band" style="padding:22px 0;">
+      <h2 class="section-title">Analytics services for US teams</h2>
+      <div class="grid grid-3">
+        <a class="card" href="/power-bi-consulting/" style="padding:18px;">
+          <h3 style="margin:0 0 8px;">Power BI Consulting</h3>
+          <p class="muted" style="margin:0;line-height:1.6;">Clean up reporting, improve models, and build trusted Power BI dashboards.</p>
+        </a>
+        <a class="card" href="/power-bi-dashboard-development/" style="padding:18px;">
+          <h3 style="margin:0 0 8px;">Dashboard Development</h3>
+          <p class="muted" style="margin:0;line-height:1.6;">Create decision-ready dashboards for sales, finance, operations, and leadership.</p>
+        </a>
+        <a class="card" href="/data-engineering-consulting/" style="padding:18px;">
+          <h3 style="margin:0 0 8px;">Data Engineering</h3>
+          <p class="muted" style="margin:0;line-height:1.6;">Build reliable data pipelines and analytics-ready tables for BI reporting.</p>
+        </a>
+        <a class="card" href="/analytics-engineering-consulting/" style="padding:18px;">
+          <h3 style="margin:0 0 8px;">Analytics Engineering</h3>
+          <p class="muted" style="margin:0;line-height:1.6;">Document KPIs and reusable data models so metrics stay consistent.</p>
+        </a>
+        <a class="card" href="/power-bi-training/" style="padding:18px;">
+          <h3 style="margin:0 0 8px;">Power BI Training</h3>
+          <p class="muted" style="margin:0;line-height:1.6;">Practical training for teams that need stronger dashboards and reporting skills.</p>
+        </a>
+        <a class="card" href="/services/" style="padding:18px;">
+          <h3 style="margin:0 0 8px;">All Services</h3>
+          <p class="muted" style="margin:0;line-height:1.6;">See the full WILLDUET service overview for analytics and BI support.</p>
+        </a>
       </div>
     </section>
 
@@ -122,6 +192,8 @@ import Footer from "../components/Footer.astro";
           src="/project.jpeg"
           alt="Project planning workflow for analytics implementation"
           class="section-image reveal-delay-2"
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </section>

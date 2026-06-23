@@ -5,14 +5,41 @@ import Footer from "../components/Footer.astro";
 
 const EMAIL = "contact@willduet.com";
 const CAL_LINK = "#"; // si tienes Calendly/Cal.com, pega el link aquí
+
+const title = "Contact WILLDUET for Power BI and Data Analytics Consulting";
+const description =
+  "Contact WILLDUET to discuss Power BI dashboards, business intelligence reporting, data engineering pipelines, analytics engineering, or Power BI training for your US team.";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact WILLDUET",
+  url: "https://willduet.com/contact/",
+  description,
+  mainEntity: {
+    "@type": "ProfessionalService",
+    name: "WILLDUET",
+    url: "https://willduet.com/",
+    email: EMAIL,
+    areaServed: {
+      "@type": "Country",
+      name: "United States",
+    },
+  },
+};
 ---
-<BaseLayout title="Contact | WILLDUET">
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/contact/"
+  image="/teamwork.jpeg"
+  structuredData={structuredData}
+>
   <Header />
 
   <main class="container" style="padding:34px 0 22px;">
     <h1 style="margin:0 0 10px;">Contact</h1>
     <p class="muted" style="margin:0 0 18px;max-width:860px;line-height:1.6;">
-      Tell us what you are trying to achieve and we will reply with the fastest plan.
+      Tell us what your US team is trying to achieve with Power BI, business intelligence, data engineering, or analytics training.
     </p>
 
     <div class="card" style="padding:18px;max-width:860px;">

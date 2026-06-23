@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Power BI Training for US Teams | WILLDUET";
+const description =
+  "Practical Power BI training for US teams and professionals covering dashboards, data modeling, DAX, reporting workflows, and business-ready analytics.";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "Power BI Training",
+  provider: { "@type": "Organization", name: "WILLDUET", sameAs: "https://willduet.com/" },
+  areaServed: { "@type": "Country", name: "United States" },
+  url: "https://willduet.com/power-bi-training/",
+  description,
+};
+---
+<BaseLayout title={title} description={description} canonicalPath="/power-bi-training/" image="/training.webp" structuredData={structuredData}>
+  <Header />
+  <main style="padding:0 0 22px;">
+    <section class="hero-full reveal">
+      <div class="container" style="padding:42px 0;">
+        <div class="hero-panel">
+          <div class="hero-copy">
+            <h1 class="hero-title">Power BI Training for US Teams</h1>
+            <p class="muted hero-subtitle">Practical Power BI training for teams that need to build better dashboards, understand data models, and use reports with confidence.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/contact">Ask about Power BI training</a>
+            <a class="btn" href="/power-bi-consulting/">Power BI consulting</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container" style="padding-top:40px;">
+      <section class="section reveal section-band">
+        <div class="split service-section">
+          <div class="service-copy">
+            <h2 class="section-title">Training built around real reporting work</h2>
+            <p class="muted">Generic tutorials rarely match the reports your team actually has to build. We tailor Power BI training around your workflows, data, dashboards, and skill gaps.</p>
+            <p class="muted">Sessions can cover dashboard design, Power Query, data modeling, DAX fundamentals, KPI thinking, report performance, and stakeholder-ready storytelling.</p>
+          </div>
+          <img src="/training.webp" alt="Power BI training for business teams and analysts" class="service-image" loading="lazy" decoding="async" />
+        </div>
+      </section>
+
+      <section class="section reveal section-band alt">
+        <h2 class="section-title">Training options</h2>
+        <div class="grid grid-3">
+          <div class="card" style="padding:18px;"><h3 style="margin:0 0 8px;">Team workshops</h3><p class="muted" style="margin:0;line-height:1.6;">Focused sessions for analysts, managers, and business users who depend on reports.</p></div>
+          <div class="card" style="padding:18px;"><h3 style="margin:0 0 8px;">Dashboard coaching</h3><p class="muted" style="margin:0;line-height:1.6;">Hands-on support while your team improves existing dashboards or builds new ones.</p></div>
+          <div class="card" style="padding:18px;"><h3 style="margin:0 0 8px;">DAX and modeling</h3><p class="muted" style="margin:0;line-height:1.6;">Practical modeling and measure-building help for stronger, more reliable Power BI reports.</p></div>
+        </div>
+      </section>
+
+      <section class="section reveal" style="padding:18px 0;">
+        <div class="card" style="padding:18px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;">
+          <div><h2 style="margin:0 0 8px;">Want your team to use Power BI better?</h2><p class="muted" style="margin:0;max-width:720px;line-height:1.6;">Tell us your team size, current skill level, and reporting goals.</p></div>
+          <a class="btn btn-primary" href="/contact">Plan training</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

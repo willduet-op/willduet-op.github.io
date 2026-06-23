@@ -2,8 +2,46 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+const title = "Power BI, Business Intelligence and Data Engineering Services | WILLDUET";
+const description =
+  "Explore WILLDUET services for US businesses: Power BI dashboards, business intelligence, data engineering pipelines, analytics engineering, and practical Power BI training.";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Power BI, Business Intelligence and Data Engineering Services",
+  provider: {
+    "@type": "ProfessionalService",
+    name: "WILLDUET",
+    url: "https://willduet.com/",
+    email: "contact@willduet.com",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "United States",
+  },
+  serviceType: "Business intelligence, data engineering, analytics engineering, and Power BI training",
+  url: "https://willduet.com/services/",
+  description,
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "WILLDUET analytics services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Business Intelligence" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Data Engineering" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Analytics Engineering" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Power BI Training" } },
+    ],
+  },
+};
 ---
-<BaseLayout title="Services | WILLDUET">
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/services/"
+  image="/bi.webp"
+  structuredData={structuredData}
+>
   <Header />
 
   <main style="padding:0 0 22px;">
@@ -11,9 +49,9 @@ import Footer from "../components/Footer.astro";
       <div class="container" style="padding:42px 0;">
         <div class="hero-panel">
           <div class="hero-copy">
-            <h1 class="hero-title">Services Built for Clear Reports, Clean Data Pipelines, and Documented Analytics</h1>
+            <h1 class="hero-title">Power BI, Business Intelligence, and Data Engineering Services</h1>
             <p class="muted hero-subtitle">
-              Work with a team that helps decision-makers trust the numbers, understand performance faster, and scale analytics with confidence.
+              Work with a US-focused analytics team that helps decision-makers trust the numbers, understand performance faster, and scale reporting with confidence.
             </p>
           </div>
           <div class="hero-actions">
@@ -29,14 +67,14 @@ import Footer from "../components/Footer.astro";
           <div class="service-copy">
             <h2 class="section-title">Business Intelligence</h2>
             <p class="muted">
-              Get clear dashboards and reports that answer real business questions. We design KPI frameworks,
+              Get clear Power BI dashboards and reports that answer real business questions. We design KPI frameworks,
               improve report performance, and organize visuals so leaders can see what matters quickly.
             </p>
             <p class="muted">
               The result is faster decisions, less confusion around metrics, and reporting that teams actually use.
             </p>
           </div>
-          <img src="/bi.png" alt="Business Intelligence dashboard with key KPIs and trends" class="service-image" />
+          <img src="/bi.webp" alt="Business Intelligence dashboard with key KPIs and trends" class="service-image" loading="lazy" decoding="async" />
         </div>
       </section>
 
@@ -52,7 +90,7 @@ import Footer from "../components/Footer.astro";
               Your team gets structured data that is easier to maintain, easier to trust, and ready for reporting at scale.
             </p>
           </div>
-          <img src="/de.png" alt="Data pipeline and project workflow planning" class="service-image" />
+          <img src="/de.webp" alt="Data pipeline and project workflow planning" class="service-image" loading="lazy" decoding="async" />
         </div>
       </section>
 
@@ -68,7 +106,7 @@ import Footer from "../components/Footer.astro";
               With strong modeling and testing practices, analytics becomes more reliable and easier to scale.
             </p>
           </div>
-          <img src="/ae.png" alt="Analytics engineering planning and model documentation" class="service-image" />
+          <img src="/ae.webp" alt="Analytics engineering planning and model documentation" class="service-image" loading="lazy" decoding="async" />
         </div>
       </section>
 
@@ -85,7 +123,33 @@ import Footer from "../components/Footer.astro";
             </p>
             <a class="btn btn-primary" href="/contact">Ask about training</a>
           </div>
-          <img src="/training.png" alt="Power BI training session with collaborative team learning" class="service-image" />
+          <img src="/training.webp" alt="Power BI training session with collaborative team learning" class="service-image" loading="lazy" decoding="async" />
+        </div>
+      </section>
+
+      <section class="section reveal section-band" style="margin-bottom:16px;">
+        <h2 class="section-title">Explore focused service pages</h2>
+        <div class="grid grid-3">
+          <a class="card" href="/power-bi-consulting/" style="padding:18px;">
+            <h3 style="margin:0 0 8px;">Power BI Consulting</h3>
+            <p class="muted" style="margin:0;line-height:1.6;">Strategy, modeling, reporting cleanup, and dashboard improvement.</p>
+          </a>
+          <a class="card" href="/power-bi-dashboard-development/" style="padding:18px;">
+            <h3 style="margin:0 0 8px;">Power BI Dashboard Development</h3>
+            <p class="muted" style="margin:0;line-height:1.6;">Custom dashboards for executive, sales, finance, and operations reporting.</p>
+          </a>
+          <a class="card" href="/data-engineering-consulting/" style="padding:18px;">
+            <h3 style="margin:0 0 8px;">Data Engineering Consulting</h3>
+            <p class="muted" style="margin:0;line-height:1.6;">Pipelines and clean analytics tables for reliable BI.</p>
+          </a>
+          <a class="card" href="/analytics-engineering-consulting/" style="padding:18px;">
+            <h3 style="margin:0 0 8px;">Analytics Engineering Consulting</h3>
+            <p class="muted" style="margin:0;line-height:1.6;">Reusable models, documented metrics, and better reporting logic.</p>
+          </a>
+          <a class="card" href="/power-bi-training/" style="padding:18px;">
+            <h3 style="margin:0 0 8px;">Power BI Training</h3>
+            <p class="muted" style="margin:0;line-height:1.6;">Practical Power BI training for US teams and professionals.</p>
+          </a>
         </div>
       </section>
     </div>
