@@ -1,0 +1,715 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const title = "How to Optimize Slow Power BI Reports: Practical Fixes | WILLDUET";
+const description =
+  "Power BI report running slow? Learn practical ways to optimize Power BI reports, improve DAX measures, reduce columns, fix relationships, and speed up dashboards.";
+const publishDate = "2026-07-01";
+const canonicalPath = "/blogs/how-to-optimize-slow-power-bi-reports/";
+const image = "/bi.webp";
+
+const faq = [
+  {
+    question: "Why is my Power BI report so slow?",
+    answer:
+      "Power BI reports are often slow because the data model is too large, visuals show too much data, relationships are inefficient, DAX formulas are expensive, or the report has too many visuals on one page.",
+  },
+  {
+    question: "How do I make Power BI reports faster?",
+    answer:
+      "Start by reducing unnecessary columns and rows, using a star schema, creating efficient measures, avoiding excessive calculated columns, simplifying relationships, limiting visuals per page, and testing slow visuals with Performance Analyzer.",
+  },
+  {
+    question: "Are DAX calculated columns bad for Power BI performance?",
+    answer:
+      "Calculated columns are not always bad, but too many DAX calculated columns can increase model size and refresh time. When possible, create columns upstream in Power Query, SQL, or the data warehouse, and use measures for aggregations.",
+  },
+  {
+    question: "Should Power BI relationships use numeric IDs?",
+    answer:
+      "Numeric relationship keys are usually more efficient than high-cardinality text keys. Using clean integer IDs for relationships can reduce model size and improve filtering performance.",
+  },
+];
+
+const relatedPosts = [
+  {
+    title: "How to Create Automated Business Reports That Actually Help",
+    href: "/blogs/how-to-create-automated-business-reports/",
+    image: "/dashboard.jpg",
+    category: "Automated reporting",
+  },
+  {
+    title: "Database vs Data Warehouse: What Is the Difference?",
+    href: "/blogs/database-vs-data-warehouse/",
+    image: "/de.webp",
+    category: "Data fundamentals",
+  },
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: "How to Optimize Slow Power BI Reports: Practical Fixes",
+    description,
+    image: `https://willduet.com${image}`,
+    datePublished: publishDate,
+    dateModified: publishDate,
+    author: {
+      "@type": "Organization",
+      name: "WILLDUET",
+      url: "https://willduet.com/",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "WILLDUET",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://willduet.com/logo-willduet-sin-fondo.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://willduet.com${canonicalPath}`,
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  image={image}
+  structuredData={structuredData}
+>
+  <Header />
+
+  <main>
+    <article>
+      <section class="blog-article-hero reveal">
+        <div class="container blog-article-hero-inner">
+          <div class="blog-kicker">Power BI performance</div>
+          <h1>How to Optimize Slow Power BI Reports</h1>
+          <p class="muted">
+            If your Power BI report takes too long to load, filters freeze, visuals spin, or refreshes keep failing,
+            the problem is usually not just the dashboard design. It is often the data model, DAX, relationships, or too much unnecessary data.
+          </p>
+          <div class="blog-article-meta">
+            <span>Published July 1, 2026</span>
+            <span>9 min read</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="container article-layout">
+        <aside class="article-toc" aria-label="Article sections">
+          <div class="toc-card">
+            <div class="toc-title">In this article</div>
+            <a href="#quick-answer">Quick answer</a>
+            <a href="#symptoms">Slow report symptoms</a>
+            <a href="#fixes">Optimization fixes</a>
+            <a href="#dax">DAX performance</a>
+            <a href="#relationships">Relationships</a>
+            <a href="#faq">FAQ</a>
+          </div>
+        </aside>
+
+        <div class="article-main">
+          <img class="article-image" src="/bi.webp" alt="Power BI dashboard optimization and business reporting" loading="eager" decoding="async" />
+
+          <section id="quick-answer" class="article-section">
+            <h2>Quick answer: how do you optimize a slow Power BI report?</h2>
+            <p>
+              To optimize a slow Power BI report, reduce the data model, remove unnecessary columns, use a clean star schema,
+              avoid excessive DAX calculated columns, write efficient measures, use numeric relationship keys, simplify relationships,
+              limit visuals on each page, and test slow visuals with Performance Analyzer.
+            </p>
+            <p>
+              The fastest Power BI reports usually have a simple model, clear measures, focused pages, and data that is already prepared before it reaches the report.
+            </p>
+
+            <div class="process-grid">
+              <div class="card process-card">
+                <span>1</span>
+                <h3>Reduce the model</h3>
+                <p class="muted">Load only the rows and columns the report actually needs.</p>
+              </div>
+              <div class="card process-card">
+                <span>2</span>
+                <h3>Fix relationships</h3>
+                <p class="muted">Use clean fact and dimension tables with efficient keys.</p>
+              </div>
+              <div class="card process-card">
+                <span>3</span>
+                <h3>Improve DAX</h3>
+                <p class="muted">Use measures correctly and avoid expensive repeated logic.</p>
+              </div>
+              <div class="card process-card">
+                <span>4</span>
+                <h3>Simplify visuals</h3>
+                <p class="muted">Show what users need without forcing every page to query everything.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="symptoms" class="article-section">
+            <h2>Common signs your Power BI report needs optimization</h2>
+            <p>
+              People usually search for Power BI optimization after they already feel the pain. The symptoms are easy to recognize:
+            </p>
+            <ul>
+              <li>The report takes a long time to open.</li>
+              <li>Slicers are slow or freeze when users click them.</li>
+              <li>Tables and matrix visuals spin for several seconds.</li>
+              <li>Power BI Desktop becomes heavy while editing.</li>
+              <li>Scheduled refresh takes too long or fails.</li>
+              <li>Users complain that the dashboard is too slow to use in meetings.</li>
+            </ul>
+            <div class="callout">
+              <strong>Important:</strong> slow Power BI performance is rarely solved by one trick. Usually, you need to improve the model,
+              DAX, relationships, visual design, and refresh process together.
+            </div>
+          </section>
+
+          <section id="fixes" class="article-section">
+            <h2>Practical ways to make Power BI reports faster</h2>
+
+            <h3>1. Remove columns you do not use</h3>
+            <p>
+              Every column has a cost. If a column is not used for filtering, grouping, relationships, calculations, security, or reporting,
+              remove it from the model. This is one of the simplest ways to reduce file size and improve refresh speed.
+            </p>
+            <p>
+              Common columns to remove include raw notes, audit text, unused timestamps, duplicate descriptions, technical fields,
+              and columns that were imported just because they existed in the source.
+            </p>
+
+            <h3>2. Reduce rows when full history is not needed</h3>
+            <p>
+              Do not load ten years of transaction detail if the report only needs the last three years. Keep the historical data that supports decisions,
+              but avoid loading all available data by default.
+            </p>
+
+            <h3>3. Use numeric IDs instead of text keys</h3>
+            <p>
+              Relationship columns should be as efficient as possible. Integer IDs usually perform better than long text values,
+              especially in large fact tables. For example, relate tables by <code>CustomerID</code> instead of customer name,
+              and by <code>ProductID</code> instead of product description.
+            </p>
+            <p>
+              Text fields are still useful for display, filtering, and labels. They just should not be the heavy relationship key when a clean numeric ID exists.
+            </p>
+
+            <h3>4. Build a star schema</h3>
+            <p>
+              A star schema separates fact tables from dimension tables. Fact tables store events or transactions, such as sales, orders, shipments,
+              payments, or inventory movements. Dimension tables store descriptive fields, such as date, customer, product, region, or sales rep.
+            </p>
+            <p>
+              This structure helps Power BI filter and summarize data more efficiently. It also makes reports easier to understand and maintain.
+            </p>
+
+            <div class="comparison-table" role="table" aria-label="Power BI optimization checklist">
+              <div class="comparison-row comparison-head" role="row">
+                <div role="columnheader">Problem</div>
+                <div role="columnheader">Better approach</div>
+                <div role="columnheader">Why it helps</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Large flat table</div>
+                <div role="cell">Fact table plus dimensions</div>
+                <div role="cell">Cleaner filters, simpler relationships, better usability</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Text relationship keys</div>
+                <div role="cell">Numeric IDs</div>
+                <div role="cell">Lower model size and more efficient filtering</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Many calculated columns</div>
+                <div role="cell">Power Query, SQL, or measures</div>
+                <div role="cell">Better compression and refresh behavior</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Crowded report pages</div>
+                <div role="cell">Focused pages and drillthrough</div>
+                <div role="cell">Fewer visual queries at load time</div>
+              </div>
+            </div>
+
+            <h3>5. Limit visuals on each report page</h3>
+            <p>
+              Every visual sends queries to the model. A report page with 20 visuals, multiple slicers, and large table visuals can feel slow even if the model is decent.
+              Split dense pages into focused pages, use drillthrough for details, and avoid showing large tables by default.
+            </p>
+
+            <h3>6. Filter large table visuals</h3>
+            <p>
+              Tables and matrix visuals can be expensive when they try to show too many rows. Use Top N filters, required slicers,
+              summary pages, or drillthrough pages so users only load the detail they need.
+            </p>
+          </section>
+
+          <section id="dax" class="article-section">
+            <h2>DAX optimization: measures, calculated columns, and formulas</h2>
+
+            <h3>Avoid too many DAX calculated columns</h3>
+            <p>
+              DAX calculated columns are stored in the model. If you create many of them, especially on large fact tables,
+              the model can become larger and refresh can become slower.
+            </p>
+            <p>
+              When possible, create columns earlier in the process: in the source database, SQL view, data warehouse, or Power Query.
+              Keep DAX calculated columns for cases where DAX is truly the right tool.
+            </p>
+
+            <h3>Use measures for aggregations</h3>
+            <p>
+              Measures are usually the right place for business calculations that aggregate data, such as total sales, gross margin,
+              average order value, conversion rate, year-over-year growth, and forecast variance.
+            </p>
+            <p>
+              Measures calculate at query time based on the filter context of the visual. That makes them flexible and reusable across report pages.
+            </p>
+
+            <h3>Write measures that match the business question</h3>
+            <p>
+              Slow DAX often comes from formulas that do more work than the visual needs. Avoid repeating the same expensive expression in multiple measures.
+              Use variables when they make the formula clearer and prevent repeated calculation logic.
+            </p>
+
+            <div class="callout">
+              <strong>Rule of thumb:</strong> use calculated columns for row-level attributes you need to store, and use measures for aggregations,
+              KPIs, ratios, comparisons, and business metrics that respond to filters.
+            </div>
+          </section>
+
+          <section id="relationships" class="article-section">
+            <h2>Relationship mistakes that make Power BI reports slow</h2>
+
+            <h3>Too many heavy relationships</h3>
+            <p>
+              A model with many tables and many relationships can become difficult for Power BI to evaluate and difficult for report builders to understand.
+              Keep relationships intentional. If a table is not needed for reporting, remove it or keep it out of the model.
+            </p>
+
+            <h3>Many-to-many relationships used too casually</h3>
+            <p>
+              Many-to-many relationships have valid use cases, but they are often a sign that the model needs a bridge table,
+              cleaner dimensions, or a better fact table design. Direct many-to-many relationships can also create confusing totals.
+            </p>
+
+            <h3>Bi-directional filters everywhere</h3>
+            <p>
+              Bi-directional filtering can solve specific modeling problems, but using it everywhere can make models harder to reason about.
+              Prefer simple one-to-many relationships where dimensions filter facts.
+            </p>
+
+            <h3>Relationship columns visible to users</h3>
+            <p>
+              Numeric ID columns are useful for relationships, but users usually do not need to see them in reports.
+              Hide technical relationship columns and expose business-friendly names from dimension tables.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>A practical Power BI performance checklist</h2>
+            <div class="sign-grid">
+              <div class="card sign-card">
+                <h3>Model size</h3>
+                <p class="muted">Remove unused columns, reduce history, disable unnecessary loads, and avoid importing raw data nobody uses.</p>
+              </div>
+              <div class="card sign-card">
+                <h3>Relationships</h3>
+                <p class="muted">Use numeric keys, star schema design, one-to-many relationships, and bridge tables when needed.</p>
+              </div>
+              <div class="card sign-card">
+                <h3>DAX</h3>
+                <p class="muted">Use measures for KPIs, avoid excessive calculated columns, and simplify formulas that run on every visual.</p>
+              </div>
+              <div class="card sign-card">
+                <h3>Report pages</h3>
+                <p class="muted">Limit visuals, filter large tables, use drillthrough pages, and avoid making every page do everything.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="faq" class="article-section">
+            <h2>Frequently asked questions</h2>
+            <div class="faq-list">
+              {faq.map((item) => (
+                <details class="faq-item">
+                  <summary>{item.question}</summary>
+                  <p>{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+
+          <section class="article-section">
+            <h2>Bottom line</h2>
+            <p>
+              If a Power BI report is slow, start with the model. Reduce what you load, use the right table structure,
+              simplify relationships, and make DAX measures intentional. Then clean up the report pages so each visual has a clear reason to exist.
+            </p>
+            <p>
+              A fast Power BI report is not just more pleasant to use. It increases trust, reduces meeting friction, and helps teams actually use the dashboard.
+            </p>
+          </section>
+
+          <section class="article-cta">
+            <div>
+              <h2>Need help fixing a slow Power BI report?</h2>
+              <p class="muted">
+                WILLDUET helps teams clean up Power BI models, improve DAX, redesign relationships, and build dashboards that load faster.
+              </p>
+            </div>
+            <a class="btn btn-primary" href="/contact/">Optimize your Power BI report</a>
+          </section>
+
+          <section class="article-section related-posts">
+            <div class="related-head">
+              <h2>Related posts</h2>
+              <p class="muted">Keep reading practical guides on automated reporting, data warehouses, and analytics foundations.</p>
+            </div>
+            <div class="related-grid">
+              {relatedPosts.map((post) => (
+                <a class="card related-card" href={post.href}>
+                  <img src={post.image} alt="" loading="lazy" decoding="async" />
+                  <div class="related-card-body">
+                    <span>{post.category}</span>
+                    <h3>{post.title}</h3>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+
+          <section class="article-section sources">
+            <h2>Further reading</h2>
+            <p class="muted">
+              For technical background, see Microsoft guidance on Power BI optimization, star schema modeling, and import model data reduction.
+            </p>
+            <div class="source-links">
+              <a href="https://learn.microsoft.com/en-us/power-bi/guidance/power-bi-optimization" target="_blank" rel="noopener">Microsoft Learn: Power BI optimization</a>
+              <a href="https://learn.microsoft.com/en-us/power-bi/guidance/star-schema" target="_blank" rel="noopener">Microsoft Learn: Star schema</a>
+              <a href="https://learn.microsoft.com/en-us/power-bi/guidance/import-modeling-data-reduction" target="_blank" rel="noopener">Microsoft Learn: Data reduction</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .blog-article-hero{
+    border-bottom: 1px solid var(--border);
+    background:
+      linear-gradient(115deg, rgba(7,22,44,.94), rgba(7,22,44,.66)),
+      url("/bi.webp") center/cover no-repeat;
+  }
+  .blog-article-hero-inner{
+    padding: clamp(54px, 7vw, 92px) 0;
+    max-width: 940px;
+  }
+  .blog-kicker{
+    display: inline-flex;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.18);
+    color: var(--muted);
+    font-weight: 800;
+    font-size: 13px;
+    background: rgba(255,255,255,.04);
+  }
+  .blog-article-hero h1{
+    margin: 16px 0 14px;
+    max-width: 920px;
+    font-size: clamp(36px, 5.2vw, 64px);
+    line-height: 1.02;
+    letter-spacing: .01em;
+  }
+  .blog-article-hero p{
+    margin: 0;
+    max-width: 760px;
+    font-size: clamp(16px, 1.25vw, 20px);
+    line-height: 1.7;
+  }
+  .blog-article-meta{
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .blog-article-meta span + span::before{
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-right: 12px;
+    border-radius: 999px;
+    background: var(--primary);
+    vertical-align: middle;
+  }
+  .article-layout{
+    display: grid;
+    gap: 26px;
+    padding: 38px 0 46px;
+  }
+  .article-main{ min-width: 0; }
+  .article-image{
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.18);
+    box-shadow: var(--shadow);
+    margin-bottom: 26px;
+  }
+  .article-section{ padding: 0 0 28px; }
+  .article-section h2{
+    margin: 0 0 12px;
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.16;
+  }
+  .article-section h3{
+    margin: 22px 0 8px;
+    font-size: 20px;
+    line-height: 1.25;
+  }
+  .article-section p,
+  .article-section li{
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.75;
+  }
+  .article-section p{ margin: 0 0 14px; }
+  .article-section ul{
+    margin: 0 0 18px;
+    padding-left: 22px;
+  }
+  code{
+    padding: 2px 5px;
+    border-radius: 6px;
+    background: rgba(255,255,255,.08);
+    color: #eaf2ff;
+  }
+  .callout{
+    margin: 18px 0 0;
+    padding: 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(8,167,255,.28);
+    background: rgba(8,167,255,.08);
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .process-grid,
+  .sign-grid{
+    display: grid;
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .process-card,
+  .sign-card{ padding: 18px; }
+  .process-card span{
+    display: inline-grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 12px;
+    border-radius: 999px;
+    background: rgba(8,167,255,.16);
+    color: #7ad8ff;
+    font-weight: 900;
+  }
+  .process-card h3,
+  .process-card p,
+  .sign-card h3,
+  .sign-card p{ margin: 0; }
+  .process-card h3,
+  .sign-card h3{ margin-bottom: 8px; }
+  .comparison-table{
+    display: grid;
+    margin: 22px 0 0;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+  }
+  .comparison-row{
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--border);
+  }
+  .comparison-row:first-child{ border-top: 0; }
+  .comparison-row > div{
+    padding: 14px;
+    color: var(--muted);
+    line-height: 1.5;
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+  .comparison-row > div:first-child{
+    border-top: 0;
+    color: var(--text);
+    font-weight: 800;
+  }
+  .comparison-head{ background: rgba(8,167,255,.12); }
+  .comparison-head > div{
+    color: var(--text);
+    font-weight: 900;
+  }
+  .faq-list{
+    display: grid;
+    gap: 10px;
+  }
+  .faq-item{
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(255,255,255,.03);
+    padding: 16px 18px;
+  }
+  .faq-item summary{
+    cursor: pointer;
+    font-weight: 800;
+    line-height: 1.4;
+  }
+  .faq-item p{ margin: 12px 0 0; }
+  .article-cta{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin: 8px 0 30px;
+    padding: 22px;
+    border-radius: 18px;
+    border: 1px solid rgba(8,167,255,.28);
+    background: rgba(8,167,255,.08);
+  }
+  .article-cta h2,
+  .article-cta p{ margin: 0; }
+  .article-cta h2{ margin-bottom: 8px; }
+  .related-posts{
+    padding-bottom: 30px;
+  }
+  .related-head{
+    display: grid;
+    gap: 4px;
+    margin-bottom: 14px;
+  }
+  .related-head h2,
+  .related-head p{
+    margin: 0;
+  }
+  .related-grid{
+    display: grid;
+    gap: 12px;
+  }
+  .related-card{
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 118px 1fr;
+  }
+  .related-card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .25s ease, filter .25s ease;
+  }
+  .related-card:hover img,
+  .related-card:focus-visible img{
+    transform: scale(1.04);
+    filter: brightness(1.08);
+  }
+  .related-card-body{
+    display: grid;
+    gap: 6px;
+    padding: 12px;
+  }
+  .related-card-body span{
+    color: #7ad8ff;
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .related-card-body h3{
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.22;
+  }
+  .sources{
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+  .source-links{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .source-links a{
+    display: inline-flex;
+    padding: 9px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: #7ad8ff;
+    font-weight: 800;
+    font-size: 14px;
+  }
+  .article-toc{ display: none; }
+  .toc-card{
+    position: sticky;
+    top: calc(var(--header-height) + 22px);
+    display: grid;
+    gap: 10px;
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.03);
+  }
+  .toc-title{ font-weight: 900; }
+  .toc-card a{
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .toc-card a:hover{ color: #7ad8ff; }
+
+  @media (min-width: 760px){
+    .comparison-row{ grid-template-columns: .7fr 1fr 1fr; }
+    .comparison-row > div{
+      border-top: 0;
+      border-left: 1px solid rgba(255,255,255,.08);
+    }
+    .comparison-row > div:first-child{ border-left: 0; }
+    .process-grid,
+    .sign-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .related-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (min-width: 1080px){
+    .article-layout{
+      grid-template-columns: 240px minmax(0, 1fr);
+      align-items: start;
+    }
+    .article-toc{ display: block; }
+  }
+</style>

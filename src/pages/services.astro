@@ -65,7 +65,9 @@ const structuredData = {
       <section class="section reveal section-band">
         <div class="split service-section">
           <div class="service-copy">
-            <h2 class="section-title">Business Intelligence</h2>
+            <h2 class="section-title">
+              <a class="service-title-link" href="/power-bi-consulting/">Business Intelligence</a>
+            </h2>
             <p class="muted">
               Get clear Power BI dashboards and reports that answer real business questions. We design KPI frameworks,
               improve report performance, and organize visuals so leaders can see what matters quickly.
@@ -74,14 +76,18 @@ const structuredData = {
               The result is faster decisions, less confusion around metrics, and reporting that teams actually use.
             </p>
           </div>
-          <img src="/bi.webp" alt="Business Intelligence dashboard with key KPIs and trends" class="service-image" loading="lazy" decoding="async" />
+          <a class="service-image-link" href="/power-bi-consulting/" aria-label="Open Business Intelligence service page">
+            <img src="/bi.webp" alt="Business Intelligence dashboard with key KPIs and trends" class="service-image" loading="lazy" decoding="async" />
+          </a>
         </div>
       </section>
 
       <section class="section reveal section-band alt">
         <div class="split reverse service-section">
           <div class="service-copy">
-            <h2 class="section-title">Data Engineering</h2>
+            <h2 class="section-title">
+              <a class="service-title-link" href="/data-engineering-consulting/">Data Engineering</a>
+            </h2>
             <p class="muted">
               We build and improve data pipelines that move data from source systems into clean, reliable analytics
               tables. This reduces manual work, broken reports, and delays.
@@ -90,14 +96,18 @@ const structuredData = {
               Your team gets structured data that is easier to maintain, easier to trust, and ready for reporting at scale.
             </p>
           </div>
-          <img src="/de.webp" alt="Data pipeline and project workflow planning" class="service-image" loading="lazy" decoding="async" />
+          <a class="service-image-link" href="/data-engineering-consulting/" aria-label="Open Data Engineering service page">
+            <img src="/de.webp" alt="Data pipeline and project workflow planning" class="service-image" loading="lazy" decoding="async" />
+          </a>
         </div>
       </section>
 
       <section class="section reveal section-band">
         <div class="split service-section">
           <div class="service-copy">
-            <h2 class="section-title">Analytics Engineering</h2>
+            <h2 class="section-title">
+              <a class="service-title-link" href="/analytics-engineering-consulting/">Analytics Engineering</a>
+            </h2>
             <p class="muted">
               We organize business logic into documented, reusable data models so your numbers stay consistent
               across dashboards, teams, and departments.
@@ -106,14 +116,18 @@ const structuredData = {
               With strong modeling and testing practices, analytics becomes more reliable and easier to scale.
             </p>
           </div>
-          <img src="/ae.webp" alt="Analytics engineering planning and model documentation" class="service-image" loading="lazy" decoding="async" />
+          <a class="service-image-link" href="/analytics-engineering-consulting/" aria-label="Open Analytics Engineering service page">
+            <img src="/ae.webp" alt="Analytics engineering planning and model documentation" class="service-image" loading="lazy" decoding="async" />
+          </a>
         </div>
       </section>
 
       <section class="section reveal section-band alt" style="margin-bottom:16px;">
         <div class="split reverse service-section">
           <div class="service-copy">
-            <h2 class="section-title">Power BI Training</h2>
+            <h2 class="section-title">
+              <a class="service-title-link" href="/power-bi-training/">Power BI Training</a>
+            </h2>
             <p class="muted">
               We train teams and professionals to use Power BI with confidence, from fundamentals to advanced
               modeling and DAX.
@@ -123,37 +137,84 @@ const structuredData = {
             </p>
             <a class="btn btn-primary" href="/contact">Ask about training</a>
           </div>
-          <img src="/training.webp" alt="Power BI training session with collaborative team learning" class="service-image" loading="lazy" decoding="async" />
+          <a class="service-image-link" href="/power-bi-training/" aria-label="Open Power BI Training service page">
+            <img src="/training.webp" alt="Power BI training session with collaborative team learning" class="service-image" loading="lazy" decoding="async" />
+          </a>
         </div>
       </section>
 
-      <section class="section reveal section-band" style="margin-bottom:16px;">
-        <h2 class="section-title">Explore focused service pages</h2>
-        <div class="grid grid-3">
-          <a class="card" href="/power-bi-consulting/" style="padding:18px;">
-            <h3 style="margin:0 0 8px;">Power BI Consulting</h3>
-            <p class="muted" style="margin:0;line-height:1.6;">Strategy, modeling, reporting cleanup, and dashboard improvement.</p>
-          </a>
-          <a class="card" href="/power-bi-dashboard-development/" style="padding:18px;">
-            <h3 style="margin:0 0 8px;">Power BI Dashboard Development</h3>
-            <p class="muted" style="margin:0;line-height:1.6;">Custom dashboards for executive, sales, finance, and operations reporting.</p>
-          </a>
-          <a class="card" href="/data-engineering-consulting/" style="padding:18px;">
-            <h3 style="margin:0 0 8px;">Data Engineering Consulting</h3>
-            <p class="muted" style="margin:0;line-height:1.6;">Pipelines and clean analytics tables for reliable BI.</p>
-          </a>
-          <a class="card" href="/analytics-engineering-consulting/" style="padding:18px;">
-            <h3 style="margin:0 0 8px;">Analytics Engineering Consulting</h3>
-            <p class="muted" style="margin:0;line-height:1.6;">Reusable models, documented metrics, and better reporting logic.</p>
-          </a>
-          <a class="card" href="/power-bi-training/" style="padding:18px;">
-            <h3 style="margin:0 0 8px;">Power BI Training</h3>
-            <p class="muted" style="margin:0;line-height:1.6;">Practical Power BI training for US teams and professionals.</p>
-          </a>
-        </div>
-      </section>
     </div>
   </main>
 
   <Footer />
 </BaseLayout>
+
+<style>
+  .service-title-link{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: underline;
+    text-decoration-color: rgba(122,216,255,.45);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 7px;
+    transition: color .2s ease, text-decoration-color .2s ease;
+  }
+  .service-title-link::after{
+    content: "→";
+    color: var(--primary);
+    font-size: .78em;
+    transform: translateX(0);
+    transition: transform .2s ease;
+  }
+  .service-title-link:hover,
+  .service-title-link:focus-visible{
+    color: #7ad8ff;
+    text-decoration-color: #7ad8ff;
+  }
+  .service-title-link:hover::after,
+  .service-title-link:focus-visible::after{
+    transform: translateX(4px);
+  }
+  .service-image-link{
+    position: relative;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 18px;
+  }
+  .service-image-link::after{
+    content: "View service";
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    padding: 9px 12px;
+    border-radius: 999px;
+    background: rgba(7,22,44,.86);
+    border: 1px solid rgba(255,255,255,.24);
+    color: #eaf2ff;
+    font-size: 13px;
+    font-weight: 800;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  .service-image-link .service-image{
+    transition: transform .25s ease, filter .25s ease;
+  }
+  .service-image-link:hover .service-image,
+  .service-image-link:focus-visible .service-image{
+    transform: scale(1.035);
+    filter: brightness(1.08);
+  }
+  .service-image-link:hover::after,
+  .service-image-link:focus-visible::after{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .service-image-link:focus-visible,
+  .service-title-link:focus-visible{
+    outline: 3px solid rgba(122,216,255,.75);
+    outline-offset: 4px;
+  }
+</style>

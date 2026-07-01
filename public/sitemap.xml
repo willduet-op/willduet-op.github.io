@@ -9,6 +9,22 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://willduet.com/blogs/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://willduet.com/blogs/database-vs-data-warehouse/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://willduet.com/blogs/how-to-create-automated-business-reports/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://willduet.com/blogs/how-to-optimize-slow-power-bi-reports/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://willduet.com/contact/</loc>
     <priority>0.7</priority>
   </url>
