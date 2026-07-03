@@ -1,0 +1,336 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const title = "Choose a Power BI Implementation Partner | WILLDUET";
+const description =
+  "Learn how to choose a Power BI implementation partner by evaluating experience, architecture, governance, performance, security, support, fit, and rollout.";
+const publishDate = "2026-07-03";
+const canonicalPath = "/blogs/power-bi-implementation-partner/";
+const image = "/blogs/power-bi-implementation-partner.webp";
+const excerpt =
+  "A business-focused guide to choosing a Power BI implementation partner for scalable dashboards, clean models, governance, and support.";
+
+const faq = [
+  {
+    question: "What does a Power BI implementation partner do?",
+    answer:
+      "A Power BI implementation partner helps plan, design, build, deploy, secure, optimize, document, and support Power BI reporting solutions.",
+  },
+  {
+    question: "What should I ask a Power BI partner before hiring them?",
+    answer:
+      "Ask about similar projects, data modeling approach, performance tuning, governance, security, documentation, training, and post-launch support.",
+  },
+  {
+    question: "Should a Power BI partner understand data engineering?",
+    answer:
+      "Yes. Many reporting problems come from source systems, data quality, SQL, pipelines, or warehouses, not the visual layer alone.",
+  },
+  {
+    question: "How important is Power BI performance experience?",
+    answer:
+      "It is very important. A report that is slow or unreliable will not be adopted, even if the design looks good.",
+  },
+  {
+    question: "Should the partner provide documentation?",
+    answer:
+      "Yes. Documentation should cover data sources, KPI definitions, refresh schedules, security roles, assumptions, and support notes.",
+  },
+  {
+    question: "Is industry experience required?",
+    answer:
+      "Industry experience helps, but strong discovery, data modeling, and business analysis skills matter more than generic industry claims.",
+  },
+];
+
+const relatedPosts = [
+  {
+    title: "Power BI Implementation: A Complete Guide for Businesses",
+    href: "/blogs/power-bi-implementation-guide/",
+    image: "/blogs/power-bi-implementation-guide.webp",
+    category: "Power BI implementation",
+  },
+  {
+    title: "7 Common Power BI Implementation Mistakes",
+    href: "/blogs/power-bi-implementation-challenges/",
+    image: "/blogs/7-common-power-bi-implementation-mistakes.webp",
+    category: "Implementation challenges",
+  },
+  {
+    title: "How Much Does Power BI Implementation Cost?",
+    href: "/blogs/power-bi-implementation-cost/",
+    image: "/blogs/power-bi-implementation-cost.webp",
+    category: "Implementation cost",
+  },
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: "How to Choose the Right Power BI Implementation Partner",
+    description,
+    image: `https://willduet.com${image}`,
+    datePublished: publishDate,
+    dateModified: publishDate,
+    author: { "@type": "Organization", name: "WILLDUET", url: "https://willduet.com/" },
+    publisher: {
+      "@type": "Organization",
+      name: "WILLDUET",
+      logo: { "@type": "ImageObject", url: "https://willduet.com/logo-willduet-sin-fondo.png" },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://willduet.com${canonicalPath}` },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonicalPath={canonicalPath} image={image} structuredData={structuredData}>
+  <Header />
+  <main>
+    <article>
+      <section class="blog-article-hero reveal">
+        <div class="container blog-article-hero-inner">
+          <div class="blog-kicker">Power BI consulting</div>
+          <h1>How to Choose the Right Power BI Implementation Partner</h1>
+          <p class="muted">
+            A Power BI implementation partner should do more than build charts. The right partner helps you make decisions about data, architecture, performance, governance, security, and adoption.
+          </p>
+          <div class="blog-article-meta"><span>Published July 3, 2026</span><span>10 min read</span></div>
+        </div>
+      </section>
+
+      <div class="container article-layout">
+        <aside class="article-toc" aria-label="Article sections">
+          <div class="toc-card">
+            <div class="toc-title">In this article</div>
+            <a href="#role">Partner role</a>
+            <a href="#criteria">Evaluation criteria</a>
+            <a href="#questions">Questions to ask</a>
+            <a href="#red-flags">Red flags</a>
+            <a href="#faq">FAQ</a>
+          </div>
+        </aside>
+
+        <div class="article-main">
+          <img class="article-image" src={image} alt="Choosing a Power BI implementation partner for business intelligence dashboards" loading="eager" decoding="async" />
+
+          <section id="role" class="article-section">
+            <h2>What a Power BI implementation partner should provide</h2>
+            <p>
+              The right Power BI implementation partner helps translate business reporting needs into a durable BI solution. That means understanding the business questions, evaluating data sources, designing a model, building dashboards, securing access, deploying reports, training users, and supporting improvements after launch.
+            </p>
+            <p>
+              A partner should also know when Power BI is not the only issue. If dashboards are slow because the SQL queries are inefficient, or metrics do not match because the data is not modeled consistently, the solution may require data engineering, SQL Server tuning, or a warehouse layer.
+            </p>
+          </section>
+
+          <section id="criteria" class="article-section">
+            <h2>How to evaluate a Power BI implementation partner</h2>
+            <h3>Experience with business reporting</h3>
+            <p>
+              Ask whether the partner has built reports for leadership, finance, operations, sales, or BI teams. The specific industry can help, but the more important question is whether they understand management reporting and decision support.
+            </p>
+
+            <h3>Architecture and data modeling knowledge</h3>
+            <p>
+              Good Power BI work depends on strong models. The partner should be able to discuss semantic models, star schemas, relationships, DAX measures, SQL views, Power Query, dataflows, gateways, and workspace design in plain English.
+            </p>
+
+            <h3>Performance optimization skills</h3>
+            <p>
+              Power BI performance matters because slow reports reduce adoption. Ask how the partner diagnoses slow dashboards. A strong answer should include model size, relationships, DAX, visual count, DirectQuery tradeoffs, and source system performance.
+            </p>
+
+            <h3>Governance approach</h3>
+            <p>
+              Governance protects the reporting environment from becoming a collection of disconnected dashboards. The partner should help define workspaces, ownership, app distribution, certified semantic models, permissions, and deployment rules.
+            </p>
+
+            <h3>Security design</h3>
+            <p>
+              Security includes more than hiding a page. It may involve workspace roles, app audiences, Microsoft Entra groups, row-level security, export controls, and gateway access. The partner should test security with real user scenarios.
+            </p>
+
+            <h3>Documentation and training</h3>
+            <p>
+              Documentation should explain sources, transformations, KPI definitions, refresh schedules, security roles, and known assumptions. Training should use the actual dashboards and show people how to answer business questions.
+            </p>
+
+            <h3>Post-launch support</h3>
+            <p>
+              Reports change as the business changes. New fields are added, source systems change, leadership asks for new views, and performance may need tuning. Choose a partner who can support the system after the initial launch.
+            </p>
+          </section>
+
+          <section id="questions" class="article-section">
+            <h2>Questions to ask before hiring a Power BI implementation partner</h2>
+            <div class="comparison-table" role="table" aria-label="Power BI implementation partner evaluation questions">
+              <div class="comparison-row comparison-head" role="row">
+                <div role="columnheader">Question</div>
+                <div role="columnheader">What a strong answer includes</div>
+                <div role="columnheader">Why it matters</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">How do you start a Power BI project?</div>
+                <div role="cell">Requirements, users, decisions, data discovery, and KPI definitions.</div>
+                <div role="cell">Prevents dashboards that look good but miss the business need.</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">How do you design the model?</div>
+                <div role="cell">Fact tables, dimensions, measures, relationships, and reuse.</div>
+                <div role="cell">Determines performance, maintainability, and trust.</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">How do you handle poor data quality?</div>
+                <div role="cell">Profiling, cleansing rules, validation, and ownership.</div>
+                <div role="cell">Avoids disputes over numbers after launch.</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">What happens after deployment?</div>
+                <div role="cell">Training, documentation, support, monitoring, and enhancements.</div>
+                <div role="cell">Keeps the solution useful after the first release.</div>
+              </div>
+            </div>
+          </section>
+
+          <section id="red-flags" class="article-section">
+            <h2>Red flags when choosing a Power BI implementation partner</h2>
+            <ul>
+              <li>They focus only on visual design and do not ask about data sources.</li>
+              <li>They cannot explain their data modeling approach clearly.</li>
+              <li>They promise exact pricing before seeing the data or requirements.</li>
+              <li>They ignore security until the end of the project.</li>
+              <li>They do not provide documentation or training.</li>
+              <li>They cannot explain how they troubleshoot slow Power BI reports.</li>
+              <li>They treat every problem as a dashboard problem instead of a data and process problem.</li>
+            </ul>
+            <p>
+              If your business is comparing vendors, it may help to first read the broader <a href="/blogs/power-bi-implementation-guide/">Power BI implementation guide</a> and the list of common <a href="/blogs/power-bi-implementation-challenges/">Power BI implementation challenges</a>.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>What a good partner should do in the first phase</h2>
+            <p>
+              The first phase should not jump straight into dashboard design. It should clarify the reporting problem, identify stakeholders, inspect source data, document KPIs, and agree on a realistic implementation plan. This phase is where the partner should expose risk before it becomes expensive.
+            </p>
+            <p>
+              For example, a finance leader may request an executive dashboard, but discovery may show that revenue is calculated differently in the CRM, accounting system, and spreadsheet used for board reporting. A good partner will not hide that issue. They will define the options, explain the tradeoffs, and help the business choose the source of truth.
+            </p>
+
+            <h3>Discovery and requirements</h3>
+            <p>
+              Requirements should include more than a list of visuals. The partner should ask who uses the report, what decision it supports, how often it is reviewed, what filters matter, which metrics are disputed, and what data security is required. This is where business decision-makers should be involved directly.
+            </p>
+
+            <h3>Technical assessment</h3>
+            <p>
+              The partner should inspect the source systems and identify whether the requested reports can be built from the available data. This may include reviewing SQL tables, spreadsheet structure, ERP exports, CRM fields, refresh limitations, gateways, and data volume. If the source data is not ready, the partner should explain whether the fix belongs in Power Query, SQL, a data pipeline, or a warehouse.
+            </p>
+
+            <h3>Implementation roadmap</h3>
+            <p>
+              A useful roadmap identifies what will be built first, what will wait, what assumptions need validation, and what the business must provide. It should also define the handoff: documentation, training, support, and ownership after launch.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>How to compare Power BI partners fairly</h2>
+            <p>
+              Comparing proposals can be difficult because each partner may define scope differently. One proposal may include data modeling, security, training, and documentation. Another may only include dashboard pages. The cheaper proposal is not necessarily lower cost if it excludes the work needed for a reliable rollout.
+            </p>
+            <p>
+              Ask each partner to separate the scope into discovery, data preparation, modeling, dashboard development, testing, deployment, training, and support. This makes proposals easier to compare and helps you avoid paying later for work that should have been included from the start.
+            </p>
+            <p>
+              Also ask how the partner handles change requests. BI projects often evolve as stakeholders see the first version. A practical partner will expect feedback, but they should still protect the project from uncontrolled scope growth.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>What to expect from a strong implementation handoff</h2>
+            <p>
+              A Power BI implementation should not end with a dashboard link. A strong handoff gives the client enough knowledge to operate the solution. That does not mean every user becomes a developer. It means the business knows what was built, how it refreshes, who owns it, and how to request changes.
+            </p>
+            <p>
+              A practical handoff includes a walkthrough of the report, explanation of KPI definitions, documentation of data sources, refresh schedule, security roles, known limitations, and maintenance notes. For technical owners, it should include how the semantic model is structured, where transformations happen, and how to troubleshoot common refresh issues.
+            </p>
+            <p>
+              Training should be tailored by audience. Executives need to understand the metrics and how to navigate the dashboard. Managers need to use filters, drillthrough, and exception views. Analysts may need guidance on building from governed semantic models without duplicating logic.
+            </p>
+            <p>
+              The handoff is also the right time to define next steps. Some projects move into support. Others move into phase two, where additional dashboards, new data sources, or performance improvements are added. A good partner should leave the system stable and the roadmap clear.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>Decision checklist for selecting a partner</h2>
+            <ul>
+              <li>Can the partner explain their implementation process clearly?</li>
+              <li>Do they ask about business decisions, not only dashboard visuals?</li>
+              <li>Can they handle data modeling, SQL, performance, and security?</li>
+              <li>Will they document KPI definitions, sources, and refresh logic?</li>
+              <li>Do they provide training and support after launch?</li>
+              <li>Can they explain what is included in scope and what is not?</li>
+            </ul>
+            <p>
+              The best partner is not always the one with the most polished demo. It is the one most likely to leave your business with reliable reporting, clear ownership, and a system your team can continue using.
+            </p>
+            <p>
+              This is especially important when Power BI becomes part of recurring executive, finance, sales, or operations reviews. The partner should build for use after the demo, not only for presentation during the sales process.
+            </p>
+            <p>
+              A good partner should also be comfortable saying when a request creates unnecessary complexity. Not every metric belongs on the first release, not every report needs near-real-time refresh, and not every data issue should be solved inside Power BI. That judgment protects the long-term quality of the implementation.
+            </p>
+            <p>
+              It also helps leadership understand tradeoffs before budget and timeline are committed.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>Conclusion: choosing a Power BI implementation partner</h2>
+            <p>
+              The right Power BI implementation partner should help your business build reporting that is trusted, secure, fast, and maintainable. Evaluate partners on architecture, data modeling, performance, governance, documentation, support, and their ability to explain technical tradeoffs in business language.
+            </p>
+            <p>
+              WillDuet helps organizations build Power BI dashboards, optimize slow reports, design robust models, improve reporting automation, and implement practical BI best practices.
+            </p>
+          </section>
+
+          <section class="article-cta">
+            <div><h2>Looking for a practical Power BI partner?</h2><p class="muted">WILLDUET helps teams implement Power BI with strong data models, clear dashboards, performance tuning, and support after launch.</p></div>
+            <a class="btn btn-primary" href="/contact/">Contact WillDuet</a>
+          </section>
+
+          <section id="faq" class="article-section">
+            <h2>Frequently asked questions</h2>
+            <div class="faq-list">{faq.map((item) => (<details class="faq-item"><summary>{item.question}</summary><p>{item.answer}</p></details>))}</div>
+          </section>
+
+          <section class="article-section related-posts">
+            <div class="related-head"><h2>Related posts</h2><p class="muted">More resources for implementation planning and partner evaluation.</p></div>
+            <div class="related-grid">{relatedPosts.map((post) => (<a class="card related-card" href={post.href}><img src={post.image} alt="" loading="lazy" decoding="async" /><div class="related-card-body"><span>{post.category}</span><h3>{post.title}</h3></div></a>))}</div>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .blog-article-hero{border-bottom:1px solid var(--border);background:linear-gradient(115deg,rgba(7,22,44,.94),rgba(7,22,44,.66)),url("/blogs/power-bi-implementation-partner.webp") center/cover no-repeat}.blog-article-hero-inner{padding:clamp(54px,7vw,92px) 0;max-width:940px}.blog-kicker{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:var(--muted);font-weight:800;font-size:13px;background:rgba(255,255,255,.04)}.blog-article-hero h1{margin:16px 0 14px;max-width:920px;font-size:clamp(36px,5.2vw,64px);line-height:1.02;letter-spacing:.01em}.blog-article-hero p{margin:0;max-width:760px;font-size:clamp(16px,1.25vw,20px);line-height:1.7}.blog-article-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;color:var(--muted);font-size:14px;font-weight:700}.blog-article-meta span+span:before{content:"";display:inline-block;width:5px;height:5px;margin-right:12px;border-radius:999px;background:var(--primary);vertical-align:middle}
+  .article-layout{display:grid;gap:26px;padding:38px 0 46px}.article-main{min-width:0}.article-image{width:100%;max-height:420px;object-fit:cover;border-radius:18px;border:1px solid rgba(255,255,255,.18);box-shadow:var(--shadow);margin-bottom:26px}.article-section{padding:0 0 28px}.article-section h2{margin:0 0 12px;font-size:clamp(24px,3vw,34px);line-height:1.16}.article-section h3{margin:22px 0 8px;font-size:20px;line-height:1.25}.article-section p,.article-section li{color:var(--muted);font-size:17px;line-height:1.75}.article-section p{margin:0 0 14px}.article-section ul{margin:0 0 18px;padding-left:22px}.article-section a{color:#7ad8ff;font-weight:800}.comparison-table{display:grid;margin:22px 0;overflow:hidden;border-radius:16px;border:1px solid var(--border)}.comparison-row{display:grid;border-top:1px solid var(--border)}.comparison-row:first-child{border-top:0}.comparison-row>div{padding:14px;color:var(--muted);line-height:1.5;border-top:1px solid rgba(255,255,255,.08)}.comparison-row>div:first-child{border-top:0;color:var(--text);font-weight:800}.comparison-head{background:rgba(8,167,255,.12)}.comparison-head>div{color:var(--text);font-weight:900}.faq-list{display:grid;gap:10px}.faq-item{border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.03);padding:16px 18px}.faq-item summary{cursor:pointer;font-weight:800;line-height:1.4}.faq-item p{margin:12px 0 0}.article-cta{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:8px 0 30px;padding:22px;border-radius:18px;border:1px solid rgba(8,167,255,.28);background:rgba(8,167,255,.08)}.article-cta h2,.article-cta p{margin:0}.article-cta h2{margin-bottom:8px}.related-head{display:grid;gap:4px;margin-bottom:14px}.related-head h2,.related-head p{margin:0}.related-grid{display:grid;gap:12px}.related-card{overflow:hidden;display:grid;grid-template-rows:118px 1fr}.related-card img{width:100%;height:100%;object-fit:cover}.related-card-body{display:grid;gap:6px;padding:12px}.related-card-body span{color:#7ad8ff;font-size:12px;font-weight:800}.related-card-body h3{margin:0;font-size:16px;line-height:1.22}.article-toc{display:none}.toc-card{position:sticky;top:calc(var(--header-height) + 22px);display:grid;gap:10px;padding:16px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,.03)}.toc-title{font-weight:900}.toc-card a{color:var(--muted);font-size:14px;line-height:1.4}.toc-card a:hover{color:#7ad8ff}
+  @media (min-width:760px){.comparison-row{grid-template-columns:.7fr 1fr 1fr}.comparison-row>div{border-top:0;border-left:1px solid rgba(255,255,255,.08)}.comparison-row>div:first-child{border-left:0}.related-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (min-width:1080px){.article-layout{grid-template-columns:240px minmax(0,1fr);align-items:start}.article-toc{display:block}}
+</style>

@@ -25,6 +25,30 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://willduet.com/blogs/power-bi-dashboard-best-practices/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://willduet.com/blogs/power-bi-implementation-challenges/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://willduet.com/blogs/power-bi-implementation-cost/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://willduet.com/blogs/power-bi-implementation-guide/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://willduet.com/blogs/power-bi-implementation-partner/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://willduet.com/blogs/power-bi-pro-vs-premium/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://willduet.com/contact/</loc>
     <priority>0.7</priority>
   </url>
