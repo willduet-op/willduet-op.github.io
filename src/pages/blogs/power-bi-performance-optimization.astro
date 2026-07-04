@@ -1,0 +1,301 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const title = "Power BI Performance Optimization | Willduet";
+const description =
+  "Power BI performance optimization guide with practical ways to speed up reports, models, DAX, visuals, refreshes, and DirectQuery for business users.";
+const publishDate = "2026-07-04";
+const canonicalPath = "/blogs/power-bi-performance-optimization/";
+const image = "/blogs/power-bi-performance-optimization.webp";
+const excerpt =
+  "Fifteen practical Power BI performance optimization techniques for faster dashboards, cleaner models, better DAX, and reliable refreshes.";
+
+const faq = [
+  {
+    question: "What is Power BI performance optimization?",
+    answer:
+      "Power BI performance optimization is the process of improving report load time, visual interaction, model size, DAX efficiency, refresh duration, and source query performance.",
+  },
+  {
+    question: "Why are my Power BI reports slow?",
+    answer:
+      "Slow Power BI reports often come from oversized models, too many visuals, inefficient DAX, poor relationships, DirectQuery misuse, high-cardinality columns, or slow source systems.",
+  },
+  {
+    question: "Should I use DirectQuery to make Power BI faster?",
+    answer:
+      "Not automatically. DirectQuery can be useful, but it depends on the source system and query design. Import mode is often faster for interactive reports when scheduled refresh is acceptable.",
+  },
+  {
+    question: "Does a star schema improve Power BI performance?",
+    answer:
+      "A star schema often improves usability, maintainability, and filtering performance because facts and dimensions are organized clearly.",
+  },
+  {
+    question: "When should a business contact a Power BI consultant for optimization?",
+    answer:
+      "Contact a Power BI consultant when dashboards are too slow for meetings, refreshes fail, DAX is hard to maintain, or the model has grown beyond the internal team’s capacity.",
+  },
+];
+
+const relatedPosts = [
+  {
+    title: "How to Optimize Slow Power BI Reports",
+    href: "/blogs/how-to-optimize-slow-power-bi-reports/",
+    image: "/bi.webp",
+    category: "Power BI performance",
+  },
+  {
+    title: "Power BI Dashboard Best Practices for Executive Reporting",
+    href: "/blogs/power-bi-dashboard-best-practices/",
+    image: "/blogs/power-bi-dashboard-best-practices.webp",
+    category: "Executive dashboards",
+  },
+  {
+    title: "Database vs Data Warehouse: What Is the Difference?",
+    href: "/blogs/database-vs-data-warehouse/",
+    image: "/de.webp",
+    category: "Data fundamentals",
+  },
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: "Power BI Performance Optimization: 15 Proven Ways to Speed Up Your Reports",
+    description,
+    image: `https://willduet.com${image}`,
+    datePublished: publishDate,
+    dateModified: publishDate,
+    author: { "@type": "Organization", name: "Willduet", url: "https://willduet.com/" },
+    publisher: {
+      "@type": "Organization",
+      name: "Willduet",
+      logo: { "@type": "ImageObject", url: "https://willduet.com/logo-willduet-sin-fondo.png" },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://willduet.com${canonicalPath}` },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonicalPath={canonicalPath} image={image} structuredData={structuredData}>
+  <Header />
+  <main>
+    <article>
+      <section class="blog-article-hero reveal">
+        <div class="container blog-article-hero-inner">
+          <div class="blog-kicker">Power BI optimization</div>
+          <h1>Power BI Performance Optimization: 15 Proven Ways to Speed Up Your Reports</h1>
+          <p class="muted">
+            Power BI performance optimization matters when reports are too slow for meetings, refreshes fail, or users stop trusting dashboards because every click takes too long.
+          </p>
+          <div class="blog-article-meta"><span>Published July 4, 2026</span><span>13 min read</span></div>
+        </div>
+      </section>
+
+      <div class="container article-layout">
+        <aside class="article-toc" aria-label="Article sections">
+          <div class="toc-card">
+            <div class="toc-title">In this article</div>
+            <a href="#why">Why reports slow down</a>
+            <a href="#ways">15 optimization ways</a>
+            <a href="#comparison">Import vs DirectQuery</a>
+            <a href="#examples">Business examples</a>
+            <a href="#faq">FAQ</a>
+          </div>
+        </aside>
+
+        <div class="article-main">
+          <img class="article-image" src={image} alt="Power BI performance optimization for faster reports models DAX and refreshes" loading="eager" decoding="async" />
+
+          <section id="why" class="article-section">
+            <h2>Why Power BI reports become slow</h2>
+            <p>
+              Power BI reports slow down when the model, calculations, visuals, refresh process, or source systems are doing more work than necessary. A dashboard that worked during a prototype may struggle once more data, users, pages, and measures are added.
+            </p>
+            <p>
+              Performance is a business issue, not just a technical issue. A slow executive dashboard interrupts meetings. A slow operations report delays action. A slow finance report pushes users back to Excel. Power BI optimization protects adoption.
+            </p>
+          </section>
+
+          <section id="ways" class="article-section">
+            <h2>Power BI performance optimization: 15 ways to speed up reports</h2>
+            <h3>1. Remove unused columns</h3>
+            <p>Every imported column adds model size. Remove columns that are not used for relationships, filtering, measures, security, or reporting.</p>
+            <h3>2. Reduce unnecessary rows</h3>
+            <p>Do not load ten years of detail if users only need three years. Keep history that supports decisions, not every available row by default.</p>
+            <h3>3. Use a star schema</h3>
+            <p>Organize fact and dimension tables clearly. A star schema usually improves filtering, usability, and maintainability.</p>
+            <h3>4. Use numeric keys for relationships</h3>
+            <p>Integer relationship keys are usually more efficient than long text fields. Use names for display, not as heavy relationship keys.</p>
+            <h3>5. Avoid unnecessary calculated columns</h3>
+            <p>Calculated columns are stored in the model. Create columns upstream in SQL, Power Query, or a warehouse when that is more efficient.</p>
+            <h3>6. Write focused DAX measures</h3>
+            <p>Measures should answer specific business questions. Avoid repeated expensive logic and use variables where they make formulas clearer.</p>
+            <h3>7. Limit visuals per page</h3>
+            <p>Every visual sends queries. Use focused pages, drillthrough, and detail pages instead of crowding everything onto one screen.</p>
+            <h3>8. Avoid large unfiltered table visuals</h3>
+            <p>Tables and matrices can be expensive. Use filters, Top N views, summary pages, and drillthrough for detail.</p>
+            <h3>9. Review slicer design</h3>
+            <p>Too many slicers on high-cardinality fields can slow interaction. Use practical filters that match how users make decisions.</p>
+            <h3>10. Test with Performance Analyzer</h3>
+            <p>Use Performance Analyzer to identify slow visuals, DAX queries, and rendering delays before users experience them.</p>
+            <h3>11. Optimize Power Query steps</h3>
+            <p>Remove unnecessary steps, keep query folding where possible, and avoid transformations that repeatedly process large datasets inefficiently.</p>
+            <h3>12. Move heavy logic upstream</h3>
+            <p>Complex joins, cleansing, and business rules may belong in SQL views, data pipelines, or a warehouse rather than inside every report.</p>
+            <h3>13. Use incremental refresh when appropriate</h3>
+            <p>Large fact tables may not need full refresh every time. Incremental refresh can reduce refresh duration when designed correctly.</p>
+            <h3>14. Be careful with DirectQuery</h3>
+            <p>DirectQuery depends on source performance. It can help in specific scenarios, but it can also make reports slower if the source is not optimized.</p>
+            <h3>15. Monitor refresh failures and usage</h3>
+            <p>Optimization is ongoing. Monitor refreshes, report usage, and user feedback so performance problems are caught early.</p>
+          </section>
+
+          <section id="comparison" class="article-section">
+            <h2>Import mode vs DirectQuery for performance</h2>
+            <div class="comparison-table" role="table" aria-label="Import mode vs DirectQuery comparison">
+              <div class="comparison-row comparison-head" role="row">
+                <div role="columnheader">Mode</div>
+                <div role="columnheader">Best fit</div>
+                <div role="columnheader">Performance risk</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Import</div>
+                <div role="cell">Interactive dashboards where scheduled refresh is acceptable.</div>
+                <div role="cell">Models can become large if unnecessary data is imported.</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">DirectQuery</div>
+                <div role="cell">Very large data, source-controlled data, or near-real-time requirements.</div>
+                <div role="cell">Slow source queries can make every report interaction slow.</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Composite</div>
+                <div role="cell">Mixed scenarios where some data is imported and some stays live.</div>
+                <div role="cell">More architecture complexity and testing requirements.</div>
+              </div>
+            </div>
+          </section>
+
+          <section id="examples" class="article-section">
+            <h2>Business examples of Power BI optimization</h2>
+            <p>
+              A finance dashboard may be slow because a large transaction table contains unused columns and many calculated columns. A sales dashboard may be slow because it uses DirectQuery against a CRM replica that is not indexed for analytics. An operations dashboard may be slow because a single page contains too many visuals and unfiltered detail tables.
+            </p>
+            <p>
+              In each case, the fix is different. Power BI performance optimization starts with diagnosis. For more tactical detail, see <a href="/blogs/how-to-optimize-slow-power-bi-reports/">how to optimize slow Power BI reports</a>. If performance issues come from source design, read <a href="/blogs/database-vs-data-warehouse/">database vs data warehouse</a>.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>When to contact a Power BI consultant for optimization</h2>
+            <p>
+              Contact a Power BI consultant when slow reports affect leadership meetings, refresh failures are frequent, the model is difficult to maintain, or internal teams cannot identify the bottleneck. Power BI consulting can help diagnose whether the issue is model design, DAX, visuals, SQL Server, DirectQuery, or data architecture.
+            </p>
+            <p>
+              Willduet helps businesses with Power BI optimization, dashboard development, SQL Server performance tuning, data engineering, and business intelligence consulting.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>How to diagnose Power BI performance problems</h2>
+            <p>
+              Optimization should start with diagnosis. If the report is slow to open, the model may be too large or the first page may contain too many expensive visuals. If slicers are slow, relationships, high-cardinality fields, or DAX measures may be the issue. If refresh fails, the problem may be credentials, gateway reliability, source query speed, or transformations that no longer fold.
+            </p>
+            <p>
+              Start with the user complaint and trace backward. Which page is slow? Which visual? Which filter selection? Does it happen in Desktop, the service, or both? Does it affect all users or only users under row-level security? These questions prevent teams from applying random fixes.
+            </p>
+
+            <h3>Separate model, report, and source problems</h3>
+            <p>
+              Model problems include large tables, unnecessary columns, poor relationships, and inefficient measures. Report problems include too many visuals, large tables, excessive slicers, and pages that try to answer too many questions. Source problems include slow SQL views, overloaded databases, unindexed DirectQuery sources, and data pipelines that run too late.
+            </p>
+            <p>
+              Each layer needs a different fix. Removing visuals will not solve a slow SQL query. Rewriting DAX will not solve a gateway outage. A Power BI consultant can help isolate the bottleneck when the internal team is not sure where the delay starts.
+            </p>
+
+            <h3>Optimize for the business workflow</h3>
+            <p>
+              Not every page needs the same performance target. A dashboard used in an executive meeting needs to open quickly and respond reliably. A detail page used by analysts can tolerate more complexity if it answers a deeper question. Optimization should prioritize the pages that support high-value decisions.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>Power BI optimization priorities for business leaders</h2>
+            <p>
+              Not every performance issue deserves the same level of effort. Start with reports that affect decisions, executives, customers, or high-volume operational work. A slow report used once a quarter may be less urgent than a dashboard reviewed every morning by operations managers.
+            </p>
+            <p>
+              Leaders should ask what the slow report is costing the business. Is it delaying meetings? Is it causing users to export data and maintain separate spreadsheets? Is it blocking adoption of automated reporting? Is it creating pressure on SQL Server or other source systems? These questions help prioritize optimization work.
+            </p>
+            <p>
+              A practical optimization plan often has three phases. First, stabilize the report by fixing obvious page and model issues. Second, improve the data model and DAX so the report is easier to maintain. Third, address upstream data architecture if the source systems or transformations are the real bottleneck.
+            </p>
+            <p>
+              This is why Power BI optimization often overlaps with data engineering and SQL Server performance tuning. The report is only the visible layer. If the model depends on slow views, messy spreadsheets, or repeated transformations, the long-term fix may be outside the report file.
+            </p>
+            <p>
+              Business leaders should also decide what level of performance is acceptable. A dashboard used by executives during a meeting should feel immediate. A complex analyst drillthrough page may have more tolerance. Defining expectations helps the BI team focus effort where it matters most.
+            </p>
+            <p>
+              After optimization, document what changed. If columns were removed, measures rewritten, or SQL logic moved upstream, future developers need to understand the decision. Otherwise, the same performance problems can return as reports evolve.
+            </p>
+            <p>
+              Optimization should also be measured after changes are made. Compare load time, refresh duration, and user feedback before and after the work. This helps leaders see whether the effort improved real business usability rather than only changing technical details.
+            </p>
+            <p>
+              The best optimization work leaves the report simpler than before. Users should see faster pages, clearer navigation, and fewer unnecessary details. Developers should inherit a model that is easier to extend without recreating the same performance issues.
+            </p>
+            <p>
+              Treat performance as a quality requirement for every important Power BI dashboard, not as cleanup work after complaints begin.
+            </p>
+            <p>
+              For executives and operational teams, fast reports protect decision speed. A dashboard that opens quickly, filters predictably, and refreshes reliably is more likely to become part of the daily management process.
+            </p>
+          </section>
+
+          <section class="article-cta">
+            <div><h2>Need faster Power BI reports?</h2><p class="muted">Willduet helps teams optimize Power BI models, DAX, report pages, refreshes, SQL queries, and dashboard performance.</p></div>
+            <a class="btn btn-primary" href="/contact/">Talk to Willduet</a>
+          </section>
+
+          <section class="article-section">
+            <h2>Conclusion: Power BI performance optimization</h2>
+            <p>
+              Power BI performance optimization requires attention to model size, relationships, DAX, visuals, refreshes, source systems, and user behavior. Faster reports improve trust and adoption. When reports are business-critical, optimization should be part of the Power BI implementation services plan, not an emergency fix after launch.
+            </p>
+          </section>
+
+          <section id="faq" class="article-section">
+            <h2>Frequently asked questions</h2>
+            <div class="faq-list">{faq.map((item) => (<details class="faq-item"><summary>{item.question}</summary><p>{item.answer}</p></details>))}</div>
+          </section>
+
+          <section class="article-section related-posts">
+            <div class="related-head"><h2>Related posts</h2><p class="muted">More resources for fast, reliable Power BI reporting.</p></div>
+            <div class="related-grid">{relatedPosts.map((post) => (<a class="card related-card" href={post.href}><img src={post.image} alt="" loading="lazy" decoding="async" /><div class="related-card-body"><span>{post.category}</span><h3>{post.title}</h3></div></a>))}</div>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .blog-article-hero{border-bottom:1px solid var(--border);background:linear-gradient(115deg,rgba(7,22,44,.94),rgba(7,22,44,.66)),url("/blogs/power-bi-performance-optimization.webp") center/cover no-repeat}.blog-article-hero-inner{padding:clamp(54px,7vw,92px) 0;max-width:940px}.blog-kicker{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:var(--muted);font-weight:800;font-size:13px;background:rgba(255,255,255,.04)}.blog-article-hero h1{margin:16px 0 14px;max-width:920px;font-size:clamp(36px,5.2vw,64px);line-height:1.02;letter-spacing:.01em}.blog-article-hero p{margin:0;max-width:760px;font-size:clamp(16px,1.25vw,20px);line-height:1.7}.blog-article-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;color:var(--muted);font-size:14px;font-weight:700}.blog-article-meta span+span:before{content:"";display:inline-block;width:5px;height:5px;margin-right:12px;border-radius:999px;background:var(--primary);vertical-align:middle}
+  .article-layout{display:grid;gap:26px;padding:38px 0 46px}.article-main{min-width:0}.article-image{width:100%;max-height:420px;object-fit:cover;border-radius:18px;border:1px solid rgba(255,255,255,.18);box-shadow:var(--shadow);margin-bottom:26px}.article-section{padding:0 0 28px}.article-section h2{margin:0 0 12px;font-size:clamp(24px,3vw,34px);line-height:1.16}.article-section h3{margin:22px 0 8px;font-size:20px;line-height:1.25}.article-section p,.article-section li{color:var(--muted);font-size:17px;line-height:1.75}.article-section p{margin:0 0 14px}.article-section ul{margin:0 0 18px;padding-left:22px}.article-section a{color:#7ad8ff;font-weight:800}.comparison-table{display:grid;margin:22px 0;overflow:hidden;border-radius:16px;border:1px solid var(--border)}.comparison-row{display:grid;border-top:1px solid var(--border)}.comparison-row:first-child{border-top:0}.comparison-row>div{padding:14px;color:var(--muted);line-height:1.5;border-top:1px solid rgba(255,255,255,.08)}.comparison-row>div:first-child{border-top:0;color:var(--text);font-weight:800}.comparison-head{background:rgba(8,167,255,.12)}.comparison-head>div{color:var(--text);font-weight:900}.faq-list{display:grid;gap:10px}.faq-item{border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.03);padding:16px 18px}.faq-item summary{cursor:pointer;font-weight:800;line-height:1.4}.faq-item p{margin:12px 0 0}.article-cta{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:8px 0 30px;padding:22px;border-radius:18px;border:1px solid rgba(8,167,255,.28);background:rgba(8,167,255,.08)}.article-cta h2,.article-cta p{margin:0}.article-cta h2{margin-bottom:8px}.related-head{display:grid;gap:4px;margin-bottom:14px}.related-head h2,.related-head p{margin:0}.related-grid{display:grid;gap:12px}.related-card{overflow:hidden;display:grid;grid-template-rows:118px 1fr}.related-card img{width:100%;height:100%;object-fit:cover}.related-card-body{display:grid;gap:6px;padding:12px}.related-card-body span{color:#7ad8ff;font-size:12px;font-weight:800}.related-card-body h3{margin:0;font-size:16px;line-height:1.22}.article-toc{display:none}.toc-card{position:sticky;top:calc(var(--header-height) + 22px);display:grid;gap:10px;padding:16px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,.03)}.toc-title{font-weight:900}.toc-card a{color:var(--muted);font-size:14px;line-height:1.4}.toc-card a:hover{color:#7ad8ff}@media (min-width:760px){.comparison-row{grid-template-columns:.7fr 1fr 1fr}.comparison-row>div{border-top:0;border-left:1px solid rgba(255,255,255,.08)}.comparison-row>div:first-child{border-left:0}.related-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (min-width:1080px){.article-layout{grid-template-columns:240px minmax(0,1fr);align-items:start}.article-toc{display:block}}
+</style>

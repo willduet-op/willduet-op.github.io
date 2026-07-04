@@ -1,0 +1,327 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const title = "Power BI Security Best Practices | Willduet";
+const description =
+  "Power BI security best practices for RLS, workspaces, apps, permissions, sharing, governance, and protecting business reporting at scale.";
+const publishDate = "2026-07-04";
+const canonicalPath = "/blogs/power-bi-security-best-practices/";
+const image = "/blogs/power-bi-security-best-practices.webp";
+const excerpt =
+  "A practical guide to Power BI security best practices for row-level security, workspace roles, sharing, governance, and protected reporting.";
+
+const faq = [
+  {
+    question: "What are the most important Power BI security best practices?",
+    answer:
+      "Start with clear workspace roles, app-based distribution, row-level security where needed, controlled export settings, Microsoft Entra groups, documented ownership, and regular access reviews.",
+  },
+  {
+    question: "Is row-level security enough to secure Power BI?",
+    answer:
+      "No. Row-level security is important, but it does not replace workspace permissions, app audiences, export controls, semantic model permissions, and governance.",
+  },
+  {
+    question: "Who should be a Power BI workspace Admin?",
+    answer:
+      "Workspace Admin access should be limited to people who manage the workspace. Most report users should consume content through apps or viewer-level access.",
+  },
+  {
+    question: "Should Power BI reports be shared directly with users?",
+    answer:
+      "Direct sharing can work in limited cases, but app-based distribution is usually cleaner for business reporting because it supports controlled audiences and easier access management.",
+  },
+  {
+    question: "How often should Power BI access be reviewed?",
+    answer:
+      "Access should be reviewed on a regular schedule and whenever teams, roles, departments, or sensitive reporting requirements change.",
+  },
+  {
+    question: "When should a business contact a Power BI consultant for security?",
+    answer:
+      "Contact a Power BI consultant when reports contain sensitive financial, sales, HR, customer, or operational data, or when access rules are complex enough to require design and testing.",
+  },
+];
+
+const relatedPosts = [
+  {
+    title: "Power BI Implementation: A Complete Guide for Businesses",
+    href: "/blogs/power-bi-implementation-guide/",
+    image: "/blogs/power-bi-implementation-guide.webp",
+    category: "Power BI implementation",
+  },
+  {
+    title: "Power BI Pro vs Premium: Which License Is Right for Your Business?",
+    href: "/blogs/power-bi-pro-vs-premium/",
+    image: "/blogs/power-bi-pro-vs-premium.webp",
+    category: "Power BI licensing",
+  },
+  {
+    title: "7 Common Power BI Implementation Mistakes",
+    href: "/blogs/power-bi-implementation-challenges/",
+    image: "/blogs/7-common-power-bi-implementation-mistakes.webp",
+    category: "Implementation challenges",
+  },
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: "Power BI Security Best Practices: Row-Level Security, Workspaces, and Governance",
+    description,
+    image: `https://willduet.com${image}`,
+    datePublished: publishDate,
+    dateModified: publishDate,
+    author: { "@type": "Organization", name: "Willduet", url: "https://willduet.com/" },
+    publisher: {
+      "@type": "Organization",
+      name: "Willduet",
+      logo: { "@type": "ImageObject", url: "https://willduet.com/logo-willduet-sin-fondo.png" },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://willduet.com${canonicalPath}` },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonicalPath={canonicalPath} image={image} structuredData={structuredData}>
+  <Header />
+  <main>
+    <article>
+      <section class="blog-article-hero reveal">
+        <div class="container blog-article-hero-inner">
+          <div class="blog-kicker">Power BI security</div>
+          <h1>Power BI Security Best Practices: Row-Level Security, Workspaces, and Governance</h1>
+          <p class="muted">
+            Power BI security best practices matter when dashboards contain financial results, sales performance, customer data, operational metrics, or executive reporting. The goal is simple: give the right people access to the right data without slowing the business down.
+          </p>
+          <div class="blog-article-meta"><span>Published July 4, 2026</span><span>12 min read</span></div>
+        </div>
+      </section>
+
+      <div class="container article-layout">
+        <aside class="article-toc" aria-label="Article sections">
+          <div class="toc-card">
+            <div class="toc-title">In this article</div>
+            <a href="#why">Why security matters</a>
+            <a href="#best-practices">Best practices</a>
+            <a href="#comparison">Security layers</a>
+            <a href="#examples">Business examples</a>
+            <a href="#faq">FAQ</a>
+          </div>
+        </aside>
+
+        <div class="article-main">
+          <img class="article-image" src={image} alt="Power BI security best practices for row-level security workspaces and governance" loading="eager" decoding="async" />
+
+          <section id="why" class="article-section">
+            <h2>Why Power BI security matters for business reporting</h2>
+            <p>
+              Power BI often becomes the place where executives, managers, and analysts review the numbers that drive business decisions. That makes security more than an IT setting. It affects trust, compliance, operational control, and how confidently people can use dashboards.
+            </p>
+            <p>
+              Many companies start with informal report sharing. Someone publishes a dashboard, sends a link to a group, and access grows over time. That may work for a prototype, but it becomes risky when the report includes margin, payroll-related metrics, customer details, sales territories, forecasts, or board reporting.
+            </p>
+            <p>
+              A secure Power BI environment needs layers: workspace permissions, apps, semantic model access, row-level security, export controls, tenant settings, and governance. A Power BI consultant can help when the business needs to balance access, adoption, and control.
+            </p>
+          </section>
+
+          <section id="best-practices" class="article-section">
+            <h2>Power BI security best practices</h2>
+            <h3>1. Use workspaces for ownership, not casual sharing</h3>
+            <p>
+              Workspaces should have clear ownership and purpose. A production workspace should not be a shared folder where everyone can edit reports. Admin, Member, Contributor, and Viewer roles should be assigned intentionally. Most business users should not need edit access to production content.
+            </p>
+
+            <h3>2. Distribute reports through apps where possible</h3>
+            <p>
+              Apps are usually cleaner for business distribution than direct report sharing. They let you package approved content and target audiences. This helps separate development work from published reporting and makes it easier to manage who sees what.
+            </p>
+
+            <h3>3. Use row-level security for data segmentation</h3>
+            <p>
+              Row-level security, or RLS, restricts rows based on the viewer. A regional sales manager may see only their region. A department head may see only their cost center. RLS is powerful, but it must be tested carefully because workspace roles can affect how security applies.
+            </p>
+
+            <h3>4. Use groups instead of individual permissions</h3>
+            <p>
+              Individual access becomes difficult to manage as the organization grows. Use Microsoft Entra security groups where possible so access follows business roles. This reduces manual maintenance and makes access reviews easier.
+            </p>
+
+            <h3>5. Control export and build permissions</h3>
+            <p>
+              Viewing a dashboard is not the same as exporting data or building new reports from a semantic model. Sensitive reporting may require limits on export, Analyze in Excel, and Build permissions. Decide what users should do with the data, not only what they should see.
+            </p>
+
+            <h3>6. Test security with real user scenarios</h3>
+            <p>
+              Do not assume security works because roles exist. Test as a regional manager, finance user, executive, and analyst. Confirm that totals, drillthrough pages, tooltips, exports, and related reports behave as expected.
+            </p>
+
+            <h3>7. Document the security model</h3>
+            <p>
+              Documentation should explain workspace owners, app audiences, RLS roles, group membership, export rules, and access request process. This prevents confusion when users change roles or new departments are added.
+            </p>
+          </section>
+
+          <section id="comparison" class="article-section">
+            <h2>Power BI security layers compared</h2>
+            <div class="comparison-table" role="table" aria-label="Power BI security layers comparison">
+              <div class="comparison-row comparison-head" role="row">
+                <div role="columnheader">Layer</div>
+                <div role="columnheader">What it controls</div>
+                <div role="columnheader">Business risk if ignored</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Workspace roles</div>
+                <div role="cell">Who can manage, edit, contribute, or view workspace content.</div>
+                <div role="cell">Too many users can edit or access production reports.</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Apps and audiences</div>
+                <div role="cell">How approved reports are distributed to business users.</div>
+                <div role="cell">Users see unfinished content or miss the right report version.</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Row-level security</div>
+                <div role="cell">Which rows each viewer can see inside the model.</div>
+                <div role="cell">Managers may see regions, customers, or departments they should not see.</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Export and Build</div>
+                <div role="cell">Whether users can extract data or create new reports from models.</div>
+                <div role="cell">Sensitive data spreads outside governed reports.</div>
+              </div>
+            </div>
+          </section>
+
+          <section id="examples" class="article-section">
+            <h2>Business examples of Power BI security</h2>
+            <h3>Finance reporting</h3>
+            <p>
+              A finance dashboard may contain revenue, margin, expenses, forecast, and budget variance. Executives may need company-wide access, while department heads should only see their own areas. RLS and app audiences can support that model, but finance must approve the rules.
+            </p>
+            <h3>Sales territory reporting</h3>
+            <p>
+              Sales leaders often need rollups, while regional managers only need their territories. Dynamic RLS can map users to territories, but the mapping table must be maintained as roles change.
+            </p>
+            <h3>Operations reporting</h3>
+            <p>
+              Operations dashboards may include customer service levels, delivery performance, and capacity. Some metrics can be shared broadly, while customer-level details may need tighter control.
+            </p>
+            <p>
+              Security should be part of the broader <a href="/blogs/power-bi-implementation-guide/">Power BI implementation</a> plan. It also connects to licensing decisions, which are covered in <a href="/blogs/power-bi-pro-vs-premium/">Power BI Pro vs Premium</a>.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>When to contact a Power BI consultant for security</h2>
+            <p>
+              Contact a Power BI consultant when reporting includes sensitive data, complex access rules, external users, multiple departments, or executive dashboards that need strong controls. Power BI consulting can help design the security model before reports are widely adopted.
+            </p>
+            <p>
+              Willduet helps businesses implement Power BI security, row-level security, workspace structure, app distribution, governance, and dashboard development. The goal is not to lock down reporting so tightly that nobody uses it. The goal is controlled access that supports business decisions.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>Security questions leaders should ask before rollout</h2>
+            <p>
+              Leaders do not need to know every Power BI tenant setting, but they should understand the risk model. The first question is what data is sensitive. Financial results, margin, customer names, employee information, sales territory performance, and contract-level data usually require stronger controls than public operational summaries.
+            </p>
+            <p>
+              The second question is who needs access at each level. Executives may need company-wide visibility. Regional managers may need a filtered view. Analysts may need Build permission on a certified semantic model. Most users only need to view an app. Treating all users the same creates either overexposure or unnecessary friction.
+            </p>
+            <p>
+              The third question is how access changes over time. People move departments, territories change, contractors leave, and executives request new views. If access depends on individual manual updates, the security model will become stale. Group-based access and documented ownership make maintenance more realistic.
+            </p>
+
+            <h3>Security is part of adoption</h3>
+            <p>
+              Good security should not make reporting unusable. If users cannot get to the reports they need, they will export data, request spreadsheets, or build shadow reporting processes. The goal is not maximum restriction. The goal is appropriate access with clear paths for requesting more.
+            </p>
+            <p>
+              This is where Power BI governance strategy matters. Security decisions should connect to workspace structure, app distribution, semantic model ownership, and support. Otherwise, every new report becomes a new access problem.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>Power BI security checklist for business teams</h2>
+            <p>
+              Before a report is released, review the security model the same way you would review the dashboard logic. Start with the audience. Who should see the report? Who should see all data? Who should see only a region, department, customer group, or cost center? Who should be able to export data? Who should be able to build new reports from the semantic model?
+            </p>
+            <p>
+              Next, review sensitive fields. A report may look harmless at the summary level but still expose customer names, employee names, transaction-level detail, margin, discounts, or contract terms through drillthrough pages or exports. If the detailed data is sensitive, the security model needs to cover those paths too.
+            </p>
+            <p>
+              Finally, review operations. Who approves access? How are access requests documented? How are users removed when they change roles? Who tests row-level security after a model change? Who monitors whether reports are being shared correctly? These are simple questions, but they prevent many security problems.
+            </p>
+            <ul>
+              <li>Use groups rather than individual users wherever practical.</li>
+              <li>Keep production workspace edit access limited.</li>
+              <li>Use apps for controlled report distribution.</li>
+              <li>Validate row-level security with actual user scenarios.</li>
+              <li>Review export permissions for sensitive reports.</li>
+              <li>Document who owns each security rule.</li>
+            </ul>
+            <p>
+              Security is also connected to adoption. Users should know where to request access and what approval is required. If the process is unclear, people will work around it with screenshots, spreadsheet exports, or duplicate reports.
+            </p>
+            <p>
+              The practical test is whether the business can explain who sees what and why. If that answer depends on one developer remembering how permissions were configured, the security model needs better documentation and governance.
+            </p>
+            <p>
+              Review this checklist whenever a report adds new audiences, new sensitive fields, new external users, or new export requirements. Security should evolve with the reporting environment, not remain frozen after the first deployment.
+            </p>
+            <p>
+              For client-facing, finance, or executive reporting, this review should happen before every major release. The cost of a short security review is usually lower than the cost of exposing the wrong data to the wrong audience.
+            </p>
+            <p>
+              That discipline keeps Power BI security visible as the reporting program grows.
+            </p>
+          </section>
+
+          <section class="article-cta">
+            <div><h2>Need a secure Power BI environment?</h2><p class="muted">Willduet helps businesses design Power BI security, governance, implementation, and dashboard development practices that scale.</p></div>
+            <a class="btn btn-primary" href="/contact/">Talk to Willduet</a>
+          </section>
+
+          <section class="article-section">
+            <h2>Conclusion: Power BI security best practices</h2>
+            <p>
+              Power BI security best practices require more than one setting. Use clear workspaces, controlled app distribution, row-level security, groups, export controls, documentation, and regular access reviews. When the data is sensitive or the access model is complex, a Power BI consultant can help protect the business while keeping reporting usable.
+            </p>
+          </section>
+
+          <section id="faq" class="article-section">
+            <h2>Frequently asked questions</h2>
+            <div class="faq-list">{faq.map((item) => (<details class="faq-item"><summary>{item.question}</summary><p>{item.answer}</p></details>))}</div>
+          </section>
+
+          <section class="article-section related-posts">
+            <div class="related-head"><h2>Related posts</h2><p class="muted">More guidance on implementation, licensing, and Power BI governance.</p></div>
+            <div class="related-grid">{relatedPosts.map((post) => (<a class="card related-card" href={post.href}><img src={post.image} alt="" loading="lazy" decoding="async" /><div class="related-card-body"><span>{post.category}</span><h3>{post.title}</h3></div></a>))}</div>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .blog-article-hero{border-bottom:1px solid var(--border);background:linear-gradient(115deg,rgba(7,22,44,.94),rgba(7,22,44,.66)),url("/blogs/power-bi-security-best-practices.webp") center/cover no-repeat}.blog-article-hero-inner{padding:clamp(54px,7vw,92px) 0;max-width:940px}.blog-kicker{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:var(--muted);font-weight:800;font-size:13px;background:rgba(255,255,255,.04)}.blog-article-hero h1{margin:16px 0 14px;max-width:920px;font-size:clamp(36px,5.2vw,64px);line-height:1.02;letter-spacing:.01em}.blog-article-hero p{margin:0;max-width:760px;font-size:clamp(16px,1.25vw,20px);line-height:1.7}.blog-article-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;color:var(--muted);font-size:14px;font-weight:700}.blog-article-meta span+span:before{content:"";display:inline-block;width:5px;height:5px;margin-right:12px;border-radius:999px;background:var(--primary);vertical-align:middle}
+  .article-layout{display:grid;gap:26px;padding:38px 0 46px}.article-main{min-width:0}.article-image{width:100%;max-height:420px;object-fit:cover;border-radius:18px;border:1px solid rgba(255,255,255,.18);box-shadow:var(--shadow);margin-bottom:26px}.article-section{padding:0 0 28px}.article-section h2{margin:0 0 12px;font-size:clamp(24px,3vw,34px);line-height:1.16}.article-section h3{margin:22px 0 8px;font-size:20px;line-height:1.25}.article-section p,.article-section li{color:var(--muted);font-size:17px;line-height:1.75}.article-section p{margin:0 0 14px}.article-section ul{margin:0 0 18px;padding-left:22px}.article-section a{color:#7ad8ff;font-weight:800}.comparison-table{display:grid;margin:22px 0;overflow:hidden;border-radius:16px;border:1px solid var(--border)}.comparison-row{display:grid;border-top:1px solid var(--border)}.comparison-row:first-child{border-top:0}.comparison-row>div{padding:14px;color:var(--muted);line-height:1.5;border-top:1px solid rgba(255,255,255,.08)}.comparison-row>div:first-child{border-top:0;color:var(--text);font-weight:800}.comparison-head{background:rgba(8,167,255,.12)}.comparison-head>div{color:var(--text);font-weight:900}.faq-list{display:grid;gap:10px}.faq-item{border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.03);padding:16px 18px}.faq-item summary{cursor:pointer;font-weight:800;line-height:1.4}.faq-item p{margin:12px 0 0}.article-cta{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:8px 0 30px;padding:22px;border-radius:18px;border:1px solid rgba(8,167,255,.28);background:rgba(8,167,255,.08)}.article-cta h2,.article-cta p{margin:0}.article-cta h2{margin-bottom:8px}.related-head{display:grid;gap:4px;margin-bottom:14px}.related-head h2,.related-head p{margin:0}.related-grid{display:grid;gap:12px}.related-card{overflow:hidden;display:grid;grid-template-rows:118px 1fr}.related-card img{width:100%;height:100%;object-fit:cover}.related-card-body{display:grid;gap:6px;padding:12px}.related-card-body span{color:#7ad8ff;font-size:12px;font-weight:800}.related-card-body h3{margin:0;font-size:16px;line-height:1.22}.article-toc{display:none}.toc-card{position:sticky;top:calc(var(--header-height) + 22px);display:grid;gap:10px;padding:16px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,.03)}.toc-title{font-weight:900}.toc-card a{color:var(--muted);font-size:14px;line-height:1.4}.toc-card a:hover{color:#7ad8ff}@media (min-width:760px){.comparison-row{grid-template-columns:.7fr 1fr 1fr}.comparison-row>div{border-top:0;border-left:1px solid rgba(255,255,255,.08)}.comparison-row>div:first-child{border-left:0}.related-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (min-width:1080px){.article-layout{grid-template-columns:240px minmax(0,1fr);align-items:start}.article-toc{display:block}}
+</style>

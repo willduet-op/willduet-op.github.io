@@ -1,0 +1,319 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const title = "Power BI Implementation Checklist | Willduet";
+const description =
+  "Power BI implementation checklist for go-live readiness, covering data, models, security, refresh, testing, training, deployment, and support planning.";
+const publishDate = "2026-07-04";
+const canonicalPath = "/blogs/power-bi-implementation-checklist/";
+const image = "/blogs/power-bi-implementation-checklist.webp";
+const excerpt =
+  "A practical Power BI implementation checklist for business teams preparing dashboards, security, refreshes, users, and support before go-live.";
+
+const faq = [
+  {
+    question: "What should be included in a Power BI implementation checklist?",
+    answer:
+      "Include requirements, data validation, model design, KPI definitions, security, refresh, performance testing, deployment, training, documentation, and support ownership.",
+  },
+  {
+    question: "Who should approve a Power BI report before go-live?",
+    answer:
+      "Business owners should approve KPI definitions and totals, while BI or IT owners should approve security, refresh, performance, and deployment readiness.",
+  },
+  {
+    question: "Should Power BI security be tested before launch?",
+    answer:
+      "Yes. Test workspace roles, app audiences, row-level security, export settings, and access for real user groups before go-live.",
+  },
+  {
+    question: "How do you know a Power BI report is ready for production?",
+    answer:
+      "It is ready when data reconciles, performance is acceptable, security is validated, users are trained, refresh is monitored, and ownership is documented.",
+  },
+  {
+    question: "When should a business contact a Power BI consultant before go-live?",
+    answer:
+      "Contact a Power BI consultant when there are unresolved data issues, slow reports, complex security rules, unclear ownership, or high business risk.",
+  },
+];
+
+const relatedPosts = [
+  {
+    title: "Power BI Implementation: A Complete Guide for Businesses",
+    href: "/blogs/power-bi-implementation-guide/",
+    image: "/blogs/power-bi-implementation-guide.webp",
+    category: "Power BI implementation",
+  },
+  {
+    title: "7 Common Power BI Implementation Mistakes",
+    href: "/blogs/power-bi-implementation-challenges/",
+    image: "/blogs/7-common-power-bi-implementation-mistakes.webp",
+    category: "Implementation challenges",
+  },
+  {
+    title: "How Much Does Power BI Implementation Cost?",
+    href: "/blogs/power-bi-implementation-cost/",
+    image: "/blogs/power-bi-implementation-cost.webp",
+    category: "Implementation cost",
+  },
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: "Power BI Implementation Checklist: Everything You Need Before Going Live",
+    description,
+    image: `https://willduet.com${image}`,
+    datePublished: publishDate,
+    dateModified: publishDate,
+    author: { "@type": "Organization", name: "Willduet", url: "https://willduet.com/" },
+    publisher: {
+      "@type": "Organization",
+      name: "Willduet",
+      logo: { "@type": "ImageObject", url: "https://willduet.com/logo-willduet-sin-fondo.png" },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://willduet.com${canonicalPath}` },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonicalPath={canonicalPath} image={image} structuredData={structuredData}>
+  <Header />
+  <main>
+    <article>
+      <section class="blog-article-hero reveal">
+        <div class="container blog-article-hero-inner">
+          <div class="blog-kicker">Power BI implementation</div>
+          <h1>Power BI Implementation Checklist: Everything You Need Before Going Live</h1>
+          <p class="muted">
+            A Power BI implementation checklist helps teams launch dashboards with fewer surprises. Before go-live, the business needs confidence in the data, model, security, refresh process, performance, and support plan.
+          </p>
+          <div class="blog-article-meta"><span>Published July 4, 2026</span><span>12 min read</span></div>
+        </div>
+      </section>
+
+      <div class="container article-layout">
+        <aside class="article-toc" aria-label="Article sections">
+          <div class="toc-card">
+            <div class="toc-title">In this article</div>
+            <a href="#why">Why checklist matters</a>
+            <a href="#checklist">Go-live checklist</a>
+            <a href="#comparison">Ready vs not ready</a>
+            <a href="#examples">Business examples</a>
+            <a href="#faq">FAQ</a>
+          </div>
+        </aside>
+
+        <div class="article-main">
+          <img class="article-image" src={image} alt="Power BI implementation checklist for dashboard go-live readiness" loading="eager" decoding="async" />
+
+          <section id="why" class="article-section">
+            <h2>Why a Power BI implementation checklist matters</h2>
+            <p>
+              Power BI go-live is not only publishing a report. It is the moment when people start relying on the dashboard for decisions. If numbers are wrong, access is too broad, refresh fails, or performance is poor, trust can be damaged quickly.
+            </p>
+            <p>
+              A checklist helps project sponsors, IT, BI teams, and business owners confirm that the report is ready for real use. It also creates a shared standard for future Power BI implementation services, dashboard development, and governance.
+            </p>
+          </section>
+
+          <section id="checklist" class="article-section">
+            <h2>Power BI implementation checklist before going live</h2>
+            <h3>1. Confirm business requirements</h3>
+            <p>Document the report audience, decisions supported, KPIs, filters, drill paths, refresh expectations, and success criteria.</p>
+            <h3>2. Validate source data</h3>
+            <p>Confirm the data sources, refresh access, field definitions, known limitations, and reconciliation against trusted reports.</p>
+            <h3>3. Approve KPI definitions</h3>
+            <p>Make sure finance, operations, sales, or other business owners approve metric definitions before users see the report.</p>
+            <h3>4. Review data model design</h3>
+            <p>Check relationships, fact and dimension tables, measure naming, hidden technical fields, and reusable logic.</p>
+            <h3>5. Test report performance</h3>
+            <p>Open the report with realistic filters and data volume. Test the pages users will rely on most.</p>
+            <h3>6. Validate security</h3>
+            <p>Test workspace roles, app audiences, row-level security, export permissions, Build permissions, and access groups.</p>
+            <h3>7. Configure refresh and gateway</h3>
+            <p>Confirm credentials, gateway status, refresh schedule, failure alerts, and who monitors refresh problems.</p>
+            <h3>8. Prepare deployment</h3>
+            <p>Use a controlled production workspace, app distribution, naming standards, version notes, and rollback plan for critical reports.</p>
+            <h3>9. Train users</h3>
+            <p>Show users how to read KPIs, apply filters, drill into detail, interpret refresh timing, and request changes.</p>
+            <h3>10. Document ownership and support</h3>
+            <p>Assign business owners, technical owners, support contacts, and rules for enhancement requests after launch.</p>
+          </section>
+
+          <section id="comparison" class="article-section">
+            <h2>Power BI go-live readiness table</h2>
+            <div class="comparison-table" role="table" aria-label="Power BI go-live readiness comparison">
+              <div class="comparison-row comparison-head" role="row">
+                <div role="columnheader">Area</div>
+                <div role="columnheader">Not ready</div>
+                <div role="columnheader">Ready for go-live</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Data</div>
+                <div role="cell">Numbers do not reconcile or source logic is unclear.</div>
+                <div role="cell">Business owners validated totals and definitions.</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Security</div>
+                <div role="cell">Access is assigned manually without testing.</div>
+                <div role="cell">Groups, RLS, app audiences, and export settings are tested.</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Performance</div>
+                <div role="cell">Pages are slow or untested with full data.</div>
+                <div role="cell">Important pages load and interact acceptably.</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Support</div>
+                <div role="cell">No owner for refresh failures or change requests.</div>
+                <div role="cell">Ownership and support process are documented.</div>
+              </div>
+            </div>
+          </section>
+
+          <section id="examples" class="article-section">
+            <h2>Business examples before go-live</h2>
+            <p>
+              A finance dashboard should reconcile to month-end reports before executives use it. A sales dashboard should confirm territory access and pipeline definitions. An operations dashboard should be tested during the actual review process, not only by the developer.
+            </p>
+            <p>
+              Many go-live issues are avoidable. Slow reports are covered in <a href="/blogs/how-to-optimize-slow-power-bi-reports/">how to optimize slow Power BI reports</a>. Broader pitfalls are covered in <a href="/blogs/power-bi-implementation-challenges/">Power BI implementation challenges</a>. Cost and scope planning are covered in <a href="/blogs/power-bi-implementation-cost/">Power BI implementation cost</a>.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>When to contact a Power BI consultant before go-live</h2>
+            <p>
+              Contact a Power BI consultant when the dashboard is business-critical, security rules are complex, performance is uncertain, data does not reconcile, or the internal team needs a second review. A Power BI consultant can help identify risk before users depend on the report.
+            </p>
+            <p>
+              Willduet helps businesses with Power BI implementation, dashboard development, security, governance, optimization, and business intelligence consulting.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>What happens after Power BI go-live?</h2>
+            <p>
+              Go-live is not the end of a Power BI implementation. It is the start of operational reporting. After launch, users will ask questions, request new filters, identify edge cases, and sometimes challenge the numbers. A good implementation plan expects this instead of treating every post-launch request as a surprise.
+            </p>
+            <p>
+              The first week after launch should focus on stability. Confirm refreshes run on schedule, access requests are handled, users can find the app, and business owners are available to answer metric questions. If the report is executive-facing, monitor whether leaders use the dashboard in the intended review process.
+            </p>
+            <p>
+              The first month should focus on improvement. Which pages are used most? Which questions keep coming up? Which visuals are ignored? Which export requests suggest a missing detail page? Usage and feedback help the team decide whether to refine the dashboard, add drillthrough, improve performance, or adjust training.
+            </p>
+
+            <h3>Define the support model before launch</h3>
+            <p>
+              Support should not depend on whoever built the report being available at the right moment. Document who handles access, refresh failures, data questions, metric changes, and report enhancements. If a data source changes, the team should know who owns the fix.
+            </p>
+            <p>
+              For important reports, create a lightweight release process. This can include a backlog, change approval, development copy, testing, production deployment, and release notes. The process does not need to be heavy, but it should prevent untested changes from reaching business-critical dashboards.
+            </p>
+
+            <h3>Use the checklist for every major release</h3>
+            <p>
+              The same Power BI implementation checklist should be reused when new dashboards, new data sources, new security rules, or major KPI changes are introduced. This turns readiness into a habit, not a one-time project task.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>Executive sign-off before Power BI launch</h2>
+            <p>
+              Executive sign-off should focus on trust and usability. Leaders do not need to approve every technical detail, but they should confirm that the dashboard answers the right business questions. If the report will be used in leadership meetings, it should match the meeting flow and show the metrics leaders actually use.
+            </p>
+            <p>
+              Business owners should confirm the numbers. Finance should approve finance metrics. Sales should approve pipeline and territory logic. Operations should approve backlog, delivery, or capacity definitions. IT or BI should confirm refresh, security, and deployment readiness.
+            </p>
+            <p>
+              The checklist should also include a communication plan. Users need to know where the report lives, what changed from the old process, how often data refreshes, and who to contact with questions. Without communication, even a well-built dashboard can be ignored.
+            </p>
+            <p>
+              A final pilot review is useful before launch. Ask a small group of real users to navigate the report, apply filters, check totals, and attempt the actions they will take after go-live. Their feedback can reveal missing context, confusing labels, or performance problems that developers may not notice.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>Checklist ownership by role</h2>
+            <p>
+              A go-live checklist works best when every item has an owner. Business owners should approve metric definitions and confirm whether the report answers the right questions. BI developers should validate model design, DAX, visuals, and performance. IT should help with gateway reliability, access groups, deployment controls, and tenant-level considerations.
+            </p>
+            <p>
+              Finance, operations, sales, and other departments should validate the numbers that belong to them. A Power BI dashboard can only be trusted when the business confirms that the calculations reflect how the company actually manages performance.
+            </p>
+            <p>
+              Project sponsors should make final tradeoff decisions. For example, if a requested feature adds complexity and delays launch, the sponsor should decide whether it belongs in the first release or a later phase.
+            </p>
+            <p>
+              This ownership model prevents the checklist from becoming a technical formality. It turns go-live readiness into a shared business decision.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>What not to skip before go-live</h2>
+            <p>
+              The most tempting items to skip are usually the ones that create problems later: security testing, performance testing, user training, and documentation. These tasks may feel less visible than dashboard design, but they determine whether the report survives real business use.
+            </p>
+            <p>
+              Do not skip reconciliation. If users find mismatched numbers after launch, they may lose trust in the entire report. Do not skip access testing. A report that exposes too much data can create a serious governance problem. Do not skip support planning. A broken refresh with no owner can make a dashboard useless at the moment leaders need it.
+            </p>
+            <p>
+              A Power BI implementation checklist is not paperwork. It is a practical risk-control tool for business intelligence consulting, dashboard development, and reporting automation.
+            </p>
+            <p>
+              It also gives sponsors a clear launch decision. If the checklist is complete, go-live can proceed with confidence. If important items are unresolved, the team can decide whether to delay, reduce scope, or launch with known limitations that are documented and accepted.
+            </p>
+            <p>
+              This keeps the launch decision explicit. Instead of assuming the report is ready because it exists, the team can confirm that the business, technical, and support requirements are actually in place.
+            </p>
+            <p>
+              It also reduces post-launch confusion. When ownership, validation, access, and support are agreed before release, users know where to go for help and leaders know which version of the numbers to trust.
+            </p>
+          </section>
+
+          <section class="article-cta">
+            <div><h2>Preparing Power BI for go-live?</h2><p class="muted">Willduet helps teams validate Power BI reports, security, refreshes, performance, and support before launch.</p></div>
+            <a class="btn btn-primary" href="/contact/">Talk to Willduet</a>
+          </section>
+
+          <section class="article-section">
+            <h2>Conclusion: Power BI implementation checklist</h2>
+            <p>
+              A Power BI implementation checklist reduces launch risk. Before going live, confirm requirements, data, KPIs, model design, security, performance, refresh, deployment, training, and support. When the stakes are high, Power BI consulting can help your team launch with confidence.
+            </p>
+          </section>
+
+          <section id="faq" class="article-section">
+            <h2>Frequently asked questions</h2>
+            <div class="faq-list">{faq.map((item) => (<details class="faq-item"><summary>{item.question}</summary><p>{item.answer}</p></details>))}</div>
+          </section>
+
+          <section class="article-section related-posts">
+            <div class="related-head"><h2>Related posts</h2><p class="muted">More resources for Power BI implementation planning.</p></div>
+            <div class="related-grid">{relatedPosts.map((post) => (<a class="card related-card" href={post.href}><img src={post.image} alt="" loading="lazy" decoding="async" /><div class="related-card-body"><span>{post.category}</span><h3>{post.title}</h3></div></a>))}</div>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .blog-article-hero{border-bottom:1px solid var(--border);background:linear-gradient(115deg,rgba(7,22,44,.94),rgba(7,22,44,.66)),url("/blogs/power-bi-implementation-checklist.webp") center/cover no-repeat}.blog-article-hero-inner{padding:clamp(54px,7vw,92px) 0;max-width:940px}.blog-kicker{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:var(--muted);font-weight:800;font-size:13px;background:rgba(255,255,255,.04)}.blog-article-hero h1{margin:16px 0 14px;max-width:920px;font-size:clamp(36px,5.2vw,64px);line-height:1.02;letter-spacing:.01em}.blog-article-hero p{margin:0;max-width:760px;font-size:clamp(16px,1.25vw,20px);line-height:1.7}.blog-article-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;color:var(--muted);font-size:14px;font-weight:700}.blog-article-meta span+span:before{content:"";display:inline-block;width:5px;height:5px;margin-right:12px;border-radius:999px;background:var(--primary);vertical-align:middle}
+  .article-layout{display:grid;gap:26px;padding:38px 0 46px}.article-main{min-width:0}.article-image{width:100%;max-height:420px;object-fit:cover;border-radius:18px;border:1px solid rgba(255,255,255,.18);box-shadow:var(--shadow);margin-bottom:26px}.article-section{padding:0 0 28px}.article-section h2{margin:0 0 12px;font-size:clamp(24px,3vw,34px);line-height:1.16}.article-section h3{margin:22px 0 8px;font-size:20px;line-height:1.25}.article-section p,.article-section li{color:var(--muted);font-size:17px;line-height:1.75}.article-section p{margin:0 0 14px}.article-section ul{margin:0 0 18px;padding-left:22px}.article-section a{color:#7ad8ff;font-weight:800}.comparison-table{display:grid;margin:22px 0;overflow:hidden;border-radius:16px;border:1px solid var(--border)}.comparison-row{display:grid;border-top:1px solid var(--border)}.comparison-row:first-child{border-top:0}.comparison-row>div{padding:14px;color:var(--muted);line-height:1.5;border-top:1px solid rgba(255,255,255,.08)}.comparison-row>div:first-child{border-top:0;color:var(--text);font-weight:800}.comparison-head{background:rgba(8,167,255,.12)}.comparison-head>div{color:var(--text);font-weight:900}.faq-list{display:grid;gap:10px}.faq-item{border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.03);padding:16px 18px}.faq-item summary{cursor:pointer;font-weight:800;line-height:1.4}.faq-item p{margin:12px 0 0}.article-cta{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:8px 0 30px;padding:22px;border-radius:18px;border:1px solid rgba(8,167,255,.28);background:rgba(8,167,255,.08)}.article-cta h2,.article-cta p{margin:0}.article-cta h2{margin-bottom:8px}.related-head{display:grid;gap:4px;margin-bottom:14px}.related-head h2,.related-head p{margin:0}.related-grid{display:grid;gap:12px}.related-card{overflow:hidden;display:grid;grid-template-rows:118px 1fr}.related-card img{width:100%;height:100%;object-fit:cover}.related-card-body{display:grid;gap:6px;padding:12px}.related-card-body span{color:#7ad8ff;font-size:12px;font-weight:800}.related-card-body h3{margin:0;font-size:16px;line-height:1.22}.article-toc{display:none}.toc-card{position:sticky;top:calc(var(--header-height) + 22px);display:grid;gap:10px;padding:16px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,.03)}.toc-title{font-weight:900}.toc-card a{color:var(--muted);font-size:14px;line-height:1.4}.toc-card a:hover{color:#7ad8ff}@media (min-width:760px){.comparison-row{grid-template-columns:.7fr 1fr 1fr}.comparison-row>div{border-top:0;border-left:1px solid rgba(255,255,255,.08)}.comparison-row>div:first-child{border-left:0}.related-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (min-width:1080px){.article-layout{grid-template-columns:240px minmax(0,1fr);align-items:start}.article-toc{display:block}}
+</style>
