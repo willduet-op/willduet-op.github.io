@@ -48,6 +48,16 @@ const isNoindex = robots.includes("noindex");
 
     <slot name="head" /> 
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8STNWWHYS"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-F8STNWWHYS');
+    </script>
+
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="B3CMbZlIDvQaz3iMYwISRw" async></script>
     
     <!-- Meta Pixel Code -->
