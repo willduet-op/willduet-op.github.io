@@ -13,7 +13,15 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://willduet.com/blogs/common-dashboard-design-mistakes/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://willduet.com/blogs/database-vs-data-warehouse/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://willduet.com/blogs/executive-dashboard-design-best-practices/</loc>
     <priority>0.6</priority>
   </url>
   <url>
@@ -22,6 +30,10 @@
   </url>
   <url>
     <loc>https://willduet.com/blogs/how-to-optimize-slow-power-bi-reports/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://willduet.com/blogs/kpi-dashboard-design-best-practices/</loc>
     <priority>0.6</priority>
   </url>
   <url>
@@ -65,7 +77,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://willduet.com/blogs/power-bi-reports-vs-dashboards/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://willduet.com/blogs/power-bi-security-best-practices/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://willduet.com/blogs/power-bi-vs-excel/</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://willduet.com/blogs/what-does-a-power-bi-consultant-do/</loc>
     <priority>0.6</priority>
   </url>
   <url>

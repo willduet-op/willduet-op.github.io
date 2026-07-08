@@ -1,0 +1,262 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const title = "Dashboard Design Mistakes to Avoid | Willduet";
+const description =
+  "Dashboard design best practices for avoiding crowded layouts, unclear KPIs, weak filters, slow reports, and business dashboards users do not trust.";
+const publishDate = "2026-07-07";
+const canonicalPath = "/blogs/common-dashboard-design-mistakes/";
+const image = "/blogs/common-dashboard-design-mistakes.webp";
+const excerpt =
+  "Common dashboard design mistakes that make reports harder to use, plus practical ways to build clearer, faster, and more trusted dashboards.";
+
+const faq = [
+  {
+    question: "What are the most common dashboard design mistakes?",
+    answer:
+      "Common mistakes include too many visuals, unclear KPIs, missing targets, poor layout, weak data definitions, too many filters, slow performance, and no clear audience.",
+  },
+  {
+    question: "How do you make a dashboard easier to read?",
+    answer:
+      "Start with the main decision, limit the page to important KPIs, use consistent formatting, show trends and targets, and separate summary views from detail pages.",
+  },
+  {
+    question: "Why do business dashboards fail?",
+    answer:
+      "They fail when users do not trust the data, cannot understand the layout, cannot find the answer they need, or must wait too long for the report to load.",
+  },
+  {
+    question: "Should dashboards include every metric?",
+    answer:
+      "No. A dashboard should focus on metrics that support a specific audience and decision. Extra metrics can be placed on detail pages or separate reports.",
+  },
+  {
+    question: "Can dashboard design affect Power BI performance?",
+    answer:
+      "Yes. Too many visuals, heavy tables, complex interactions, and inefficient measures can make Power BI dashboards slow.",
+  },
+  {
+    question: "When should a business hire dashboard development help?",
+    answer:
+      "Consider help when dashboards are slow, confusing, not adopted, or built on inconsistent data models and manual reporting processes.",
+  },
+];
+
+const relatedPosts = [
+  {
+    title: "Power BI Dashboard Best Practices for Executive Reporting",
+    href: "/blogs/power-bi-dashboard-best-practices/",
+    image: "/blogs/power-bi-dashboard-best-practices.webp",
+    category: "Dashboard design",
+  },
+  {
+    title: "Power BI Performance Optimization: 15 Proven Ways to Speed Up Your Reports",
+    href: "/blogs/power-bi-performance-optimization/",
+    image: "/blogs/power-bi-performance-optimization.webp",
+    category: "Power BI optimization",
+  },
+  {
+    title: "Power BI Implementation Challenges: 7 Common Mistakes",
+    href: "/blogs/power-bi-implementation-challenges/",
+    image: "/blogs/7-common-power-bi-implementation-mistakes.webp",
+    category: "Implementation challenges",
+  },
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: "Common Dashboard Design Mistakes",
+    description,
+    image: `https://willduet.com${image}`,
+    datePublished: publishDate,
+    dateModified: publishDate,
+    author: { "@type": "Organization", name: "Willduet", url: "https://willduet.com/" },
+    publisher: {
+      "@type": "Organization",
+      name: "Willduet",
+      logo: { "@type": "ImageObject", url: "https://willduet.com/logo-willduet-sin-fondo.png" },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://willduet.com${canonicalPath}` },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonicalPath={canonicalPath} image={image} structuredData={structuredData}>
+  <Header />
+  <main>
+    <article>
+      <section class="blog-article-hero reveal">
+        <div class="container blog-article-hero-inner">
+          <div class="blog-kicker">Dashboard design</div>
+          <h1>Common Dashboard Design Mistakes</h1>
+          <p class="muted">
+            Dashboard design best practices are not about decoration. They are about helping business users understand performance quickly, trust the numbers, and know where action is needed.
+          </p>
+          <div class="blog-article-meta"><span>Published July 7, 2026</span><span>10 min read</span></div>
+        </div>
+      </section>
+
+      <div class="container article-layout">
+        <aside class="article-toc" aria-label="Article sections">
+          <div class="toc-card">
+            <div class="toc-title">In this article</div>
+            <a href="#mistakes">Common mistakes</a>
+            <a href="#comparison">Before and after</a>
+            <a href="#examples">SMB examples</a>
+            <a href="#fix">How to fix</a>
+            <a href="#faq">FAQ</a>
+          </div>
+        </aside>
+
+        <div class="article-main">
+          <img class="article-image" src={image} alt="Common dashboard design mistakes and better business dashboard layout practices" loading="eager" decoding="async" />
+
+          <section id="mistakes" class="article-section">
+            <h2>Dashboard design best practices start by avoiding these mistakes</h2>
+            <h3>1. Building the dashboard before defining the audience</h3>
+            <p>
+              A dashboard for an owner is different from a dashboard for a warehouse manager. If the audience is unclear, the dashboard becomes a compromise that serves nobody well. Define the user, the decision, and the reporting cadence first.
+            </p>
+            <h3>2. Putting too many visuals on one page</h3>
+            <p>
+              Crowded dashboards slow users down. They also make the report harder to maintain and can hurt Power BI performance. Use the first page for summary and exceptions. Move detail to supporting pages.
+            </p>
+            <h3>3. Showing KPIs without targets</h3>
+            <p>
+              A number without context is hard to interpret. Revenue, backlog, close rate, labor cost, and margin all need a target, budget, trend, prior period, or threshold to explain whether performance is acceptable.
+            </p>
+            <h3>4. Using unclear KPI definitions</h3>
+            <p>
+              If sales means invoiced revenue in one report and booked orders in another, users will lose trust. KPI definitions should be documented and reused through governed models where possible.
+            </p>
+            <h3>5. Treating charts as decoration</h3>
+            <p>
+              Every visual should answer a business question. If a chart does not clarify performance, show a trend, compare segments, or identify an exception, it probably does not belong on the dashboard.
+            </p>
+            <h3>6. Overusing slicers and filters</h3>
+            <p>
+              Too many slicers force users to configure the report before they get value. Choose filters that match business workflow, such as date, location, product group, customer segment, or department.
+            </p>
+            <h3>7. Ignoring mobile or meeting-room use</h3>
+            <p>
+              Dashboards used in leadership meetings should be readable on shared screens. Dashboards used by field managers may need mobile-friendly layouts. Context matters.
+            </p>
+            <h3>8. Hiding data quality issues</h3>
+            <p>
+              A dashboard can look polished while the underlying data is incomplete or inconsistent. If users question the numbers, address the data process before adding more visuals.
+            </p>
+            <h3>9. Ignoring report speed</h3>
+            <p>
+              Slow dashboards lose adoption. Model design, visual count, DAX complexity, DirectQuery use, and source system performance all affect load time. Our guide to <a href="/blogs/how-to-optimize-slow-power-bi-reports/">optimizing slow Power BI reports</a> covers common fixes.
+            </p>
+          </section>
+
+          <section id="comparison" class="article-section">
+            <h2>Dashboard mistakes and better alternatives</h2>
+            <div class="comparison-table" role="table" aria-label="Dashboard design mistakes and fixes">
+              <div class="comparison-row comparison-head" role="row">
+                <div role="columnheader">Mistake</div>
+                <div role="columnheader">Business impact</div>
+                <div role="columnheader">Better approach</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Too many metrics</div>
+                <div role="cell">Users cannot tell what matters.</div>
+                <div role="cell">Prioritize KPIs tied to decisions and accountability.</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">No targets</div>
+                <div role="cell">Performance is hard to judge.</div>
+                <div role="cell">Add target, variance, trend, or threshold context.</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Unclear definitions</div>
+                <div role="cell">Leaders debate the numbers.</div>
+                <div role="cell">Document definitions and use shared measures.</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Slow reports</div>
+                <div role="cell">Users export data or stop using the dashboard.</div>
+                <div role="cell">Optimize the model, measures, visuals, and refresh process.</div>
+              </div>
+            </div>
+          </section>
+
+          <section id="examples" class="article-section">
+            <h2>Practical business examples</h2>
+            <h3>Finance dashboard mistake</h3>
+            <p>
+              A finance dashboard shows revenue, expense, profit, cash, receivables, and budget data, but every page uses different date filters. Leaders cannot reconcile the numbers. The fix is a consistent date model, clear period selection, and documented measures.
+            </p>
+            <h3>Operations dashboard mistake</h3>
+            <p>
+              An operations dashboard lists every job and ticket on the first page. Managers spend time scrolling instead of identifying bottlenecks. The fix is a summary page with backlog, aging, on-time performance, and exception lists that link to detail.
+            </p>
+            <h3>Sales dashboard mistake</h3>
+            <p>
+              A sales dashboard shows pipeline value but not probability, stage age, close date quality, or win rate. The number looks promising but does not support forecasting. The fix is to add context that explains pipeline quality.
+            </p>
+          </section>
+
+          <section id="fix" class="article-section">
+            <h2>How to fix a dashboard that is not working</h2>
+            <p>
+              Start by interviewing the actual users. Ask which meetings use the dashboard, which questions it should answer, which numbers are disputed, and which pages are ignored. Usage feedback is often more valuable than another round of visual changes.
+            </p>
+            <p>
+              Next, review the data model. Many dashboard design problems are really model problems. If measures are duplicated, relationships are unclear, or transformations happen in several files, the dashboard will be hard to improve. A better model supports cleaner visuals.
+            </p>
+            <p>
+              Finally, simplify the layout. Put the most important KPIs first. Use trends and exceptions. Remove visuals that do not support a decision. Create drillthrough or detail pages for deeper investigation.
+            </p>
+            <p>
+              If dashboard issues are part of a larger rollout, review our posts on <a href="/blogs/power-bi-implementation-challenges/">Power BI implementation challenges</a>, <a href="/blogs/power-bi-governance/">Power BI governance</a>, and <a href="/blogs/power-bi-security-best-practices/">Power BI security</a>.
+            </p>
+          </section>
+
+          <section class="article-cta">
+            <div><h2>Need dashboards that are easier to use?</h2><p class="muted">Willduet helps SMBs with Power BI dashboard development, reporting automation, KPI reporting, optimization, and implementation support.</p></div>
+            <a class="btn btn-primary" href="/contact/">Talk to Willduet</a>
+          </section>
+
+          <section class="article-section">
+            <h2>Conclusion: dashboard design best practices</h2>
+            <p>
+              Dashboard design best practices help businesses avoid reports that are crowded, slow, unclear, or unused. The best dashboards are built around a specific audience, clear KPIs, reliable data, meaningful targets, simple layout, and practical paths to detail. When design, data modeling, and governance work together, dashboards become tools for action rather than another reporting burden.
+            </p>
+          </section>
+
+          <section id="faq" class="article-section">
+            <h2>Frequently asked questions</h2>
+            <div class="faq-list">{faq.map((item) => (<details class="faq-item"><summary>{item.question}</summary><p>{item.answer}</p></details>))}</div>
+          </section>
+
+          <section class="article-section related-posts">
+            <div class="related-head"><h2>Related posts</h2><p class="muted">More guidance on dashboard design, Power BI performance, and implementation quality.</p></div>
+            <div class="related-grid">{relatedPosts.map((post) => (<a class="card related-card" href={post.href}><img src={post.image} alt="" loading="lazy" decoding="async" /><div class="related-card-body"><span>{post.category}</span><h3>{post.title}</h3></div></a>))}</div>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .blog-article-hero{border-bottom:1px solid var(--border);background:linear-gradient(115deg,rgba(7,22,44,.94),rgba(7,22,44,.66)),url("/blogs/common-dashboard-design-mistakes.webp") center/cover no-repeat}.blog-article-hero-inner{padding:clamp(54px,7vw,92px) 0;max-width:940px}.blog-kicker{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:var(--muted);font-weight:800;font-size:13px;background:rgba(255,255,255,.04)}.blog-article-hero h1{margin:16px 0 14px;max-width:920px;font-size:clamp(36px,5.2vw,64px);line-height:1.02;letter-spacing:.01em}.blog-article-hero p{margin:0;max-width:760px;font-size:clamp(16px,1.25vw,20px);line-height:1.7}.blog-article-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;color:var(--muted);font-size:14px;font-weight:700}.blog-article-meta span+span:before{content:"";display:inline-block;width:5px;height:5px;margin-right:12px;border-radius:999px;background:var(--primary);vertical-align:middle}
+  .article-layout{display:grid;gap:26px;padding:38px 0 46px}.article-main{min-width:0}.article-image{width:100%;max-height:420px;object-fit:cover;border-radius:18px;border:1px solid rgba(255,255,255,.18);box-shadow:var(--shadow);margin-bottom:26px}.article-section{padding:0 0 28px}.article-section h2{margin:0 0 12px;font-size:clamp(24px,3vw,34px);line-height:1.16}.article-section h3{margin:22px 0 8px;font-size:20px;line-height:1.25}.article-section p,.article-section li{color:var(--muted);font-size:17px;line-height:1.75}.article-section p{margin:0 0 14px}.article-section ul{margin:0 0 18px;padding-left:22px}.article-section a{color:#7ad8ff;font-weight:800}.comparison-table{display:grid;margin:22px 0;overflow:hidden;border-radius:16px;border:1px solid var(--border)}.comparison-row{display:grid;border-top:1px solid var(--border)}.comparison-row:first-child{border-top:0}.comparison-row>div{padding:14px;color:var(--muted);line-height:1.5;border-top:1px solid rgba(255,255,255,.08)}.comparison-row>div:first-child{border-top:0;color:var(--text);font-weight:800}.comparison-head{background:rgba(8,167,255,.12)}.comparison-head>div{color:var(--text);font-weight:900}.faq-list{display:grid;gap:10px}.faq-item{border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.03);padding:16px 18px}.faq-item summary{cursor:pointer;font-weight:800;line-height:1.4}.faq-item p{margin:12px 0 0}.article-cta{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:8px 0 30px;padding:22px;border-radius:18px;border:1px solid rgba(8,167,255,.28);background:rgba(8,167,255,.08)}.article-cta h2,.article-cta p{margin:0}.article-cta h2{margin-bottom:8px}.related-head{display:grid;gap:4px;margin-bottom:14px}.related-head h2,.related-head p{margin:0}.related-grid{display:grid;gap:12px}.related-card{overflow:hidden;display:grid;grid-template-rows:118px 1fr}.related-card img{width:100%;height:100%;object-fit:cover}.related-card-body{display:grid;gap:6px;padding:12px}.related-card-body span{color:#7ad8ff;font-size:12px;font-weight:800}.related-card-body h3{margin:0;font-size:16px;line-height:1.22}.article-toc{display:none}.toc-card{position:sticky;top:calc(var(--header-height) + 22px);display:grid;gap:10px;padding:16px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,.03)}.toc-title{font-weight:900}.toc-card a{color:var(--muted);font-size:14px;line-height:1.4}.toc-card a:hover{color:#7ad8ff}@media (min-width:760px){.comparison-row{grid-template-columns:.7fr 1fr 1fr}.comparison-row>div{border-top:0;border-left:1px solid rgba(255,255,255,.08)}.comparison-row>div:first-child{border-left:0}.related-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (min-width:1080px){.article-layout{grid-template-columns:240px minmax(0,1fr);align-items:start}.article-toc{display:block}}
+</style>

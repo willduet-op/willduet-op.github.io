@@ -1,0 +1,270 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const title = "Executive Dashboard Design Best Practices | Willduet";
+const description =
+  "Executive dashboard design best practices for SMB leaders who need clear KPI reporting, trusted metrics, concise visuals, and better business decisions.";
+const publishDate = "2026-07-07";
+const canonicalPath = "/blogs/executive-dashboard-design-best-practices/";
+const image = "/blogs/executive-dashboard-design-best-practices.webp";
+const excerpt =
+  "Practical executive dashboard design guidance for leaders who need clear KPIs, trusted reporting, and business dashboards that support decisions.";
+
+const faq = [
+  {
+    question: "What should an executive dashboard include?",
+    answer:
+      "An executive dashboard should include the most important KPIs, trend context, exceptions, targets, ownership, and enough detail to guide follow-up without turning the page into an operational report.",
+  },
+  {
+    question: "How many KPIs should an executive dashboard have?",
+    answer:
+      "There is no universal number, but most executive dashboards work better with a small set of decision-critical KPIs than with every metric the business tracks.",
+  },
+  {
+    question: "Should executive dashboards be real time?",
+    answer:
+      "Only when the decision requires it. Many executive dashboards are more useful with reliable daily, weekly, or monthly refreshes than with fragile real-time feeds.",
+  },
+  {
+    question: "What makes an executive dashboard fail?",
+    answer:
+      "Common causes include unclear KPI definitions, too many visuals, weak data quality, slow load times, missing context, and no agreement on how leaders will use the dashboard.",
+  },
+  {
+    question: "Can Power BI be used for executive dashboards?",
+    answer:
+      "Yes. Power BI is well suited for executive reporting when the data model, KPI definitions, security, layout, and refresh process are designed carefully.",
+  },
+  {
+    question: "Who should own an executive dashboard?",
+    answer:
+      "Business leaders should own KPI meaning and decision requirements. BI, finance, operations, or IT teams may own the data model, dashboard development, security, and support process.",
+  },
+];
+
+const relatedPosts = [
+  {
+    title: "Power BI Dashboard Best Practices for Executive Reporting",
+    href: "/blogs/power-bi-dashboard-best-practices/",
+    image: "/blogs/power-bi-dashboard-best-practices.webp",
+    category: "Executive dashboards",
+  },
+  {
+    title: "Power BI Governance: How to Scale Power BI Across Your Organization",
+    href: "/blogs/power-bi-governance/",
+    image: "/blogs/power-bi-governance.webp",
+    category: "Power BI governance",
+  },
+  {
+    title: "How to Create Automated Business Reports That Actually Help",
+    href: "/blogs/how-to-create-automated-business-reports/",
+    image: "/dashboard.jpg",
+    category: "Reporting automation",
+  },
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: "Executive Dashboard Design Best Practices",
+    description,
+    image: `https://willduet.com${image}`,
+    datePublished: publishDate,
+    dateModified: publishDate,
+    author: { "@type": "Organization", name: "Willduet", url: "https://willduet.com/" },
+    publisher: {
+      "@type": "Organization",
+      name: "Willduet",
+      logo: { "@type": "ImageObject", url: "https://willduet.com/logo-willduet-sin-fondo.png" },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://willduet.com${canonicalPath}` },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonicalPath={canonicalPath} image={image} structuredData={structuredData}>
+  <Header />
+  <main>
+    <article>
+      <section class="blog-article-hero reveal">
+        <div class="container blog-article-hero-inner">
+          <div class="blog-kicker">Executive reporting</div>
+          <h1>Executive Dashboard Design Best Practices</h1>
+          <p class="muted">
+            An executive dashboard should help leaders understand business performance quickly, not force them to decode a dense report. The best designs combine focused KPIs, clean context, and trusted data.
+          </p>
+          <div class="blog-article-meta"><span>Published July 7, 2026</span><span>10 min read</span></div>
+        </div>
+      </section>
+
+      <div class="container article-layout">
+        <aside class="article-toc" aria-label="Article sections">
+          <div class="toc-card">
+            <div class="toc-title">In this article</div>
+            <a href="#purpose">Dashboard purpose</a>
+            <a href="#best-practices">Best practices</a>
+            <a href="#table">Design comparison</a>
+            <a href="#examples">SMB examples</a>
+            <a href="#faq">FAQ</a>
+          </div>
+        </aside>
+
+        <div class="article-main">
+          <img class="article-image" src={image} alt="Executive dashboard design showing business KPIs and leadership reporting" loading="eager" decoding="async" />
+
+          <section id="purpose" class="article-section">
+            <h2>Executive dashboard design starts with decisions</h2>
+            <p>
+              An executive dashboard is not a collection of attractive charts. It is a decision tool. It should help leadership see whether the business is on track, where attention is needed, and which questions deserve follow-up.
+            </p>
+            <p>
+              The starting point is not the data source. It is the management rhythm. Will the dashboard be used in a weekly leadership meeting? A monthly finance review? A daily operations check-in? A board update? The answers influence KPI selection, refresh frequency, layout, and the level of detail.
+            </p>
+            <p>
+              For an SMB, executive reporting often needs to bring together finance, sales, operations, and service data. That means the dashboard design must balance simplicity with enough context to prevent misleading conclusions. Revenue without margin can hide unprofitable growth. Sales pipeline without conversion rate can overstate future performance. Operations volume without capacity can miss delivery risk.
+            </p>
+          </section>
+
+          <section id="best-practices" class="article-section">
+            <h2>Executive dashboard best practices</h2>
+            <h3>1. Limit the dashboard to decision-critical KPIs</h3>
+            <p>
+              Executives need focus. A dashboard with thirty metrics usually creates more questions than clarity. Start with the few measures that indicate health, risk, and progress against strategic priorities.
+            </p>
+            <ul>
+              <li>Revenue, gross margin, cash, or profitability for finance.</li>
+              <li>Pipeline, bookings, win rate, or customer retention for sales.</li>
+              <li>On-time delivery, backlog, utilization, or service level for operations.</li>
+              <li>Customer satisfaction, churn risk, or support volume for customer teams.</li>
+            </ul>
+            <h3>2. Show performance against a target</h3>
+            <p>
+              A KPI without a target is only a number. Leaders need to know whether performance is good, bad, improving, or falling behind. Use targets, budgets, prior periods, forecasts, or thresholds to add meaning.
+            </p>
+            <h3>3. Design the top row for scanning</h3>
+            <p>
+              The first screen should answer the most important question: are we on track? Use summary KPIs at the top, then supporting trends, exceptions, and detail below. Avoid making executives scroll before they understand the current state.
+            </p>
+            <h3>4. Use trends before tables</h3>
+            <p>
+              Tables are useful for detail, but leadership dashboards usually need trends first. A revenue number is more useful when leaders can see whether it is rising, falling, seasonal, or unusually volatile.
+            </p>
+            <h3>5. Make exceptions obvious</h3>
+            <p>
+              Executive dashboards should highlight areas that need attention: locations below target, customers at risk, projects over budget, products with margin pressure, or departments with unusual spend.
+            </p>
+            <h3>6. Keep drilldown available but separate</h3>
+            <p>
+              Executives may need detail, but the main dashboard should not become a detail dump. Use drillthrough pages, linked reports, or filtered detail sections so users can investigate without cluttering the executive view.
+            </p>
+            <h3>7. Protect trust with definitions</h3>
+            <p>
+              If leadership disagrees on what a KPI means, the dashboard will not be trusted. Document definitions for revenue, active customers, churn, margin, utilization, backlog, and any metric used in management decisions.
+            </p>
+          </section>
+
+          <section id="table" class="article-section">
+            <h2>Strong vs weak executive dashboard design</h2>
+            <div class="comparison-table" role="table" aria-label="Executive dashboard design comparison">
+              <div class="comparison-row comparison-head" role="row">
+                <div role="columnheader">Area</div>
+                <div role="columnheader">Weak design</div>
+                <div role="columnheader">Strong design</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">KPI selection</div>
+                <div role="cell">Every available metric appears on one page.</div>
+                <div role="cell">Only decision-critical KPIs are included.</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Context</div>
+                <div role="cell">Numbers appear without targets or trends.</div>
+                <div role="cell">KPIs include targets, variance, and time context.</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Layout</div>
+                <div role="cell">Dense visuals compete for attention.</div>
+                <div role="cell">The page guides leaders from summary to exceptions.</div>
+              </div>
+              <div class="comparison-row" role="row">
+                <div role="cell">Trust</div>
+                <div role="cell">Definitions are assumed and disputed in meetings.</div>
+                <div role="cell">KPI definitions and data ownership are clear.</div>
+              </div>
+            </div>
+          </section>
+
+          <section id="examples" class="article-section">
+            <h2>Practical SMB executive dashboard examples</h2>
+            <h3>Owner-operated services business</h3>
+            <p>
+              A services company may need a dashboard covering revenue, margin, utilization, overdue invoices, pipeline, and project delivery risk. The executive dashboard should not list every project task. It should show which business areas need attention this week.
+            </p>
+            <h3>Multi-location operations business</h3>
+            <p>
+              A business with several locations may need sales, labor cost, service volume, customer complaints, and inventory risk by location. The executive view should rank locations by exceptions so leadership can focus on action.
+            </p>
+            <h3>Finance-led management reporting</h3>
+            <p>
+              A finance leader may need monthly actuals vs budget, cash position, margin trend, expense variance, and receivables aging. For more on reducing manual reporting work, see our article on <a href="/blogs/how-to-create-automated-business-reports/">automated business reports</a>.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>Data and governance matter as much as design</h2>
+            <p>
+              A clean layout cannot fix weak data. Executive dashboards need reliable data sources, documented transformations, refresh monitoring, and agreed KPI definitions. If the dashboard pulls from spreadsheets that are manually edited every week, the design may look modern while the process remains fragile.
+            </p>
+            <p>
+              Power BI dashboard development often benefits from a governed model. A shared model ensures that finance, operations, and sales reports reuse the same definitions where appropriate. For broader reporting controls, review our guide to <a href="/blogs/power-bi-governance/">Power BI governance</a> and <a href="/blogs/power-bi-security-best-practices/">Power BI security best practices</a>.
+            </p>
+            <p>
+              Performance also affects adoption. Executives will not wait for a slow dashboard in a leadership meeting. If an existing report is sluggish, the issue may be model design, visual complexity, DAX, DirectQuery, or refresh strategy. Our <a href="/blogs/power-bi-performance-optimization/">Power BI performance optimization guide</a> covers practical fixes.
+            </p>
+          </section>
+
+          <section class="article-cta">
+            <div><h2>Need an executive dashboard leaders will actually use?</h2><p class="muted">Willduet helps businesses design Power BI executive dashboards, KPI reporting, reporting automation, and BI implementation foundations.</p></div>
+            <a class="btn btn-primary" href="/contact/">Talk to Willduet</a>
+          </section>
+
+          <section class="article-section">
+            <h2>Conclusion: executive dashboard</h2>
+            <p>
+              An executive dashboard should make business performance easier to understand and act on. The best dashboards focus on decision-critical KPIs, show targets and trends, highlight exceptions, protect KPI definitions, and give leaders a trusted path from summary to detail. When the data model and governance are strong, executive reporting becomes a management tool rather than another reporting chore.
+            </p>
+          </section>
+
+          <section id="faq" class="article-section">
+            <h2>Frequently asked questions</h2>
+            <div class="faq-list">{faq.map((item) => (<details class="faq-item"><summary>{item.question}</summary><p>{item.answer}</p></details>))}</div>
+          </section>
+
+          <section class="article-section related-posts">
+            <div class="related-head"><h2>Related posts</h2><p class="muted">More practical guidance on executive reporting and dashboard development.</p></div>
+            <div class="related-grid">{relatedPosts.map((post) => (<a class="card related-card" href={post.href}><img src={post.image} alt="" loading="lazy" decoding="async" /><div class="related-card-body"><span>{post.category}</span><h3>{post.title}</h3></div></a>))}</div>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .blog-article-hero{border-bottom:1px solid var(--border);background:linear-gradient(115deg,rgba(7,22,44,.94),rgba(7,22,44,.66)),url("/blogs/executive-dashboard-design-best-practices.webp") center/cover no-repeat}.blog-article-hero-inner{padding:clamp(54px,7vw,92px) 0;max-width:940px}.blog-kicker{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:var(--muted);font-weight:800;font-size:13px;background:rgba(255,255,255,.04)}.blog-article-hero h1{margin:16px 0 14px;max-width:920px;font-size:clamp(36px,5.2vw,64px);line-height:1.02;letter-spacing:.01em}.blog-article-hero p{margin:0;max-width:760px;font-size:clamp(16px,1.25vw,20px);line-height:1.7}.blog-article-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;color:var(--muted);font-size:14px;font-weight:700}.blog-article-meta span+span:before{content:"";display:inline-block;width:5px;height:5px;margin-right:12px;border-radius:999px;background:var(--primary);vertical-align:middle}
+  .article-layout{display:grid;gap:26px;padding:38px 0 46px}.article-main{min-width:0}.article-image{width:100%;max-height:420px;object-fit:cover;border-radius:18px;border:1px solid rgba(255,255,255,.18);box-shadow:var(--shadow);margin-bottom:26px}.article-section{padding:0 0 28px}.article-section h2{margin:0 0 12px;font-size:clamp(24px,3vw,34px);line-height:1.16}.article-section h3{margin:22px 0 8px;font-size:20px;line-height:1.25}.article-section p,.article-section li{color:var(--muted);font-size:17px;line-height:1.75}.article-section p{margin:0 0 14px}.article-section ul{margin:0 0 18px;padding-left:22px}.article-section a{color:#7ad8ff;font-weight:800}.comparison-table{display:grid;margin:22px 0;overflow:hidden;border-radius:16px;border:1px solid var(--border)}.comparison-row{display:grid;border-top:1px solid var(--border)}.comparison-row:first-child{border-top:0}.comparison-row>div{padding:14px;color:var(--muted);line-height:1.5;border-top:1px solid rgba(255,255,255,.08)}.comparison-row>div:first-child{border-top:0;color:var(--text);font-weight:800}.comparison-head{background:rgba(8,167,255,.12)}.comparison-head>div{color:var(--text);font-weight:900}.faq-list{display:grid;gap:10px}.faq-item{border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.03);padding:16px 18px}.faq-item summary{cursor:pointer;font-weight:800;line-height:1.4}.faq-item p{margin:12px 0 0}.article-cta{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:8px 0 30px;padding:22px;border-radius:18px;border:1px solid rgba(8,167,255,.28);background:rgba(8,167,255,.08)}.article-cta h2,.article-cta p{margin:0}.article-cta h2{margin-bottom:8px}.related-head{display:grid;gap:4px;margin-bottom:14px}.related-head h2,.related-head p{margin:0}.related-grid{display:grid;gap:12px}.related-card{overflow:hidden;display:grid;grid-template-rows:118px 1fr}.related-card img{width:100%;height:100%;object-fit:cover}.related-card-body{display:grid;gap:6px;padding:12px}.related-card-body span{color:#7ad8ff;font-size:12px;font-weight:800}.related-card-body h3{margin:0;font-size:16px;line-height:1.22}.article-toc{display:none}.toc-card{position:sticky;top:calc(var(--header-height) + 22px);display:grid;gap:10px;padding:16px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,.03)}.toc-title{font-weight:900}.toc-card a{color:var(--muted);font-size:14px;line-height:1.4}.toc-card a:hover{color:#7ad8ff}@media (min-width:760px){.comparison-row{grid-template-columns:.7fr 1fr 1fr}.comparison-row>div{border-top:0;border-left:1px solid rgba(255,255,255,.08)}.comparison-row>div:first-child{border-left:0}.related-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (min-width:1080px){.article-layout{grid-template-columns:240px minmax(0,1fr);align-items:start}.article-toc{display:block}}
+</style>
