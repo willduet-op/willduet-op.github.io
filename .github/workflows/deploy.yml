@@ -27,6 +27,8 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+        env:
+          PUBLIC_CONFERENCE_REGISTRATION_ENDPOINT: ${{ secrets.CONFERENCE_REGISTRATION_ENDPOINT }}
 
       - uses: actions/upload-pages-artifact@v3
         with:

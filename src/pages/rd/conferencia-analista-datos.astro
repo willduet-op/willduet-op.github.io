@@ -1,0 +1,224 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/rd-conferencia.css";
+
+const registrationEndpoint = import.meta.env.PUBLIC_CONFERENCE_REGISTRATION_ENDPOINT ?? "";
+const conferenceImage = "/rd/Conferencia.png";
+---
+
+<BaseLayout
+  title="Cómo conseguir tu primer empleo como Analista de Datos | WILLDUET Academy"
+  description="Conferencia virtual gratuita para aprender qué necesitas para conseguir tu primera oportunidad como Analista de Datos."
+  canonicalPath="/rd/conferencia-analista-datos/"
+  image={conferenceImage}
+  preloadImage={conferenceImage}
+  lang="es"
+>
+  <main class="conference-page">
+    <div class="container">
+      <header class="conference-header">
+        <div class="conference-brand" aria-label="WILLDUET Academy">
+          <img src="/logo-willduet-sin-fondo.png" width="38" height="38" alt="" />
+          <span>
+            <span class="conference-brand-name">WILLDUET</span>
+            <span class="conference-brand-subtitle">Academy</span>
+          </span>
+        </div>
+      </header>
+
+      <div class="conference-grid">
+        <aside class="conference-media">
+          <div class="conference-image-frame">
+            <img
+              class="conference-image"
+              src={conferenceImage}
+              alt="Conferencia gratuita: cómo conseguir tu primer empleo como Analista de Datos"
+              width="940"
+              height="788"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </div>
+
+          <div class="card conference-speaker">
+            <p class="conference-speaker-label">Speaker</p>
+            <p class="conference-speaker-name">Omar Peguero</p>
+            <p class="conference-speaker-role">Data &amp; Analytics Engineer</p>
+          </div>
+        </aside>
+
+        <article>
+          <span class="conference-badge">CONFERENCIA GRATUITA</span>
+          <h1 class="conference-title">¿Cómo conseguir tu primer empleo como Analista de Datos?</h1>
+
+          <div class="conference-details" aria-label="Detalles del evento">
+            <div class="conference-detail">
+              <span class="conference-detail-icon" aria-hidden="true">▣</span>
+              <span><strong>Domingo, 6 de septiembre</strong><br />10:00 AM – 11:30 AM</span>
+            </div>
+            <div class="conference-detail">
+              <span class="conference-detail-icon" aria-hidden="true">◉</span>
+              <span><strong>Virtual</strong><br />República Dominicana</span>
+            </div>
+            <div class="conference-detail">
+              <span class="conference-detail-icon" aria-hidden="true">✓</span>
+              <span><strong>GRATIS</strong></span>
+            </div>
+          </div>
+
+          <section class="card conference-form-card" aria-labelledby="registration-heading">
+            <div id="registration-content">
+              <h2 class="conference-form-title" id="registration-heading">Reserva tu lugar gratis</h2>
+              <p class="conference-form-intro">Completa tus datos para confirmar tu registro.</p>
+
+              <form
+                class="conference-form"
+                id="conference-registration-form"
+                data-endpoint={registrationEndpoint}
+              >
+                <div class="conference-field">
+                  <label for="registration-name">Nombre</label>
+                  <input id="registration-name" name="name" type="text" autocomplete="name" placeholder="Tu nombre" required aria-describedby="conference-form-status" />
+                </div>
+
+                <div class="conference-field">
+                  <label for="registration-email">Email</label>
+                  <input id="registration-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="tu@email.com" required aria-describedby="conference-form-status" />
+                </div>
+
+                <div class="conference-field">
+                  <label for="registration-motivation">¿Qué te motiva a asistir a esta conferencia?</label>
+                  <textarea id="registration-motivation" name="motivation" rows="4" placeholder="Cuéntanos brevemente" required aria-describedby="conference-form-status"></textarea>
+                </div>
+
+                <input type="hidden" name="utm_source" value="" />
+                <input type="hidden" name="utm_medium" value="" />
+                <input type="hidden" name="utm_campaign" value="" />
+                <input type="hidden" name="utm_content" value="" />
+                <input type="hidden" name="event" value="conferencia-analista-datos-sep-2026" />
+
+                <button class="btn btn-primary conference-submit" type="submit">REGÍSTRATE GRATIS</button>
+                <p class="conference-status" id="conference-form-status" role="status" aria-live="polite"></p>
+              </form>
+            </div>
+
+            <div class="conference-success" id="conference-success" hidden tabindex="-1">
+              <h2>¡Registro confirmado!</h2>
+              <p>Te esperamos el domingo 6 de septiembre a las 10:00 AM.</p>
+            </div>
+          </section>
+
+          <section class="conference-description">
+            <h2>Sobre la conferencia</h2>
+            <p>¿Quieres iniciar una carrera como Analista de Datos, pero no sabes por dónde comenzar?</p>
+            <p>En esta conferencia gratuita aprenderás qué buscan las empresas al contratar analistas de datos, cuáles son las habilidades y herramientas que realmente necesitas y cómo puedes prepararte para conseguir tu primera oportunidad laboral.</p>
+            <p>Hablaremos de Excel, SQL y Power BI, cómo construir un portafolio que demuestre tus habilidades y qué pasos seguir para pasar de aprender análisis de datos a comenzar a aplicar a empleos.</p>
+            <p>No necesitas experiencia previa. Si estás considerando entrar al mundo de los datos o ya estás aprendiendo y quieres conseguir tu primer empleo, esta conferencia es para ti.</p>
+          </section>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const form = document.querySelector<HTMLFormElement>("#conference-registration-form");
+    const status = document.querySelector<HTMLElement>("#conference-form-status");
+    const formContent = document.querySelector<HTMLElement>("#registration-content");
+    const success = document.querySelector<HTMLElement>("#conference-success");
+
+    if (form) {
+      const nameField = form.elements.namedItem("name") as HTMLInputElement | null;
+      const emailField = form.elements.namedItem("email") as HTMLInputElement | null;
+      const motivationField = form.elements.namedItem("motivation") as HTMLTextAreaElement | null;
+
+      const showValidationError = (field: HTMLInputElement | HTMLTextAreaElement) => {
+        if (!status) return;
+        status.dataset.state = "error";
+
+        if (field === emailField && field.validity.typeMismatch) {
+          status.textContent = "Ingresa un email válido, por ejemplo: nombre@email.com.";
+        } else if (field === nameField) {
+          status.textContent = "El nombre es obligatorio.";
+        } else if (field === emailField) {
+          status.textContent = "El email es obligatorio.";
+        } else {
+          status.textContent = "Cuéntanos qué te motiva a asistir a la conferencia.";
+        }
+      };
+
+      [nameField, emailField, motivationField].forEach((field) => {
+        field?.addEventListener("invalid", () => showValidationError(field));
+        field?.addEventListener("input", () => {
+          if (status?.dataset.state === "error" && field.checkValidity()) {
+            status.removeAttribute("data-state");
+            status.textContent = "";
+          }
+        });
+      });
+
+      const searchParams = new URLSearchParams(window.location.search);
+      ["utm_source", "utm_medium", "utm_campaign", "utm_content"].forEach((key) => {
+        const field = form.elements.namedItem(key) as HTMLInputElement | null;
+        if (field) field.value = searchParams.get(key) ?? "";
+      });
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        const endpoint = form.dataset.endpoint;
+        const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+
+        if (!endpoint) {
+          if (status) {
+            status.dataset.state = "error";
+            status.textContent = "El registro aún no está disponible. Inténtalo de nuevo más tarde.";
+          }
+          return;
+        }
+
+        if (button) {
+          button.disabled = true;
+          button.textContent = "REGISTRANDO...";
+        }
+        if (status) {
+          status.removeAttribute("data-state");
+          status.textContent = "Enviando tu registro...";
+        }
+
+        try {
+          const response = await fetch(endpoint, {
+            method: "POST",
+            headers: { "Accept": "application/json" },
+            body: new FormData(form),
+          });
+
+          if (!response.ok) throw new Error(`Registration failed: ${response.status}`);
+
+          formContent?.setAttribute("hidden", "");
+          success?.removeAttribute("hidden");
+          success?.focus();
+
+          const pixelWindow = window as Window & { fbq?: (...args: string[]) => void };
+          if (typeof pixelWindow.fbq === "function") {
+            pixelWindow.fbq("track", "CompleteRegistration");
+          }
+        } catch (error) {
+          console.error(error);
+          if (status) {
+            status.dataset.state = "error";
+            status.textContent = "No pudimos completar tu registro. Revisa tus datos e inténtalo de nuevo.";
+          }
+          if (button) {
+            button.disabled = false;
+            button.textContent = "REGÍSTRATE GRATIS";
+          }
+        }
+      });
+    }
+  </script>
+</BaseLayout>

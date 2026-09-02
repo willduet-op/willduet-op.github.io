@@ -6,6 +6,7 @@ const {
   description = "WILLDUET helps US businesses build trusted Power BI dashboards, clean data pipelines, analytics engineering models, and practical data training.",
   canonicalPath = Astro.url.pathname,
   image = "/dashboard.jpg",
+  preloadImage = "/hero-image.webp",
   lang = "en",
   robots = "index, follow",
   structuredData,
@@ -26,7 +27,7 @@ const isNoindex = robots.includes("noindex");
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate icon" href="/logo-willduet.ico" />
-    <link rel="preload" href="/hero-image.webp" as="image" type="image/webp" />
+    {preloadImage && <link rel="preload" href={preloadImage} as="image" />}
     <title>{title}</title>
 
     <meta property="og:type" content="website" />
