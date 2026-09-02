@@ -122,6 +122,8 @@ const conferenceImage = "/rd/Conferencia.png";
   </main>
 
   <script>
+    declare const fbq: ((event: string, eventName: string) => void) | undefined;
+
     const form = document.querySelector<HTMLFormElement>("#conference-registration-form");
     const status = document.querySelector<HTMLElement>("#conference-form-status");
     const formContent = document.querySelector<HTMLElement>("#registration-content");
@@ -197,18 +199,23 @@ const conferenceImage = "/rd/Conferencia.png";
             body: new FormData(form),
           });
 
+          console.log('Basin response status:', response.status);
+          console.log('Basin response ok:', response.ok);
+
           if (!response.ok) throw new Error(`Registration failed: ${response.status}`);
+
+          console.log('Basin registration successful');
+          console.log('Firing Meta CompleteRegistration');
+
+          if (typeof fbq === 'function') {
+              fbq('track', 'CompleteRegistration');
+          }
 
           formContent?.setAttribute("hidden", "");
           success?.removeAttribute("hidden");
           success?.focus();
-
-          const pixelWindow = window as Window & { fbq?: (...args: string[]) => void };
-          if (typeof pixelWindow.fbq === "function") {
-            pixelWindow.fbq("track", "CompleteRegistration");
-          }
         } catch (error) {
-          console.error(error);
+          console.error('Basin registration error:', error);
           if (status) {
             status.dataset.state = "error";
             status.textContent = "No pudimos completar tu registro. Revisa tus datos e inténtalo de nuevo.";
