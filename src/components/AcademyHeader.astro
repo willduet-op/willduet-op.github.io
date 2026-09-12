@@ -33,7 +33,18 @@ const nav = [
     </div>
     <details class="academy-mobile-menu">
       <summary aria-label="Abrir navegación">Menú</summary>
-      <nav>{nav.map(([href, label]) => <a href={href}>{label}</a>)}{courses.map((course) => <a class="academy-mobile-course" href={`/academy/cursos/${course.slug}/`} data-meta-course-name={course.name} data-meta-course-slug={course.slug} data-meta-location="navbar_dropdown">{course.name}</a>)}<a href="/consulting/">Data Consulting</a><a href={infoUrl} target="_blank" rel="noopener" data-meta-whatsapp data-meta-contact data-meta-location="navbar">Solicitar información</a></nav>
+      <nav>
+        {nav.map(([href, label]) => label === "Cursos" ? (
+          <details class="academy-mobile-courses">
+            <summary>Cursos <span aria-hidden="true">⌄</span></summary>
+            <div>
+              {courses.map((course) => <a class="academy-mobile-course" href={`/academy/cursos/${course.slug}/`} data-meta-course-name={course.name} data-meta-course-slug={course.slug} data-meta-location="navbar_dropdown">{course.name}</a>)}
+            </div>
+          </details>
+        ) : <a href={href}>{label}</a>)}
+        <a href="/consulting/">Data Consulting</a>
+        <a href={infoUrl} target="_blank" rel="noopener" data-meta-whatsapp data-meta-contact data-meta-location="navbar">Solicitar información</a>
+      </nav>
     </details>
   </div>
 </header>
@@ -65,5 +76,35 @@ const nav = [
   .academy-nav-dropdown:focus-within .academy-nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
   .academy-nav-dropdown:hover > a span,
   .academy-nav-dropdown:focus-within > a span { transform: rotate(180deg); }
-  .academy-mobile-course { padding-left: 24px !important; font-size: 13px; color: var(--academy-muted) !important; }
+  .academy-mobile-course { font-size: 13px; color: var(--academy-muted) !important; }
+
+  @media (max-width: 900px) {
+    .academy-mobile-menu > nav {
+      max-height: calc(100dvh - 92px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+    .academy-mobile-courses > summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px;
+      border: 0;
+      border-radius: 10px;
+      list-style: none;
+      color: var(--academy-ink);
+      font-weight: 750;
+      cursor: pointer;
+    }
+    .academy-mobile-courses > summary::-webkit-details-marker { display: none; }
+    .academy-mobile-courses > summary span { transition: transform 160ms ease; }
+    .academy-mobile-courses[open] > summary span { transform: rotate(180deg); }
+    .academy-mobile-courses > div {
+      display: grid;
+      margin: 0 6px 6px;
+      padding: 4px 0 4px 10px;
+      border-left: 2px solid var(--academy-line);
+    }
+    .academy-mobile-courses .academy-mobile-course { padding: 10px 12px; line-height: 1.35; }
+  }
 </style>

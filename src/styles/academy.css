@@ -2,3 +2,47 @@
 @media(min-width:760px){.academy-hero-grid{grid-template-columns:1.08fr .92fr}.academy-quick-grid{grid-template-columns:repeat(3,1fr)}.academy-quick-grid>div+div{border-left:1px solid var(--academy-line);padding-left:24px}.academy-two-col,.academy-project-grid,.academy-work-section,.academy-investment{grid-template-columns:repeat(2,1fr);align-items:start}.academy-feature-grid{grid-template-columns:repeat(2,1fr)}.academy-module-grid{grid-template-columns:repeat(3,1fr)}.academy-related{grid-template-columns:repeat(2,1fr)}.academy-footer-grid{grid-template-columns:1.2fr 1fr 1fr 1fr}.academy-courses-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:900px){.academy-nav,.academy-nav-actions{display:none}.academy-mobile-menu{display:block;margin-left:auto;position:relative}.academy-mobile-menu summary{list-style:none;padding:10px 14px;border:1px solid var(--academy-line);border-radius:999px;font-weight:800;cursor:pointer}.academy-mobile-menu nav{position:absolute;right:0;top:50px;width:min(290px,86vw);padding:12px;display:grid;border:1px solid var(--academy-line);border-radius:16px;background:#fff;box-shadow:0 18px 45px rgba(16,34,60,.16)}.academy-mobile-menu nav a{padding:12px;border-radius:10px;color:var(--academy-ink);font-weight:750}}
 @media(max-width:640px){.academy-body{padding-bottom:72px}.academy-section,.academy-course-hero{padding:44px 0}.academy-placeholder{min-height:250px}.academy-mobile-sticky{position:fixed;display:flex;z-index:60;left:12px;right:12px;bottom:max(10px,env(safe-area-inset-bottom));min-height:50px;align-items:center;justify-content:center;padding:11px 16px;border-radius:999px;background:#16a34a;color:#fff;font-weight:850;box-shadow:0 12px 30px rgba(0,0,0,.25)}.academy-footer{padding-bottom:80px}.academy-quick-grid>div+div{border-top:1px solid var(--academy-line)}.academy-hero-grid{gap:26px}}
+
+@media(max-width:640px){
+  .academy-body{padding-top:68px}
+  .academy-header{height:68px}
+  .academy-container{width:min(100% - 32px,1160px)}
+  .academy-nav-wrap{gap:12px}
+  .academy-logo{min-width:0}
+  .academy-logo img{width:32px;height:32px;flex:0 0 auto}
+  .academy-logo strong{font-size:15px}
+  .academy-logo small{font-size:11px}
+  .academy-mobile-menu>summary{min-height:44px;display:flex;align-items:center;padding:9px 14px}
+  .academy-mobile-menu nav{top:48px;width:min(340px,calc(100vw - 32px));padding:10px}
+  .academy-course-hero,.academy-section,.academy-content-hero{padding:38px 0}
+  .academy-hero-grid{gap:24px}
+  .academy-hero-grid h1,.academy-content-hero h1{font-size:clamp(34px,10vw,44px);line-height:1.06;letter-spacing:-.035em}
+  .academy-content-hero p,.academy-lead{font-size:17px;line-height:1.6}
+  .academy-section h2{font-size:clamp(28px,8vw,36px);line-height:1.12}
+  .academy-section-heading{margin-bottom:22px}
+  .academy-actions{display:grid;gap:10px;margin-top:22px}
+  .academy-actions .academy-btn{width:100%}
+  .academy-btn{min-height:48px;text-align:center}
+  .academy-placeholder{min-height:220px;border-radius:18px;padding:20px}
+  .academy-card{border-radius:16px}
+  .course-visual{min-height:170px}
+  .course-card-body,.academy-module,.academy-feature-grid .academy-card{padding:18px}
+  .academy-feature-grid,.academy-module-grid,.academy-courses-grid{gap:14px}
+  .academy-two-col,.academy-project-grid,.academy-work-section,.academy-investment{gap:24px}
+  .academy-work-section{padding:24px 18px;border-radius:20px}
+  .academy-check-list li{padding:13px 14px 13px 42px}
+  .academy-check-list li:before{left:14px}
+  .academy-form-card{padding:18px}
+  .academy-form-card h2{font-size:26px}
+  .academy-lead-form input,.academy-lead-form select{min-height:50px;font-size:16px}
+  .academy-lead-form textarea{font-size:16px}
+  .academy-related a{align-items:center;padding:17px}
+  .academy-final-cta{padding:48px 0}
+  .academy-final-cta .academy-btn{width:100%}
+  .academy-footer{padding-top:42px}
+  .academy-footer-grid{gap:26px}
+  .academy-footer nav a{padding-block:3px}
+  .academy-footer-bottom{display:grid;gap:12px;margin-top:28px}
+  .academy-breadcrumbs{overflow-x:auto;white-space:nowrap;margin-right:-16px;padding-right:16px}
+  .academy-breadcrumbs ol{flex-wrap:nowrap;margin-bottom:22px}
+}
