@@ -1,0 +1,10 @@
+---
+import CoursePage from "../../../components/CoursePage.astro";import { courses } from "../../../config/academy";
+const base=courses[0];const course={...base,longDescription:"Aprende Excel desde la perspectiva de un Analista de Datos: prepara información, analiza métricas y crea reportes que respondan preguntas de negocio y fortalezcan tu perfil profesional.",metaDescription:"Curso virtual de Excel para Analistas de Datos en RD. Aprende Power Query, métricas, tablas dinámicas y dashboards con proyectos prácticos."};
+const audience=["Personas que quieren comenzar a prepararse para ser Analistas de Datos.","Estudiantes universitarios que buscan una habilidad aplicable al empleo.","Profesionales que quieren cambiar de carrera hacia el análisis de datos.","Personas con conocimientos básicos de Excel que desean usarlo profesionalmente."];
+const outcomes=["Comprender cómo utiliza Excel un Analista de Datos.","Obtener, limpiar y estructurar datos correctamente.","Analizar métricas y KPIs para responder preguntas de negocio.","Crear reportes y dashboards que puedas demostrar en un portafolio."];
+const modules=[{title:"Fundamentos",items:["Rol del Analista de Datos","Estructura de Solución Analítica"]},{title:"Obtención de datos",items:["CSV","SQL","XLSX"]},{title:"Preparación",items:["Power Query","Limpieza de datos"]},{title:"Modelado",items:["Tablas","Relaciones"]},{title:"Análisis",items:["Fórmulas","Métricas","KPIs"]},{title:"Visualización",items:["Tablas dinámicas","Gráficos dinámicos","Proyecto final"]}];
+const includes=["Certificado","Proyecto final","Materiales","Grabaciones"];
+const process=["Resolver preguntas de negocio","Trabajar con datasets realistas","Pensar como analista","Entender métricas y KPIs","Crear entregables profesionales","Desarrollar proyectos para portafolio","Comprender cómo se relacionan Excel, SQL y Power BI"];
+---
+<CoursePage course={course} audience={audience} outcomes={outcomes} modules={modules} includes={includes} process={process}/>

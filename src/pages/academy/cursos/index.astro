@@ -1,0 +1,12 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import AcademyHeader from "../../../components/AcademyHeader.astro";
+import AcademyFooter from "../../../components/AcademyFooter.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import CourseCard from "../../../components/CourseCard.astro";
+import { courses } from "../../../config/academy";
+import "../../../styles/academy.css";
+const items=[{label:"Inicio",href:"/"},{label:"Academy",href:"/academy/"},{label:"Cursos",href:"/academy/cursos/"}];
+const structuredData={"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:items.map((item,index)=>({"@type":"ListItem",position:index+1,name:item.label,item:`https://willduet.com${item.href}`}))};
+---
+<BaseLayout title="Cursos para Analista de Datos en República Dominicana | WILLDUET" description="Cursos virtuales de Excel, SQL y Power BI enfocados en las habilidades necesarias para trabajar como Analista de Datos en República Dominicana." canonicalPath="/academy/cursos/" lang="es" structuredData={structuredData} bodyClass="academy-body" preloadImage=""><AcademyHeader /><main class="academy-main"><section class="academy-content-hero"><div class="academy-container"><Breadcrumbs items={items}/><span class="academy-kicker">Ruta de formación profesional</span><h1>Cursos para convertirte en Analista de Datos</h1><p>Aprende Excel, SQL y Power BI desde la perspectiva del rol: cómo obtener y limpiar datos, responder preguntas de negocio, construir KPIs y presentar resultados. Cada curso desarrolla una parte concreta del trabajo de un Analista de Datos.</p></div></section><section class="academy-section"><div class="academy-container"><div class="academy-section-heading"><h2>Elige dónde comenzar tu ruta en análisis de datos</h2><p>No necesitas aprender todas las herramientas al mismo tiempo. Identifica tu punto de partida y desarrolla habilidades que puedas aplicar en proyectos y situaciones reales de trabajo.</p></div><div class="academy-courses-grid">{courses.map(course=><CourseCard course={course}/>)}</div></div></section></main><AcademyFooter /></BaseLayout>

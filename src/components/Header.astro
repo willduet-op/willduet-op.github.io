@@ -1,14 +1,14 @@
 ---
 const nav = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/blogs", label: "Blogs" },
-  { href: "/contact", label: "Contact" },
+  { href: "/consulting/", label: "Home" },
+  { href: "/consulting/services/", label: "Services" },
+  { href: "/consulting/blogs/", label: "Insights" },
+  { href: "/consulting/contact/", label: "Contact" },
 ];
 ---
-<header style="position:fixed;top:0;left:0;right:0;z-index:40;backdrop-filter:blur(10px);background:rgba(7,22,44,.7);border-bottom:1px solid var(--border);">
+<header class="consulting-header" style="position:fixed;top:0;left:0;right:0;z-index:40;backdrop-filter:blur(10px);background:rgba(7,22,44,.7);border-bottom:1px solid var(--border);">
   <div class="header-inner" style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 24px;">
-    <a href="/" style="display:flex;align-items:center;gap:10px;">
+    <a href="/consulting/" style="display:flex;align-items:center;gap:10px;">
       <img
         src="/logo-willduet-sin-fondo.png"
         alt="WILLDUET"
@@ -18,7 +18,7 @@ const nav = [
       />
       <div>
         <div style="font-weight:900;letter-spacing:.04em;font-size:18px;line-height:1;">WILLDUET</div>
-        <div class="muted" style="font-size:14px;line-height:1.2;">Analytics and BI</div>
+        <div class="muted" style="font-size:14px;line-height:1.2;">Data Consulting</div>
       </div>
     </a>
 
@@ -30,6 +30,10 @@ const nav = [
       ))}
     </nav>
 
-    <a class="btn btn-primary" href="/contact" style="padding:13px 18px;font-size:15px;">Book A Consultation</a>
+    <div class="consulting-header-actions">
+      <a class="consulting-switch" href="/">WILLDUET</a>
+      <a class="consulting-switch" href="/academy/">Academy</a>
+      <a class="btn btn-primary" href="/consulting/contact/" style="padding:13px 18px;font-size:15px;">Book A Consultation</a>
+    </div>
   </div>
 </header>

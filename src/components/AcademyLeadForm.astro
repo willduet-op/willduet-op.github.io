@@ -1,0 +1,91 @@
+---
+import { courses } from "../config/academy";
+const { selectedCourse = "", includeMessage = false } = Astro.props;
+const basinEndpoint = import.meta.env.PUBLIC_CONFERENCE_REGISTRATION_ENDPOINT ?? "";
+const selectedCourseData = courses.find((course) => course.name === selectedCourse);
+---
+<form class="academy-lead-form" method="post" data-endpoint={basinEndpoint} data-course-name={selectedCourseData?.name ?? ""} data-course-slug={selectedCourseData?.slug ?? ""}>
+  <input type="hidden" name="form_type" value="academy_contact" />
+  <input type="hidden" name="page_url" value="" />
+  <label>Nombre<input name="name" type="text" autocomplete="name" required /></label>
+  <label>WhatsApp / Teléfono<input name="phone" type="tel" autocomplete="tel" required /></label>
+  <label>Email<input name="email" type="email" autocomplete="email" required /></label>
+  <label>Curso de interés<select name="course" required><option value="">Selecciona un curso</option>{courses.map(course => <option value={course.name} selected={selectedCourse === course.name}>{course.name}</option>)}</select></label>
+  {includeMessage && <label>Mensaje opcional<textarea name="message" rows="4"></textarea></label>}
+  <button class="academy-btn academy-btn-secondary" type="submit">Solicitar información</button>
+  <small>Al enviar este formulario, reconoces nuestra <a href="/academy/privacidad/">Política de Privacidad</a>.</small>
+  <p class="academy-form-status" aria-live="polite"></p>
+</form>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>(".academy-lead-form").forEach((form) => {
+    const status = form.querySelector<HTMLElement>(".academy-form-status");
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const pageUrl = form.elements.namedItem("page_url") as HTMLInputElement | null;
+    if (pageUrl) pageUrl.value = window.location.href;
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const endpoint = form.dataset.endpoint;
+      if (!endpoint) {
+        if (status) {
+          status.dataset.state = "error";
+          status.textContent = "El formulario no está disponible en este momento. Inténtalo de nuevo más tarde.";
+        }
+        return;
+      }
+
+      if (button) {
+        button.disabled = true;
+        button.textContent = "Enviando...";
+      }
+      if (status) {
+        status.removeAttribute("data-state");
+        status.textContent = "Enviando tu solicitud...";
+      }
+
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(form),
+        });
+        if (!response.ok) throw new Error(`Basin submission failed: ${response.status}`);
+
+        document.dispatchEvent(new CustomEvent("academy:form-success", {
+          detail: {
+            course_name: form.dataset.courseName || "",
+            course_slug: form.dataset.courseSlug || "",
+          },
+        }));
+        form.reset();
+        if (status) {
+          status.dataset.state = "success";
+          status.textContent = "¡Solicitud enviada! Te contactaremos próximamente.";
+        }
+      } catch (error) {
+        console.error("Academy Basin submission error:", error);
+        if (status) {
+          status.dataset.state = "error";
+          status.textContent = "No pudimos enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo.";
+        }
+      } finally {
+        if (button) {
+          button.disabled = false;
+          button.textContent = "Solicitar información";
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  .academy-form-status[data-state="success"] { color: #087f5b; }
+  .academy-form-status[data-state="error"] { color: #b42318; }
+  .academy-lead-form button:disabled { cursor: wait; opacity: 0.7; }
+</style>

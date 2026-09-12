@@ -10,12 +10,33 @@ const {
   lang = "en",
   robots = "index, follow",
   structuredData,
+  bodyClass = "",
 } = Astro.props;
 
 const site = Astro.site ?? new URL("https://willduet.com");
 const canonicalUrl = new URL(canonicalPath, site).toString();
 const imageUrl = new URL(image, site).toString();
 const isNoindex = robots.includes("noindex");
+const consultingSegments = canonicalPath.split("/").filter(Boolean);
+const consultingBreadcrumbs = canonicalPath.startsWith("/consulting/")
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "WILLDUET", item: new URL("/", site).toString() },
+        ...consultingSegments.map((segment, index) => ({
+          "@type": "ListItem",
+          position: index + 2,
+          name: segment === "consulting" ? "Consulting" : segment === "blogs" ? "Insights" : segment.split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" "),
+          item: new URL(`/${consultingSegments.slice(0, index + 1).join("/")}/`, site).toString(),
+        })),
+      ],
+    }
+  : null;
+const schemaPayload = [
+  ...(structuredData ? (Array.isArray(structuredData) ? structuredData : [structuredData]) : []),
+  ...(consultingBreadcrumbs ? [consultingBreadcrumbs] : []),
+];
 ---
 <!doctype html>
 <html lang={lang}>
@@ -43,8 +64,8 @@ const isNoindex = robots.includes("noindex");
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
 
-    {!isNoindex && structuredData && (
-      <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    {!isNoindex && schemaPayload.length > 0 && (
+      <script type="application/ld+json" set:html={JSON.stringify(schemaPayload.length === 1 ? schemaPayload[0] : schemaPayload)} />
     )}
 
     <slot name="head" /> 
@@ -80,7 +101,7 @@ const isNoindex = robots.includes("noindex");
     <!-- End Meta Pixel Code -->
     
   </head>
-  <body>
+  <body class={bodyClass}>
     <slot />
   </body>
 </html>

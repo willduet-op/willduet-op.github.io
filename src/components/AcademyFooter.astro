@@ -1,0 +1,13 @@
+---
+import { ACADEMY_EMAIL, ACADEMY_INSTAGRAM_URL, ACADEMY_YOUTUBE_URL, academyWhatsAppUrl } from "../config/academy";
+const year = new Date().getFullYear();
+---
+<footer class="academy-footer">
+  <div class="academy-container academy-footer-grid">
+    <div><strong>WILLDUET Academy</strong><p>Formación práctica en análisis de datos para República Dominicana.</p></div>
+    <nav aria-label="Cursos de Academy"><strong>Cursos</strong><a href="/academy/cursos/excel-para-analisis-de-datos/">Excel para Análisis de Datos</a><a href="/academy/cursos/sql-para-analisis-de-datos/">SQL para Análisis de Datos</a><a href="/academy/cursos/power-bi-para-analisis-de-datos/">Power BI para Análisis de Datos</a></nav>
+    <nav aria-label="Academy"><strong>Academy</strong><a href="/academy/">Inicio</a><a href="/academy/cursos/">Cursos</a><a href="/academy/sobre-nosotros/">Sobre Nosotros</a><a href="/academy/contacto/">Contacto</a></nav>
+    <nav aria-label="Contacto y redes sociales"><strong>Contacto</strong><a href={academyWhatsAppUrl()} target="_blank" rel="noopener" data-meta-whatsapp data-meta-contact data-meta-location="footer">WhatsApp</a><a href={`mailto:${ACADEMY_EMAIL}`}>{ACADEMY_EMAIL}</a><a href={ACADEMY_YOUTUBE_URL} target="_blank" rel="noopener noreferrer">YouTube</a><a href={ACADEMY_INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">Instagram</a><a href="/academy/privacidad/">Política de Privacidad</a><a href="/academy/terminos-y-condiciones/">Términos y Condiciones</a></nav>
+  </div>
+  <div class="academy-container academy-footer-bottom"><span>© {year} WILLDUET Academy</span><a href="/">WILLDUET principal</a><a href="/consulting/">Data Consulting</a></div>
+</footer>

@@ -1,0 +1,17 @@
+---
+const faqs = [
+  ["¿Puedo aprender análisis de datos sin experiencia previa?", "Sí. Puedes comenzar desde una base inicial, aunque el punto de partida recomendado depende del curso. Revisa la sección ‘¿A quién va dirigido?’ para elegir correctamente."],
+  ["¿Qué debo estudiar para ser Analista de Datos?", "Excel, SQL y Power BI son herramientas importantes, pero también necesitas aprender a limpiar datos, formular preguntas de negocio, construir métricas y comunicar resultados. Nuestros cursos enseñan cada herramienta dentro de ese proceso."],
+  ["¿Con cuál curso debo comenzar?", "Depende de tus conocimientos actuales y del tipo de trabajo que quieres realizar. Si aún no tienes una base, Excel puede ser un buen punto de partida; SQL te ayuda a consultar bases de datos y Power BI a construir modelos y dashboards. Escríbenos para orientarte."],
+  ["¿Las clases son en vivo?", "Sí. Los cursos se ofrecen con clases en vivo."],
+  ["¿Las clases son virtuales?", "Sí. La modalidad es virtual con clases en vivo."],
+  ["¿Recibiré las grabaciones?", "Sí. Las grabaciones están incluidas."],
+  ["¿El curso incluye certificado?", "Sí. Los cursos incluyen certificado."],
+  ["¿Los cursos ayudan a crear un portafolio de análisis de datos?", "Sí. Cada curso incluye un proyecto final o guiado para practicar y producir evidencia de tus habilidades, según se detalla en su página."],
+  ["¿El curso garantiza que conseguiré empleo?", "No. Ningún curso puede garantizar una contratación. Nuestro objetivo es ayudarte a desarrollar habilidades aplicables, comprender el rol y preparar proyectos que fortalezcan tu perfil profesional."],
+  ["¿Qué necesito para participar?", "Necesitarás una computadora y acceso estable a internet. Consulta por WhatsApp cualquier requisito específico del curso."],
+  ["¿Cómo puedo inscribirme?", "Solicita información por WhatsApp para conocer los pasos de inscripción."],
+  ["¿Cuándo inicia la próxima cohorte?", "Escríbenos por WhatsApp para conocer la próxima fecha disponible."],
+];
+---
+<div class="academy-faq">{faqs.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}</div>

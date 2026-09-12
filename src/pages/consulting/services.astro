@@ -1,0 +1,222 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import ConsultingBreadcrumbs from "../../components/ConsultingBreadcrumbs.astro";
+
+const title = "Power BI, Business Intelligence and Data Engineering Services | WILLDUET";
+const description =
+  "Explore WILLDUET services for US businesses: Power BI dashboards, business intelligence, data engineering pipelines, analytics engineering, and practical Power BI training.";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Power BI, Business Intelligence and Data Engineering Services",
+  provider: {
+    "@type": "ProfessionalService",
+    name: "WILLDUET",
+    url: "https://willduet.com/",
+    email: "contact@willduet.com",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "United States",
+  },
+  serviceType: "Business intelligence, data engineering, analytics engineering, and Power BI training",
+  url: "https://willduet.com/consulting/services/",
+  description,
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "WILLDUET analytics services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Business Intelligence" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Data Engineering" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Analytics Engineering" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Power BI Training" } },
+    ],
+  },
+};
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/consulting/services/"
+  image="/bi.webp"
+  structuredData={structuredData}
+>
+  <Header />
+  <ConsultingBreadcrumbs />
+
+  <main style="padding:0 0 22px;">
+    <section class="hero-full reveal">
+      <div class="container" style="padding:42px 0;">
+        <div class="hero-panel">
+          <div class="hero-copy">
+            <h1 class="hero-title">Power BI, Business Intelligence, and Data Engineering Services</h1>
+            <p class="muted hero-subtitle">
+              Work with a US-focused analytics team that helps decision-makers trust the numbers, understand performance faster, and scale reporting with confidence.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/consulting/contact">Book a discovery call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container" style="padding-top:40px;">
+      <section class="section reveal section-band">
+        <div class="split service-section">
+          <div class="service-copy">
+            <h2 class="section-title">
+              <a class="service-title-link" href="/consulting/power-bi-consulting/">Business Intelligence</a>
+            </h2>
+            <p class="muted">
+              Get clear Power BI dashboards and reports that answer real business questions. We design KPI frameworks,
+              improve report performance, and organize visuals so leaders can see what matters quickly.
+            </p>
+            <p class="muted">
+              The result is faster decisions, less confusion around metrics, and reporting that teams actually use.
+            </p>
+          </div>
+          <a class="service-image-link" href="/consulting/power-bi-consulting/" aria-label="Open Business Intelligence service page">
+            <img src="/bi.webp" alt="Business Intelligence dashboard with key KPIs and trends" class="service-image" loading="lazy" decoding="async" />
+          </a>
+        </div>
+      </section>
+
+      <section class="section reveal section-band alt">
+        <div class="split reverse service-section">
+          <div class="service-copy">
+            <h2 class="section-title">
+              <a class="service-title-link" href="/consulting/data-engineering-consulting/">Data Engineering</a>
+            </h2>
+            <p class="muted">
+              We build and improve data pipelines that move data from source systems into clean, reliable analytics
+              tables. This reduces manual work, broken reports, and delays.
+            </p>
+            <p class="muted">
+              Your team gets structured data that is easier to maintain, easier to trust, and ready for reporting at scale.
+            </p>
+          </div>
+          <a class="service-image-link" href="/consulting/data-engineering-consulting/" aria-label="Open Data Engineering service page">
+            <img src="/de.webp" alt="Data pipeline and project workflow planning" class="service-image" loading="lazy" decoding="async" />
+          </a>
+        </div>
+      </section>
+
+      <section class="section reveal section-band">
+        <div class="split service-section">
+          <div class="service-copy">
+            <h2 class="section-title">
+              <a class="service-title-link" href="/consulting/analytics-engineering-consulting/">Analytics Engineering</a>
+            </h2>
+            <p class="muted">
+              We organize business logic into documented, reusable data models so your numbers stay consistent
+              across dashboards, teams, and departments.
+            </p>
+            <p class="muted">
+              With strong modeling and testing practices, analytics becomes more reliable and easier to scale.
+            </p>
+          </div>
+          <a class="service-image-link" href="/consulting/analytics-engineering-consulting/" aria-label="Open Analytics Engineering service page">
+            <img src="/ae.webp" alt="Analytics engineering planning and model documentation" class="service-image" loading="lazy" decoding="async" />
+          </a>
+        </div>
+      </section>
+
+      <section class="section reveal section-band alt" style="margin-bottom:16px;">
+        <div class="split reverse service-section">
+          <div class="service-copy">
+            <h2 class="section-title">
+              <a class="service-title-link" href="/consulting/power-bi-training/">Power BI Training</a>
+            </h2>
+            <p class="muted">
+              We train teams and professionals to use Power BI with confidence, from fundamentals to advanced
+              modeling and DAX.
+            </p>
+            <p class="muted">
+              Sessions are practical and tailored to your use cases, so learning translates directly into better reports.
+            </p>
+            <a class="btn btn-primary" href="/consulting/contact">Ask about training</a>
+          </div>
+          <a class="service-image-link" href="/consulting/power-bi-training/" aria-label="Open Power BI Training service page">
+            <img src="/training.webp" alt="Power BI training session with collaborative team learning" class="service-image" loading="lazy" decoding="async" />
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .service-title-link{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: underline;
+    text-decoration-color: rgba(122,216,255,.45);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 7px;
+    transition: color .2s ease, text-decoration-color .2s ease;
+  }
+  .service-title-link::after{
+    content: "→";
+    color: var(--primary);
+    font-size: .78em;
+    transform: translateX(0);
+    transition: transform .2s ease;
+  }
+  .service-title-link:hover,
+  .service-title-link:focus-visible{
+    color: #7ad8ff;
+    text-decoration-color: #7ad8ff;
+  }
+  .service-title-link:hover::after,
+  .service-title-link:focus-visible::after{
+    transform: translateX(4px);
+  }
+  .service-image-link{
+    position: relative;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 18px;
+  }
+  .service-image-link::after{
+    content: "View service";
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    padding: 9px 12px;
+    border-radius: 999px;
+    background: rgba(7,22,44,.86);
+    border: 1px solid rgba(255,255,255,.24);
+    color: #eaf2ff;
+    font-size: 13px;
+    font-weight: 800;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  .service-image-link .service-image{
+    transition: transform .25s ease, filter .25s ease;
+  }
+  .service-image-link:hover .service-image,
+  .service-image-link:focus-visible .service-image{
+    transform: scale(1.035);
+    filter: brightness(1.08);
+  }
+  .service-image-link:hover::after,
+  .service-image-link:focus-visible::after{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .service-image-link:focus-visible,
+  .service-title-link:focus-visible{
+    outline: 3px solid rgba(122,216,255,.75);
+    outline-offset: 4px;
+  }
+</style>

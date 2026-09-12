@@ -31,8 +31,9 @@ function pagePathToRoute(file) {
 
 function priorityForRoute(route) {
   if (route === "/") return "1.0";
-  if (route === "/services/") return "0.9";
-  if (route === "/contact/") return "0.7";
+  if (route === "/consulting/" || route === "/academy/") return "0.9";
+  if (route === "/consulting/services/" || route === "/academy/cursos/") return "0.8";
+  if (route === "/consulting/contact/" || route === "/academy/contacto/") return "0.7";
   return "0.6";
 }
 

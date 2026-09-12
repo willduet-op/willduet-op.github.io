@@ -1,0 +1,9 @@
+---
+const pathname = Astro.url.pathname;
+const segments = pathname.split("/").filter(Boolean).slice(1);
+const labels = { blogs: "Insights", services: "Services", contact: "Contact", "power-bi-consulting": "Power BI Consulting", "power-bi-dashboard-development": "Power BI Dashboard Development", "power-bi-training": "Power BI Training", "data-engineering-consulting": "Data Engineering Consulting", "analytics-engineering-consulting": "Analytics Engineering Consulting" };
+const items = [{ label: "WILLDUET", href: "/" }, { label: "Consulting", href: "/consulting/" }];
+let current = "/consulting";
+segments.forEach(segment => { current += `/${segment}`; items.push({ label: labels[segment] ?? segment.split("-").map(word => word[0].toUpperCase() + word.slice(1)).join(" "), href: `${current}/` }); });
+---
+<nav class="consulting-breadcrumbs container" aria-label="Breadcrumb"><ol>{items.map((item,index)=><li>{index < items.length-1 ? <a href={item.href}>{item.label}</a> : <span aria-current="page">{item.label}</span>}</li>)}</ol></nav>

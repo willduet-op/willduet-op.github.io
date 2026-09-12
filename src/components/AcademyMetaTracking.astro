@@ -1,0 +1,35 @@
+<script>
+  declare const fbq: ((method: string, eventName: string, parameters?: Record<string, string>) => void) | undefined;
+
+  const trackAcademyEvent = (eventName: string, parameters: Record<string, string> = {}) => {
+    if (typeof fbq === "function") {
+      fbq("trackCustom", eventName, { ...parameters, page_path: window.location.pathname });
+    }
+  };
+
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    const cta = target.closest<HTMLElement>("[data-meta-whatsapp], [data-meta-contact], [data-meta-course-name]");
+    if (!cta) return;
+
+    const context = { cta_location: cta.dataset.metaLocation || "unspecified" };
+    if (cta.hasAttribute("data-meta-whatsapp")) trackAcademyEvent("AcademyWhatsAppClick", context);
+
+    const courseName = cta.dataset.metaCourseName;
+    const courseSlug = cta.dataset.metaCourseSlug;
+    if (courseName && courseSlug) {
+      trackAcademyEvent("AcademyCourseInterest", { ...context, course_name: courseName, course_slug: courseSlug });
+    }
+
+    if (cta.hasAttribute("data-meta-contact")) trackAcademyEvent("AcademyContactClick", context);
+  });
+
+  document.addEventListener("academy:form-success", (event) => {
+    const detail = event instanceof CustomEvent ? event.detail : {};
+    const parameters: Record<string, string> = { cta_location: "contact_form" };
+    if (typeof detail?.course_name === "string" && detail.course_name) parameters.course_name = detail.course_name;
+    if (typeof detail?.course_slug === "string" && detail.course_slug) parameters.course_slug = detail.course_slug;
+    trackAcademyEvent("AcademyFormSubmit", parameters);
+  });
+</script>

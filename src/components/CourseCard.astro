@@ -1,0 +1,7 @@
+---
+const { course } = Astro.props;
+---
+<article class="academy-card course-card">
+  <div class={`course-visual course-visual-${course.slug.split("-")[0]}`} role="img" aria-label={`Espacio reservado para imagen de ${course.name}`}><span>Imagen del curso pendiente</span></div>
+  <div class="course-card-body"><h3>{course.name}</h3><p>{course.description}</p><strong class="course-price">{course.price}</strong><a class="academy-btn academy-btn-secondary" href={`/academy/cursos/${course.slug}/`} data-meta-course-name={course.name} data-meta-course-slug={course.slug} data-meta-location="course_card">Ver curso</a></div>
+</article>
