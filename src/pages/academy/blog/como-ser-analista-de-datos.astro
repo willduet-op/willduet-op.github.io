@@ -1,0 +1,159 @@
+---
+import AcademyArticleLayout from "../../../components/AcademyArticleLayout.astro";
+import { academyArticles } from "../../../config/academyBlog";
+const article = academyArticles[0];
+const canonicalPath = "/academy/blog/como-ser-analista-de-datos/";
+const title = "Cómo ser analista de datos desde cero | WILLDUET Academy";
+const description = "Aprende cómo convertirte en analista de datos desde cero con un roadmap práctico: fundamentos de datos, Excel, SQL, Power BI y habilidades de negocio.";
+const articleUrl = `https://willduet.com${canonicalPath}`;
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: article.title,
+    description,
+    url: articleUrl,
+    mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+    image: `https://willduet.com${article.image}`,
+    datePublished: article.datePublished,
+    dateModified: article.datePublished,
+    inLanguage: "es",
+    author: { "@type": "Organization", name: "WILLDUET Academy", url: "https://willduet.com/academy/" },
+    publisher: { "@type": "Organization", name: "WILLDUET CORP.", logo: { "@type": "ImageObject", url: "https://willduet.com/logo-willduet-sin-fondo.png" } },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://willduet.com/" },
+      { "@type": "ListItem", position: 2, name: "Academy", item: "https://willduet.com/academy/" },
+      { "@type": "ListItem", position: 3, name: "Blog", item: "https://willduet.com/academy/blog/" },
+      { "@type": "ListItem", position: 4, name: article.title, item: articleUrl },
+    ],
+  },
+];
+---
+<AcademyArticleLayout {title} {description} {canonicalPath} {article} {structuredData}>
+  <div class="academy-article-shell academy-container">
+    <aside class="academy-article-toc" aria-label="Contenido del artículo">
+      <strong>En esta guía</strong>
+      <nav><a href="#que-hace">Qué hace un analista</a><a href="#roadmap">Roadmap desde cero</a><a href="#herramientas">Por qué estas herramientas</a><a href="#negocio">Matemática y negocio</a><a href="#caso">Caso práctico</a><a href="#primer-empleo">Cuándo buscar empleo</a><a href="#preguntas">Preguntas frecuentes</a></nav>
+    </aside>
+    <div class="academy-article-content">
+      <p class="academy-article-intro">Aprender análisis de datos no consiste en acumular cursos de software. Un analista aporta valor cuando entiende un problema de negocio, convierte una pregunta ambigua en un análisis verificable y comunica una recomendación que otra persona puede usar para decidir.</p>
+      <p>Las herramientas importan, pero son el medio. Excel, SQL o Power BI no sustituyen la capacidad de preguntar qué ocurrió, por qué ocurrió, qué tan confiables son los datos y qué acción tendría sentido. Este roadmap organiza el aprendizaje alrededor de esa capacidad profesional.</p>
+
+      <section id="que-hace">
+        <h2>¿Qué hace realmente un analista de datos?</h2>
+        <p>Un analista de datos conecta información con decisiones. Puede recibir una solicitud como “las ventas están bajando” y transformarla en preguntas más precisas: ¿desde cuándo?, ¿en qué productos o regiones?, ¿bajó el número de clientes, la frecuencia de compra o el valor promedio?, ¿es una caída real o un problema en la captura de datos?</p>
+        <p>Su trabajo suele incluir definir métricas, localizar fuentes, limpiar datos, comprobar su calidad, analizarlos, visualizar hallazgos y explicar limitaciones. El entregable puede ser una hoja de cálculo, una consulta SQL, un dashboard o una presentación. Lo esencial no es el formato, sino que el análisis responda la pregunta correcta con evidencia suficiente.</p>
+        <div class="academy-callout"><strong>Idea central</strong><p>Un analista no se define por conocer una lista de herramientas, sino por su capacidad de entender un problema de negocio y usar datos para resolverlo.</p></div>
+      </section>
+
+      <section id="roadmap">
+        <h2>Roadmap para ser analista de datos desde cero</h2>
+        <p>No existe una única secuencia válida para todas las personas. Esta ruta prioriza conocimientos que se complementan y permite producir proyectos útiles desde temprano.</p>
+        <div class="academy-roadmap" aria-label="Ruta de aprendizaje para analista de datos">
+          <ol>
+            <li><span>1</span><div><strong>Fundamentos de datos</strong><small>Entender estructuras, calidad y métricas</small></div></li>
+            <li><span>2</span><div><strong>Excel</strong><small>Explorar, limpiar y analizar</small></div></li>
+            <li><span>3</span><div><strong>SQL</strong><small>Consultar y combinar datos</small></div></li>
+            <li><span>4</span><div><strong>Power BI</strong><small>Modelar y comunicar de forma recurrente</small></div></li>
+          </ol>
+          <div class="academy-roadmap-parallel"><p><strong>Matemática y estadística aplicada</strong><span>Avanzan durante toda la ruta</span></p><p><strong>Comprensión del negocio</strong><span>Da propósito a cada herramienta</span></p></div>
+        </div>
+
+        <h3>1. Aprende los fundamentos y las estructuras de datos</h3>
+        <p>Antes de elegir gráficos, comprende qué representa cada fila, cuál es la unidad de análisis y cómo se relacionan las tablas. Practica con datos estructurados: filas, columnas, tipos de dato, identificadores, valores nulos, duplicados, fechas y categorías. Aprende la diferencia entre una transacción, un cliente y un agregado mensual.</p>
+        <p>También necesitas reconocer problemas de calidad. Un porcentaje correcto puede producir una conclusión equivocada si el denominador no corresponde, si faltan registros o si dos sistemas definen “cliente activo” de manera distinta. Documentar definiciones y validar totales forma parte del análisis.</p>
+
+        <h3>2. Usa Excel para analizar, no solo para llenar celdas</h3>
+        <p>Excel es útil para explorar archivos, corregir formatos, construir cálculos y responder preguntas con rapidez. Enfócate en tablas, filtros, funciones de búsqueda y agregación, manejo de fechas, tablas dinámicas, gráficos claros y Power Query cuando el proceso de limpieza deba repetirse.</p>
+        <p>Ejemplo: recibes un archivo de ventas con fecha, producto, sucursal, unidades, precio y costo. Puedes convertirlo en tabla, comprobar duplicados, crear ingresos y margen, agrupar resultados por mes y comparar sucursales. El objetivo no es mostrar que conoces muchas fórmulas; es explicar qué categoría perdió margen y qué dato adicional investigarías.</p>
+        <p>Nuestro <a href="/academy/cursos/excel-para-analisis-de-datos/">curso de Excel para Análisis de Datos</a> desarrolla la herramienta desde este tipo de trabajo, no como un temario genérico de funciones.</p>
+
+        <h3>3. Aprende SQL para consultar datos de forma confiable</h3>
+        <p>SQL es un lenguaje para consultar y transformar datos relacionales; no es una base de datos específica. Sistemas gestores como PostgreSQL, SQL Server, MySQL u Oracle implementan SQL con diferencias de sintaxis y funciones. Para comenzar, importa más dominar los conceptos transferibles que memorizar una plataforma.</p>
+        <p>Practica <code>SELECT</code>, filtros, ordenamiento, agregaciones, <code>CASE</code>, manejo de nulos, funciones de fecha y subconsultas. Un <em>JOIN</em> combina filas de tablas relacionadas mediante una clave: por ejemplo, ventas con productos o pedidos con clientes. Debes entender también por qué una unión incorrecta puede duplicar registros y alterar una métrica.</p>
+        <p>Puedes practicar con herramientas como PostgreSQL y pgAdmin, SQL Server y SSMS, o motores locales. La interfaz cambia; el razonamiento sobre tablas, claves, granularidad y validación permanece. Consulta el <a href="/academy/cursos/sql-para-analisis-de-datos/">curso de SQL para Análisis de Datos</a> para una ruta orientada al rol.</p>
+
+        <h3>4. Usa Power BI cuando el análisis debe mantenerse y compartirse</h3>
+        <p>Un análisis puntual responde una pregunta concreta una vez: explorar una caída reciente, evaluar una campaña o preparar una reunión. La inteligencia de negocios recurrente necesita definiciones estables, un modelo que pueda actualizarse y una experiencia consistente para distintas personas.</p>
+        <p>Power BI ayuda a conectar fuentes, transformar datos, construir un modelo semántico, crear medidas con DAX y publicar reportes interactivos. Aprende relaciones, tablas de hechos y dimensiones, medidas, contexto de filtro, diseño visual y validación. Un dashboard no es mejor por tener más gráficos; debe facilitar decisiones y destacar excepciones.</p>
+        <p>El <a href="/academy/cursos/power-bi-para-analisis-de-datos/">curso de Power BI para Análisis de Datos</a> conecta modelado, métricas y comunicación con situaciones del trabajo.</p>
+      </section>
+
+      <section id="herramientas">
+        <h2>¿Por qué aprender Excel, SQL y Power BI?</h2>
+        <p>Esta combinación cubre tres necesidades frecuentes: trabajar con archivos y análisis rápidos, consultar datos almacenados en sistemas relacionales y crear reportes que puedan actualizarse. Es una base práctica, no una regla universal ni una garantía de contratación. Las herramientas solicitadas cambian según empresa, industria, equipo y vacante.</p>
+        <h3>¿Qué pasa con las alternativas?</h3>
+        <ul>
+          <li><strong>Google Sheets</strong> cubre muchos usos colaborativos de hojas de cálculo. Los principios de limpieza, fórmulas, tablas y validación se transfieren desde Excel.</li>
+          <li><strong>Tableau y Looker</strong> son alternativas de visualización e inteligencia de negocios. Si una vacante las utiliza, el modelado, la selección de métricas y el diseño analítico siguen siendo relevantes.</li>
+          <li><strong>Python y R</strong> amplían las posibilidades de automatización, estadística y análisis reproducible. Son valiosos, pero no necesitas posponer toda práctica profesional hasta dominarlos.</li>
+          <li><strong>Otras bases de datos</strong> pueden usar dialectos diferentes. Aprende primero lógica relacional y SQL básico; luego adapta la sintaxis al entorno de trabajo.</li>
+        </ul>
+        <p>Al evaluar una oferta, separa la herramienta del problema que la empresa intenta resolver. Una descripción puede mencionar Excel porque recibe archivos de proveedores, SQL porque los datos viven en un almacén y Power BI porque líderes consumen reportes semanales. Esa arquitectura explica por qué las tres pueden aparecer juntas.</p>
+      </section>
+
+      <section id="negocio">
+        <h2>Matemática, estadística y comprensión del negocio</h2>
+        <p>Para empezar no necesitas matemática avanzada, pero sí comodidad con porcentajes, razones, promedios, variación, distribución y comparación. Debes reconocer cuándo un promedio oculta segmentos, cuándo una muestra es pequeña y por qué correlación no demuestra causalidad. Aprende estos conceptos dentro de casos, no como una lista desconectada.</p>
+        <p>La comprensión del negocio convierte un cálculo en una recomendación. Antes de analizar, pregunta:</p>
+        <ul>
+          <li>¿Qué decisión necesita tomar la persona que solicita el análisis?</li>
+          <li>¿Cómo se define exactamente la métrica y quién es responsable de ella?</li>
+          <li>¿Cuál es el periodo y contra qué referencia debemos comparar?</li>
+          <li>¿Qué segmentos podrían comportarse de forma distinta?</li>
+          <li>¿Qué cambios operativos, comerciales o externos ocurrieron?</li>
+          <li>¿Qué limitaciones tienen los datos y cómo afectan la conclusión?</li>
+        </ul>
+        <p>Estas preguntas evitan un error común: producir un reporte técnicamente correcto que no ayuda a tomar ninguna decisión.</p>
+      </section>
+
+      <section id="caso">
+        <h2>Caso práctico: las ventas están bajando</h2>
+        <p>Imagina que una empresa observa una reducción en ventas y solicita un dashboard. Un buen análisis no comienza diseñando colores. Primero valida la definición: ¿ventas facturadas, cobradas o pedidos? Luego confirma que la caída existe al comparar periodos equivalentes y revisar datos faltantes.</p>
+        <ol>
+          <li><strong>Descomponer el resultado.</strong> Separa ingresos en número de pedidos y valor promedio. Compara unidades, precio, descuentos y devoluciones.</li>
+          <li><strong>Localizar la variación.</strong> Segmenta por producto, canal, sucursal, región, tipo de cliente y periodo. Busca dónde se concentra el cambio.</li>
+          <li><strong>Explorar explicaciones.</strong> Revisa inventario, campañas, cambios de precio, disponibilidad, pérdida de clientes, estacionalidad y calidad de captura.</li>
+          <li><strong>Comunicar límites y próximos pasos.</strong> Distingue evidencia de hipótesis y propone datos o pruebas adicionales.</li>
+        </ol>
+        <p>Excel podría servir para explorar un archivo reciente y validar cálculos. SQL permitiría extraer pedidos, clientes, productos y devoluciones sin unirlos manualmente. Power BI convertiría métricas acordadas en un reporte recurrente para monitorear si la intervención funciona. Las herramientas se complementan porque resuelven partes diferentes del proceso.</p>
+      </section>
+
+      <section id="primer-empleo">
+        <h2>¿Cuándo estás listo para buscar tu primer empleo?</h2>
+        <p>No necesitas sentir que conoces todo. Estás en una posición razonable para comenzar a aplicar cuando puedes tomar un conjunto de datos, explicar su estructura, limpiarlo, calcular métricas coherentes, investigar una pregunta y presentar conclusiones sin ocultar limitaciones.</p>
+        <p>Construye dos o tres proyectos que muestren razonamiento, no solo capturas de dashboards. Para cada uno documenta la pregunta, el origen y calidad de los datos, las decisiones de limpieza, las métricas, los hallazgos y lo que recomendarías investigar después. Incluye consultas SQL o pasos reproducibles cuando corresponda.</p>
+        <p>Lee vacantes reales para identificar patrones, adapta tu CV al trabajo demostrado y practica explicar tus proyectos en lenguaje sencillo. La formación mejora tu preparación, pero ninguna herramienta, curso o portafolio puede garantizar una contratación: también influyen la experiencia, la comunicación, el proceso de selección y las condiciones del mercado.</p>
+      </section>
+
+      <section class="academy-article-cta" aria-labelledby="cta-title">
+        <span class="academy-kicker">Tu próximo paso</span>
+        <h2 id="cta-title">Aprende cada herramienta desde la perspectiva del rol</h2>
+        <p>Explora los cursos de Excel, SQL y Power BI de WILLDUET Academy, diseñados alrededor de tareas, preguntas de negocio y entregables de un Analista de Datos.</p>
+        <a class="academy-btn academy-btn-primary" href="/academy/cursos/">Explorar cursos para Analista de Datos</a>
+      </section>
+
+      <section id="preguntas">
+        <h2>Preguntas frecuentes sobre cómo ser analista de datos</h2>
+        <div class="academy-article-faq">
+          <details><summary>¿Puedo ser analista de datos sin experiencia previa?</summary><p>Sí puedes comenzar a formarte sin experiencia en datos. Para competir por una primera oportunidad necesitarás demostrar habilidades mediante proyectos, explicar tu razonamiento y conectar experiencias anteriores —académicas, laborales o personales— con problemas que hayas resuelto.</p></details>
+          <details><summary>¿Necesito un título universitario?</summary><p>Depende de la empresa y la vacante. Algunas lo exigen o lo prefieren; otras valoran habilidades demostrables y experiencia relevante. Revisa requisitos reales de tu mercado y fortalece aquello que sí controlas: fundamentos, proyectos, comunicación y preparación para entrevistas.</p></details>
+          <details><summary>¿Cuánto tiempo toma convertirse en analista de datos?</summary><p>No existe un plazo responsable que aplique a todas las personas. Depende de tu punto de partida, horas de práctica, profundidad de los proyectos y requisitos de las vacantes. Evalúa tu avance por lo que puedes resolver y explicar, no solo por meses estudiados.</p></details>
+          <details><summary>¿Debo aprender Python antes de buscar empleo?</summary><p>No necesariamente. Python es valioso y algunas vacantes lo requieren, pero otras priorizan Excel, SQL, una herramienta de BI y criterio de negocio. Aprende lo necesario para el tipo de puesto que buscas y añade Python cuando amplíe los problemas que puedes resolver.</p></details>
+          <details><summary>¿Qué debe incluir un portafolio de análisis de datos?</summary><p>Debe mostrar la pregunta, los datos, el proceso, las decisiones tomadas, los resultados y las limitaciones. Es mejor un proyecto bien explicado que varios dashboards sin contexto. Protege siempre información confidencial y utiliza datos autorizados.</p></details>
+          <details><summary>¿En qué orden debo aprender Excel, SQL y Power BI?</summary><p>Una secuencia práctica es fundamentos, Excel, SQL y Power BI, mientras desarrollas estadística aplicada y comprensión de negocio. No tiene que ser rígida: puedes solapar contenidos y regresar a una herramienta cuando el proyecto lo exija.</p></details>
+        </div>
+      </section>
+
+      <section>
+        <h2>Conclusión</h2>
+        <p>El camino para ser analista de datos comienza con fundamentos y se fortalece al resolver preguntas reales. Excel te ayuda a explorar y analizar, SQL a obtener y combinar información, y Power BI a construir una capa de análisis recurrente. Matemática, estadística, comunicación y comprensión del negocio atraviesan toda la ruta.</p>
+        <p>No midas tu progreso por la cantidad de herramientas instaladas. Mídelo por tu capacidad de formular una pregunta, validar datos, producir evidencia y explicar una decisión. Esa es la habilidad que convierte el aprendizaje técnico en trabajo analítico.</p>
+      </section>
+    </div>
+  </div>
+</AcademyArticleLayout>
