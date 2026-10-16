@@ -2,24 +2,16 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import AcademyHeader from "./AcademyHeader.astro";
 import AcademyFooter from "./AcademyFooter.astro";
-import Breadcrumbs from "./Breadcrumbs.astro";
 import "../styles/academy.css";
 import "../styles/academy-blog.css";
 
 const { title, description, canonicalPath, article, structuredData } = Astro.props;
-const items = [
-  { label: "Inicio", href: "/" },
-  { label: "Academy", href: "/academy/" },
-  { label: "Blog", href: "/academy/blog/" },
-  { label: article.title, href: canonicalPath },
-];
 ---
 <BaseLayout title={title} description={description} canonicalPath={canonicalPath} image={article.image} preloadImage={article.image} lang="es" structuredData={structuredData} bodyClass="academy-body">
   <AcademyHeader />
   <main class="academy-main academy-blog-main">
     <header class="academy-article-hero">
       <div class="academy-container">
-        <Breadcrumbs items={items} />
         <div class="academy-article-hero-grid">
           <div>
             <span class="academy-kicker">{article.category}</span>
