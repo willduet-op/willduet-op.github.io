@@ -1,0 +1,155 @@
+---
+import AcademyArticleLayout from "../../../components/AcademyArticleLayout.astro";
+import { academyArticles } from "../../../config/academyBlog";
+const article = academyArticles.find(({ slug }) => slug === "ia-reemplazara-analistas-de-datos");
+if (!article) throw new Error("Academy article metadata not found");
+const canonicalPath = "/academy/blog/ia-reemplazara-analistas-de-datos/";
+const title = "¿La IA reemplazará a los analistas de datos? | WILLDUET Academy";
+const description = "Descubre cómo la inteligencia artificial está transformando el análisis de datos, qué tareas puede automatizar y qué habilidades seguirán siendo importantes.";
+const articleUrl = `https://willduet.com${canonicalPath}`;
+const structuredData = [
+  {
+    "@context": "https://schema.org", "@type": "BlogPosting", headline: article.title, description,
+    url: articleUrl, mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+    image: `https://willduet.com${article.image}`, datePublished: article.datePublished, dateModified: article.datePublished,
+    inLanguage: "es-DO",
+    author: { "@type": "Organization", name: "WILLDUET Academy", url: "https://willduet.com/academy/" },
+    publisher: { "@type": "Organization", name: "WILLDUET CORP.", logo: { "@type": "ImageObject", url: "https://willduet.com/logo-willduet-sin-fondo.png" } },
+  },
+  {
+    "@context": "https://schema.org", "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://willduet.com/" },
+      { "@type": "ListItem", position: 2, name: "Academy", item: "https://willduet.com/academy/" },
+      { "@type": "ListItem", position: 3, name: "Blog", item: "https://willduet.com/academy/blog/" },
+      { "@type": "ListItem", position: 4, name: article.title, item: articleUrl },
+    ],
+  },
+];
+---
+<AcademyArticleLayout {title} {description} {canonicalPath} {article} {structuredData}>
+  <div class="academy-article-shell academy-container">
+    <aside class="academy-article-toc" aria-label="Contenido del artículo">
+      <strong>En esta guía</strong>
+      <nav><a href="#respuesta">Respuesta corta</a><a href="#tareas">Tareas que facilita la IA</a><a href="#valor">Valor del analista</a><a href="#riesgos">Riesgos laborales</a><a href="#prepararse">Cómo prepararte</a><a href="#preguntas">Preguntas frecuentes</a></nav>
+    </aside>
+    <div class="academy-article-content">
+      <p class="academy-article-intro">La inteligencia artificial ya puede acelerar consultas, fórmulas, limpieza, visualizaciones y borradores de conclusiones. Sin embargo, producir una respuesta útil también exige comprender el negocio, comprobar los datos, explicar límites y convertir el análisis en una decisión. El futuro no está determinado: algunas tareas cambiarán, ciertos puestos podrían reducirse y también surgirán nuevas responsabilidades.</p>
+
+      <section id="respuesta">
+        <h2>Respuesta corta: ¿la IA reemplazará a los analistas de datos?</h2>
+        <p>No existe una respuesta absoluta. La IA puede automatizar una parte creciente del trabajo analítico y elevar lo que una empresa espera de cada profesional. Eso no equivale automáticamente a eliminar el puesto completo, porque un empleo combina tareas técnicas, contexto, coordinación, validación y responsabilidad.</p>
+        <p>La <a href="https://www.ilo.org/publications/generative-ai-and-jobs-2025-update" target="_blank" rel="noopener noreferrer">Organización Internacional del Trabajo</a> estima que uno de cada cuatro trabajadores en el mundo se encuentra en una ocupación con algún grado de exposición a la IA generativa. Su conclusión central es que, por la necesidad persistente de intervención humana, la transformación de los empleos es más probable que su eliminación completa. Es una evaluación global de exposición: no mide despidos ni pronostica qué ocurrirá específicamente en República Dominicana.</p>
+        <p>Para quien estudia análisis de datos, la mejor pregunta no es solamente “¿desaparecerá el rol?”, sino “¿qué parte del trabajo podrá hacer una herramienta y qué capacidad necesitaré para supervisarla, mejorarla y resolver un problema real?”.</p>
+      </section>
+
+      <section id="tareas">
+        <h2>¿Qué tareas de un analista puede facilitar la inteligencia artificial?</h2>
+        <p>Dependiendo de la herramienta, los permisos y la calidad de los datos, un asistente de IA puede proponer consultas SQL, fórmulas de Excel o medidas DAX; escribir y explicar código; sugerir pasos de limpieza; resumir documentos; identificar patrones preliminares; generar gráficos; redactar narrativas para reportes y conectar partes de un flujo automatizado.</p>
+        <p>“Puede generar” no significa “entrega una respuesta correcta”. Una consulta puede ejecutar y aun así duplicar ventas por un join incorrecto. Una medida DAX puede ignorar filtros relevantes. Un resumen puede inventar causas que los datos no demuestran. Además, la herramienta desconoce reglas internas, cambios operativos y definiciones que no aparecen en su contexto.</p>
+        <div class="academy-table-wrap" tabindex="0" role="region" aria-label="Comparación entre tareas facilitadas por inteligencia artificial y responsabilidades del analista">
+          <table class="academy-ai-table"><thead><tr><th>Lo que la IA puede facilitar</th><th>Lo que el analista debe verificar o contextualizar</th></tr></thead><tbody>
+            <tr><td>Proponer SQL, fórmulas y DAX</td><td>Modelo de datos, joins, filtros, granularidad y definición de cada métrica.</td></tr>
+            <tr><td>Limpiar, transformar o documentar datos</td><td>Reglas del negocio, excepciones válidas, trazabilidad y pérdida de información.</td></tr>
+            <tr><td>Resumir resultados y sugerir patrones</td><td>Calidad de los datos, explicación alternativa, causalidad y relevancia para la decisión.</td></tr>
+            <tr><td>Crear gráficos y borradores de reportes</td><td>Audiencia, escala, claridad, accesibilidad y mensaje que la evidencia realmente permite.</td></tr>
+            <tr><td>Automatizar pasos recurrentes</td><td>Controles, permisos, monitoreo, mantenimiento y respuesta cuando el proceso falla.</td></tr>
+          </tbody></table>
+        </div>
+      </section>
+
+      <section id="valor">
+        <h2>¿Dónde sigue aportando valor un analista de datos?</h2>
+        <h3>Comprender la realidad del negocio</h3>
+        <p>Antes de calcular un indicador hay que decidir qué pregunta importa. “Ventas”, “cliente activo” o “entrega a tiempo” pueden tener definiciones distintas según el área. El analista investiga el proceso, reconoce incentivos y traduce una necesidad ambigua en una medición que la organización pueda usar.</p>
+        <h3>Trabajar con expertos y contextos que cambian</h3>
+        <p>Las reglas reales suelen vivir entre sistemas, documentos y experiencia de personas. Una promoción nueva, un cambio logístico o una corrección contable puede alterar la interpretación de una tendencia. Conversar con especialistas del área permite detectar condiciones que una herramienta no recibió.</p>
+        <h3>Comunicar y construir confianza</h3>
+        <p>Una conclusión técnicamente correcta no genera valor si nadie comprende su alcance. El analista adapta el nivel de detalle, explica incertidumbre, responde objeciones y hace visible cómo llegó al resultado. La confianza se construye con evidencia, consistencia y comunicación, no solo con una visualización atractiva.</p>
+        <h3>Validar y asumir responsabilidad profesional</h3>
+        <p>Una organización necesita saber quién revisó los datos, qué controles aplicó y qué limitaciones existen. El <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">marco de gestión de riesgos de IA de NIST</a> recomienda incorporar consideraciones de confiabilidad al diseño, uso y evaluación de sistemas de IA. Es una guía voluntaria, no una ley ni una garantía de que un resultado será correcto.</p>
+        <h3>Convertir un hallazgo en una acción</h3>
+        <p>Detectar que aumentaron las cancelaciones es solo el inicio. El trabajo continúa al segmentar el problema, contrastar hipótesis, estimar impacto, identificar responsables y proponer una intervención medible. La acción depende de restricciones, prioridades y consecuencias que no caben completamente en el prompt.</p>
+      </section>
+
+      <section>
+        <h2>La IA se parece a una calculadora, pero la comparación tiene límites</h2>
+        <p>La calculadora automatizó operaciones sin eliminar la necesidad de saber qué operación aplicar, comprobar si los datos tenían sentido y explicar el resultado. De manera parecida, la IA puede reducir el esfuerzo de producir código o un primer análisis y desplazar el valor hacia formular mejores preguntas, validar y decidir.</p>
+        <p>La analogía no debe llevarse demasiado lejos. La IA generativa actúa sobre lenguaje, código e imágenes; puede intervenir en tareas cognitivas mucho más amplias, encadenar pasos y producir respuestas convincentes aunque sean falsas. Su impacto potencial sobre funciones y estructuras de empleo es, por tanto, mayor y menos predecible que el de una calculadora.</p>
+      </section>
+
+      <section>
+        <h2>Si todas las empresas tienen IA, ¿dónde estará la ventaja?</h2>
+        <p>El acceso a una herramienta tiende a igualarse. La ventaja depende de datos confiables, procesos bien diseñados, conocimiento del mercado, velocidad para aprender y capacidad de actuar. Dos minoristas pueden usar el mismo modelo y obtener resultados muy diferentes.</p>
+        <div class="academy-example"><strong>Ejemplo hipotético: dos tiendas con la misma IA</strong><p>La primera pide una predicción de demanda sobre códigos duplicados y promociones mal registradas; compra inventario siguiendo la salida sin validarla. La segunda corrige definiciones, incorpora información de operaciones, prueba el modelo por categoría, documenta errores y revisa semanalmente sus decisiones. La tecnología es parecida, pero la calidad del sistema de trabajo no lo es.</p></div>
+        <p>Por eso una organización no obtiene ventaja sostenible solo por contratar una licencia. Necesita personas capaces de conectar herramienta, datos, proceso y decisión.</p>
+      </section>
+
+      <section>
+        <h2>¿Por qué las empresas no automatizan todo inmediatamente?</h2>
+        <p>Reemplazar un proceso exige más que demostrar una capacidad en una prueba. Hay costos de integración, seguridad, privacidad, disponibilidad de datos, capacitación, mantenimiento, monitoreo y gobierno. También hay que alcanzar suficiente confiabilidad para el nivel de riesgo y rediseñar responsabilidades cuando la herramienta se equivoca.</p>
+        <p>Una automatización puede ahorrar tiempo y, al mismo tiempo, requerir inversión continua. Si el volumen es bajo, las excepciones son frecuentes o el costo de un error es alto, el retorno puede no justificarla. Estas barreras pueden disminuir con el tiempo; no deben interpretarse como protección permanente para ningún puesto.</p>
+      </section>
+
+      <section id="riesgos">
+        <h2>Riesgos reales para el empleo en análisis de datos</h2>
+        <p>Un enfoque equilibrado reconoce que la transformación puede producir ganadores y pérdidas. Los reportes repetitivos y bien definidos son más fáciles de automatizar. Algunas tareas usadas para formar perfiles junior podrían reducirse, mientras las expectativas de productividad aumentan. También puede crecer la competencia de profesionales que usan IA con eficacia, y las empresas podrían necesitar equipos distintos o menos personas para cierto volumen de trabajo.</p>
+        <p>El <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/digest/" target="_blank" rel="noopener noreferrer">Future of Jobs Report 2025 del World Economic Forum</a> recoge expectativas de más de mil empleadores globales: IA y big data encabezan las habilidades que más crecerían, el pensamiento analítico continúa como habilidad central y las organizaciones anticipan tanto contratación y reconversión como reducción de personal donde la IA automatice tareas. Son planes declarados para 2025–2030, no certezas ni una proyección exclusiva para República Dominicana.</p>
+        <p>Conviene distinguir cuatro efectos: <strong>automatización de tareas</strong>, cuando una parte concreta requiere menos trabajo; <strong>transformación del puesto</strong>, cuando cambian herramientas y responsabilidades; <strong>desplazamiento</strong>, cuando una persona pierde una oportunidad; y <strong>creación de funciones</strong>, cuando aparecen necesidades de integración, evaluación, gobierno o nuevos productos. Pueden ocurrir al mismo tiempo.</p>
+      </section>
+
+      <section id="prepararse">
+        <h2>Cómo prepararte como analista de datos para trabajar con IA</h2>
+        <h3>Construye fundamentos que te permitan detectar errores</h3>
+        <p>Aprende tipos de datos, tablas, agregaciones, joins, estadística descriptiva, visualización y definición de métricas. Puedes seguir una <a href="/academy/blog/como-ser-analista-de-datos/">ruta para ser analista de datos desde cero</a> y practicar con <a href="/academy/cursos/excel-para-analisis-de-datos/">Excel</a>, <a href="/academy/cursos/sql-para-analisis-de-datos/">SQL</a> y <a href="/academy/cursos/power-bi-para-analisis-de-datos/">Power BI enfocados en análisis</a>. Sin fundamentos, es difícil reconocer una respuesta plausible pero incorrecta.</p>
+        <h3>Practica flujos asistidos, no delegación ciega</h3>
+        <p>Usa IA para crear un primer borrador, explicar código, generar casos de prueba o comparar enfoques. Luego ejecuta, revisa muestras, reconcilia totales y documenta qué cambiaste. Tu portafolio puede mostrar tanto el resultado como el proceso de validación.</p>
+        <h3>Fortalece habilidades profesionales</h3>
+        <p>Practica levantamiento de requerimientos, comunicación con personas no técnicas, diseño de experimentos, priorización y presentación de recomendaciones. Estas capacidades ayudan a pasar de producir reportes a resolver problemas y también fortalecen tu búsqueda de <a href="/academy/blog/como-conseguir-empleo-analista-de-datos-rd/">empleo como analista de datos en República Dominicana</a>.</p>
+        <h3>Usa la IA de forma responsable</h3>
+        <p>No copies datos confidenciales, personales o propiedad de un cliente en una herramienta pública sin autorización y sin conocer sus condiciones. Respeta políticas internas, controla permisos, elimina información innecesaria y registra las validaciones. Si una decisión afecta personas, finanzas o cumplimiento, eleva el nivel de revisión.</p>
+      </section>
+
+      <section>
+        <h2>Ejemplo: preparar un reporte de ventas con IA y criterio humano</h2>
+        <ol>
+          <li><strong>Definir la decisión:</strong> el analista conversa con ventas para entender si necesita explicar caída de ingresos, planificar inventario o evaluar una promoción.</li>
+          <li><strong>Revisar fuentes:</strong> identifica tablas, fechas, devoluciones, moneda, duplicados y reglas que determinan una venta válida.</li>
+          <li><strong>Pedir apoyo a la IA:</strong> solicita un borrador de SQL, fórmulas o medidas y una lista de controles posibles, sin compartir información confidencial.</li>
+          <li><strong>Validar:</strong> ejecuta el código, compara totales con sistemas de origen, prueba periodos y segmentos, e investiga diferencias.</li>
+          <li><strong>Interpretar:</strong> contrasta patrones con responsables de promociones, tiendas y operaciones para evitar conclusiones fuera de contexto.</li>
+          <li><strong>Comunicar y medir:</strong> presenta hallazgos, incertidumbre y acciones; después verifica si la decisión produjo el efecto esperado.</li>
+        </ol>
+        <p>La IA acelera partes del recorrido. El valor profesional aparece al controlar la calidad del recorrido completo.</p>
+      </section>
+
+      <section id="preguntas">
+        <h2>Preguntas frecuentes</h2>
+        <div class="academy-article-faq">
+          <details><summary>¿La inteligencia artificial eliminará el trabajo del analista de datos?</summary><p>No se puede afirmarlo de forma general. Automatizará tareas y puede reducir ciertos puestos, pero también transforma responsabilidades y crea nuevas necesidades. El efecto dependerá de la empresa, el proceso, la tecnología y el mercado laboral.</p></details>
+          <details><summary>¿Vale la pena estudiar análisis de datos si existe la IA?</summary><p>Puede valer la pena si aprendes fundamentos, resolución de problemas y uso responsable de herramientas. No hay garantía de empleo: revisa vacantes reales, practica y evalúa si el trabajo encaja con tus intereses.</p></details>
+          <details><summary>¿Qué tareas de análisis de datos son más fáciles de automatizar?</summary><p>Las repetitivas, estandarizadas, con entradas limpias, reglas estables y resultados fáciles de comprobar. Las excepciones, definiciones ambiguas y decisiones de alto impacto requieren más contexto y control.</p></details>
+          <details><summary>¿Necesito aprender SQL, Excel y Power BI si una IA puede generar código?</summary><p>Sí necesitas comprender sus conceptos si deseas verificar el resultado, corregirlo y adaptarlo. Memorizar cada sintaxis es menos importante que entender datos, lógica, modelos y visualización.</p></details>
+          <details><summary>¿Cómo puede un analista usar IA sin poner en riesgo datos confidenciales?</summary><p>Debe seguir las políticas de la organización, usar herramientas autorizadas, minimizar o anonimizar datos cuando corresponda y no cargar información sensible en servicios públicos sin permiso.</p></details>
+          <details><summary>¿Qué habilidad será más importante para un analista en la era de la IA?</summary><p>No existe una única habilidad. La combinación más sólida incluye pensamiento analítico, fundamentos técnicos, comprensión del negocio, validación, comunicación y aprendizaje continuo.</p></details>
+        </div>
+      </section>
+
+      <section class="academy-article-cta" aria-labelledby="ai-cta-title">
+        <span class="academy-kicker">Formación para el rol</span><h2 id="ai-cta-title">Prepárate para trabajar con datos en la era de la inteligencia artificial</h2>
+        <p>Desarrolla fundamentos de análisis de datos, aprende a utilizar Excel, SQL y Power BI y fortalece tu capacidad para resolver problemas de negocio.</p>
+        <a class="academy-btn academy-btn-primary" href="/academy/cursos/">Explorar cursos</a>
+      </section>
+
+      <section class="academy-article-sources" aria-labelledby="ai-sources-title">
+        <h2 id="ai-sources-title">Fuentes y alcance</h2>
+        <ul>
+          <li><a href="https://www.ilo.org/publications/generative-ai-and-jobs-2025-update" target="_blank" rel="noopener noreferrer">Organización Internacional del Trabajo: <em>Generative AI and jobs: A 2025 update</em></a>, 20 de mayo de 2025.</li>
+          <li><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/digest/" target="_blank" rel="noopener noreferrer">World Economic Forum: <em>The Future of Jobs Report 2025</em></a>, 7 de enero de 2025.</li>
+          <li><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">National Institute of Standards and Technology: AI Risk Management Framework</a>.</li>
+        </ul>
+        <p><small>Las referencias describen exposición ocupacional global, expectativas de empleadores y orientación voluntaria de gestión de riesgos. No predicen el empleo de una persona ni el mercado dominicano. Las capacidades de las herramientas cambian y deben comprobarse antes de aplicarlas.</small></p>
+      </section>
+    </div>
+  </div>
+</AcademyArticleLayout>

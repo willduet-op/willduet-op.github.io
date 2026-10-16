@@ -1,0 +1,197 @@
+---
+import AcademyArticleLayout from "../../../components/AcademyArticleLayout.astro";
+import { academyArticles } from "../../../config/academyBlog";
+const article = academyArticles.find(({ slug }) => slug === "analista-vs-ingeniero-vs-cientifico-de-datos");
+if (!article) throw new Error("Academy article metadata not found");
+const canonicalPath = "/academy/blog/analista-vs-ingeniero-vs-cientifico-de-datos/";
+const title = "Analista vs. Ingeniero vs. Científico de Datos | WILLDUET Academy";
+const description = "Conoce las diferencias entre analista, ingeniero y científico de datos: funciones, herramientas, ejemplos reales y qué carrera elegir para comenzar.";
+const articleUrl = `https://willduet.com${canonicalPath}`;
+const structuredData = [
+  {
+    "@context": "https://schema.org", "@type": "BlogPosting", headline: article.title, description,
+    url: articleUrl, mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+    image: `https://willduet.com${article.image}`, datePublished: article.datePublished, dateModified: article.datePublished,
+    inLanguage: "es-DO",
+    author: { "@type": "Organization", name: "WILLDUET Academy", url: "https://willduet.com/academy/" },
+    publisher: { "@type": "Organization", name: "WILLDUET CORP.", logo: { "@type": "ImageObject", url: "https://willduet.com/logo-willduet-sin-fondo.png" } },
+  },
+  {
+    "@context": "https://schema.org", "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://willduet.com/" },
+      { "@type": "ListItem", position: 2, name: "Academy", item: "https://willduet.com/academy/" },
+      { "@type": "ListItem", position: 3, name: "Blog", item: "https://willduet.com/academy/blog/" },
+      { "@type": "ListItem", position: 4, name: article.title, item: articleUrl },
+    ],
+  },
+];
+---
+<AcademyArticleLayout {title} {description} {canonicalPath} {article} {structuredData}>
+  <div class="academy-article-shell academy-container">
+    <aside class="academy-article-toc" aria-label="Contenido del artículo">
+      <strong>En esta guía</strong>
+      <nav><a href="#diferencias">Diferencias principales</a><a href="#analista">Analista de datos</a><a href="#ingeniero">Ingeniero de datos</a><a href="#cientifico">Científico de datos</a><a href="#colaboracion">Cómo colaboran</a><a href="#elegir">Qué carrera elegir</a><a href="#preguntas">Preguntas frecuentes</a></nav>
+    </aside>
+    <div class="academy-article-content">
+      <p class="academy-article-intro">El ingeniero de datos construye y mantiene sistemas que hacen los datos confiables y accesibles; el analista los utiliza para comprender el negocio y apoyar decisiones; y el científico de datos aplica estadística y métodos computacionales para investigar patrones, desarrollar modelos y resolver problemas analíticos más complejos.</p>
+      <p>Son especializaciones complementarias con habilidades que se superponen, no categorías rígidas ni escalones obligatorios. El título y el alcance cambian según la empresa: una misma persona puede asumir responsabilidades de más de un rol.</p>
+
+      <section id="diferencias">
+        <h2>¿Cuál es la diferencia entre un analista, un ingeniero y un científico de datos?</h2>
+        <p>La diferencia principal está en el propósito del trabajo, el problema que se intenta resolver y el entregable esperado. Esta tabla resume responsabilidades típicas, no fronteras universales.</p>
+        <div class="academy-table-wrap academy-responsive-table" role="region" aria-label="Comparación entre analista, ingeniero y científico de datos">
+          <table class="academy-roles-table"><thead><tr><th>Profesión</th><th>Responsabilidad principal</th><th>Preguntas que responde</th><th>Entregables habituales</th><th>Conocimientos principales</th></tr></thead><tbody>
+            <tr><td data-label="Profesión">Analista de datos</td><td data-label="Responsabilidad principal">Convertir datos en información útil para comprender el negocio y decidir.</td><td data-label="Preguntas que responde">¿Qué ocurrió, por qué y dónde actuar?</td><td data-label="Entregables habituales">Análisis ad hoc, KPIs, reportes, dashboards y recomendaciones.</td><td data-label="Conocimientos principales">Negocio, SQL, visualización, modelado, estadística y comunicación.</td></tr>
+            <tr><td data-label="Profesión">Ingeniero de datos</td><td data-label="Responsabilidad principal">Diseñar y operar sistemas que integran, transforman y entregan datos confiables.</td><td data-label="Preguntas que responde">¿Cómo mover, organizar y servir datos con calidad y confiabilidad?</td><td data-label="Entregables habituales">Pipelines, modelos de datos, plataformas, controles y documentación.</td><td data-label="Conocimientos principales">Bases de datos, programación, arquitectura, nube, calidad y operación.</td></tr>
+            <tr><td data-label="Profesión">Científico de datos</td><td data-label="Responsabilidad principal">Aplicar estadística y métodos computacionales para investigar y desarrollar soluciones analíticas.</td><td data-label="Preguntas que responde">¿Qué patrón existe, qué puede estimarse y cómo evaluar una intervención o modelo?</td><td data-label="Entregables habituales">Experimentos, modelos, segmentaciones, pronósticos y evaluaciones.</td><td data-label="Conocimientos principales">Probabilidad, estadística, programación, ML, experimentación y dominio.</td></tr>
+          </tbody></table>
+        </div>
+      </section>
+
+      <section id="analista">
+        <h2>¿Qué hace un analista de datos?</h2>
+        <p>Un analista comienza por comprender una necesidad: por qué bajaron las ventas, qué productos son más rentables, cuáles sucursales rinden por debajo de lo esperado o cómo cambian los indicadores. Identifica información relevante, consulta con SQL u otras herramientas, perfila su calidad, limpia y transforma datos, define métricas, explora patrones y comunica resultados.</p>
+        <p>El trabajo no se limita a consumir tablas preparadas. Según la organización, puede combinar fuentes, crear modelos de datos o semánticos y mantener una solución de reporting. <a href="https://learn.microsoft.com/en-us/training/career-paths/data-analyst" target="_blank" rel="noopener noreferrer">Microsoft Learn</a> incluye entre las responsabilidades del analista perfilar, limpiar, transformar y modelar datos, además de visualizar, reportar y trabajar con stakeholders. Es una descripción formativa de Microsoft, no una regla que obligue a cada analista a usar sus productos.</p>
+        <h3>Análisis ad hoc</h3>
+        <p>Responde una pregunta específica o investiga una situación. Por ejemplo, compara ventas por canal, revisa si el descenso se concentra en una categoría y contrasta el patrón con inventario, precios y promociones. El resultado puede ser una explicación breve con evidencia y próximos pasos.</p>
+        <h3>Reporting recurrente</h3>
+        <p>Crea una solución que se actualiza periódicamente para monitorear el negocio: indicadores definidos, controles de calidad, visualizaciones, filtros y documentación. Un dashboard no sustituye el razonamiento; organiza información para que las personas detecten cambios y profundicen.</p>
+        <p>Excel, SQL y Power BI son opciones frecuentes, junto con Tableau, Python y otras tecnologías. El marco de la <a href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/pl-300" target="_blank" rel="noopener noreferrer">certificación PL-300 de Microsoft</a>, específico de Power BI, cubre preparación, modelado, visualización, análisis, administración y seguridad. Sirve como ejemplo de amplitud, no como definición universal del oficio.</p>
+      </section>
+
+      <section id="ingeniero">
+        <h2>¿Qué hace un ingeniero de datos?</h2>
+        <p>Diseña y mantiene el recorrido que convierte datos de sistemas operacionales en información disponible y confiable. Puede trabajar con bases transaccionales, APIs, archivos, aplicaciones SaaS, eventos en tiempo real y otras fuentes.</p>
+        <ol>
+          <li>Identifica fuentes, propietarios, formatos y requisitos.</li>
+          <li>Ingiere o extrae datos por lotes o mediante streaming.</li>
+          <li>Transforma, estandariza e integra información.</li>
+          <li>Valida calidad, completitud y consistencia.</li>
+          <li>Almacena y organiza según el uso previsto.</li>
+          <li>Modela datos para análisis, aplicaciones u otros consumidores.</li>
+          <li>Orquesta, observa y mantiene pipelines.</li>
+          <li>Gestiona rendimiento, confiabilidad, seguridad y gobierno.</li>
+        </ol>
+        <p>En ETL, los datos se <strong>extraen</strong>, se <strong>transforman</strong> y luego se <strong>cargan</strong> al destino. En ELT, se extraen y cargan primero, y las transformaciones se ejecutan dentro de la plataforma de destino. La elección depende de arquitectura, controles, volumen, latencia y herramientas; ninguna sigla garantiza por sí sola una buena solución.</p>
+
+        <h3>¿Qué es un data warehouse?</h3>
+        <p>Es un repositorio diseñado para cargas analíticas: integra datos de distintas fuentes y los organiza para consultar tendencias, comparar periodos y calcular indicadores con eficiencia. Una base transaccional prioriza registrar operaciones como pedidos o pagos de forma consistente; un warehouse prioriza analizar grandes conjuntos y relacionar hechos históricos. No es simplemente “una base con muchos datos”.</p>
+
+        <h3>¿Qué es el modelado dimensional de Kimball?</h3>
+        <p>El enfoque parte del proceso de negocio y define el <strong>grano</strong>: qué representa exactamente cada fila. Luego separa los eventos medibles en tablas de hechos y su contexto descriptivo en dimensiones. La documentación del <a href="https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/" target="_blank" rel="noopener noreferrer">Kimball Group</a> presenta proceso, grano, hechos y dimensiones como conceptos fundamentales.</p>
+        <div class="academy-example"><strong>Ejemplo minorista</strong><p>Una tabla de hechos puede guardar cada línea de venta con cantidad, precio y descuento. Las dimensiones Fecha, Producto, Cliente y Tienda describen cuándo, qué, quién y dónde. En un esquema estrella, la tabla de hechos se conecta directamente con esas dimensiones, como explica la referencia de <a href="https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/star-schema-olap-cube/" target="_blank" rel="noopener noreferrer">esquemas estrella de Kimball</a>.</p></div>
+        <p>Este modelo facilita ciertos patrones analíticos, pero no todos los sistemas deben usarlo. El diseño correcto depende del caso de uso.</p>
+
+        <h3>¿Todos los ingenieros de datos trabajan con data warehouses?</h3>
+        <p>No. También pueden construir data lakes, plataformas de eventos, servicios de integración o lakehouses. Un data lake conserva datos diversos con mayor flexibilidad; un lakehouse busca combinar ese almacenamiento con estructura y funciones de gestión propias de un warehouse, según la definición técnica de <a href="https://cloud.google.com/discover/what-is-a-data-lakehouse" target="_blank" rel="noopener noreferrer">Google Cloud</a>. Es una fuente de proveedor, por lo que aquí se usa solo para el concepto general.</p>
+        <p>La arquitectura depende de tipos de datos, escala, latencia, seguridad, gobierno y cargas posteriores. Un pipeline tampoco tiene que terminar siempre en un warehouse.</p>
+      </section>
+
+      <section id="cientifico">
+        <h2>¿Qué hace un científico de datos?</h2>
+        <p>Aplica análisis estadístico, programación, inferencia, experimentación y aprendizaje automático para investigar fenómenos y construir soluciones. El campo incluye regresión, clasificación, clustering, detección de anomalías, segmentación, pronósticos y evaluación de modelos. No se reduce a predecir el futuro ni es sinónimo de inteligencia artificial generativa.</p>
+        <p><a href="https://www.ibm.com/think/topics/data-science" target="_blank" rel="noopener noreferrer">IBM define la ciencia de datos</a> como una combinación de matemáticas, estadística, programación, analítica, machine learning y conocimiento del dominio. Es una visión amplia de proveedor que respalda el carácter multidisciplinario, no una lista obligatoria para cada puesto.</p>
+        <h3>Ejemplos de problemas</h3>
+        <ul>
+          <li><strong>Abandono de clientes:</strong> estimar la probabilidad de que una persona deje de usar un servicio.</li>
+          <li><strong>Propensión de compra:</strong> estimar la probabilidad de que un prospecto compre bajo ciertas condiciones.</li>
+          <li><strong>Pronóstico de demanda:</strong> estimar valores futuros a partir de patrones históricos y variables relevantes.</li>
+          <li><strong>Clasificación de imágenes:</strong> determinar si una imagen contiene una persona u otra categoría. Esto clasifica una observación; no necesariamente predice un evento futuro.</li>
+        </ul>
+        <p>También puede comprobar hipótesis, diseñar experimentos y evaluar si un modelo generaliza. Una métrica alta en entrenamiento no basta: importan la calidad de datos, el método de evaluación, los costos de error, los sesgos y la utilidad operacional.</p>
+
+        <h3>¿Dónde se utilizan los modelos?</h3>
+        <p>Los modelos pueden integrarse en aplicaciones, APIs, flujos operativos, pipelines por lotes, plataformas analíticas o sistemas de apoyo a decisiones. No tienen que ejecutarse dentro de un data warehouse. Su despliegue y mantenimiento puede involucrar científicos de datos, ingenieros de machine learning, software y datos, según el equipo y la solución.</p>
+      </section>
+
+      <section id="colaboracion">
+        <h2>Ejemplo práctico: los tres profesionales trabajando en la misma empresa</h2>
+        <p><strong>Escenario hipotético:</strong> una empresa minorista vende en una tienda virtual y otra física. Mantiene clientes, productos y transacciones en varios sistemas. Quiere comprender su rendimiento y mejorar la retención.</p>
+        <div class="academy-role-flow" role="img" aria-label="Los sistemas operacionales alimentan procesos de ingeniería de datos y conjuntos confiables. Desde esos datos, análisis produce inteligencia de negocio, mientras ciencia de datos puede consumir fuentes relevantes y devolver modelos a aplicaciones, flujos o sistemas analíticos.">
+          <div class="academy-role-flow-source"><strong>Sistemas y fuentes</strong><span>Tienda online · Punto de venta · Clientes · Productos</span></div>
+          <div class="academy-role-flow-engineering"><strong>Ingeniería de datos</strong><span>Integra, valida, organiza y mantiene datos confiables</span></div>
+          <div class="academy-role-flow-branches">
+            <div><strong>Análisis y BI</strong><span>KPIs, reportes, explicaciones y decisiones</span></div>
+            <div><strong>Ciencia de datos</strong><span>Experimentos, segmentación y modelos</span><small>Sus salidas pueden alimentar aplicaciones, flujos o análisis.</small></div>
+          </div>
+        </div>
+        <p>El ingeniero integra las fuentes, estandariza identificadores y fechas, valida reglas y publica conjuntos confiables; podría implementar un modelo dimensional u otra arquitectura apropiada. El analista investiga qué productos venden más, dónde caen las ventas, cómo evoluciona el ingreso mensual y qué segmentos aportan más. Puede convertir ese seguimiento en reportes o dashboards.</p>
+        <p>El científico usa datos pertinentes para desarrollar y evaluar, por ejemplo, un modelo de abandono o propensión de compra. Sus resultados podrían ayudar a priorizar una acción, pero el equipo debe comprobar su calidad y definir cómo intervenir. Los roles colaboran, pero no forman una cadena obligatoria: no todas las empresas necesitan los tres ni ciencia de datos tiene que esperar a que exista un dashboard.</p>
+      </section>
+
+      <section>
+        <h2>Herramientas que utilizan: ¿cuáles comparten y cuáles son diferentes?</h2>
+        <div class="academy-table-wrap academy-responsive-table" role="region" aria-label="Ejemplos de herramientas utilizadas por profesiones de datos">
+          <table class="academy-tools-table"><thead><tr><th>Rol</th><th>Herramientas y tecnologías posibles</th><th>Para qué pueden utilizarlas</th></tr></thead><tbody>
+            <tr><td data-label="Rol">Analista</td><td data-label="Herramientas y tecnologías">Excel, SQL, Power BI, Tableau, Python</td><td data-label="Usos habituales">Preparación, consulta, exploración, métricas, visualización y comunicación.</td></tr>
+            <tr><td data-label="Rol">Ingeniero</td><td data-label="Herramientas y tecnologías">SQL, Python, dbt, Apache Airflow, Apache Spark, nubes, warehouses y lakehouses</td><td data-label="Usos habituales">Integración, transformación, modelado, orquestación, rendimiento y operación.</td></tr>
+            <tr><td data-label="Rol">Científico</td><td data-label="Herramientas y tecnologías">Python, R, SQL, pandas, scikit-learn, librerías estadísticas y frameworks de ML</td><td data-label="Usos habituales">Exploración, inferencia, experimentos, entrenamiento y evaluación de modelos.</td></tr>
+          </tbody></table>
+        </div>
+        <p>Son ejemplos, no paquetes obligatorios. SQL puede servir al analista para responder una pregunta, al ingeniero para transformar y modelar datos y al científico para construir una muestra. Python puede automatizar un análisis, operar un pipeline o entrenar un modelo. La tecnología no define por sí sola la profesión.</p>
+      </section>
+
+      <section>
+        <h2>¿Qué conocimientos necesita cada profesional?</h2>
+        <h3>Analista de datos</h3>
+        <p>Procesos de negocio, análisis, SQL, visualización, modelado de datos, estadística básica y comunicación. En puestos especializados puede necesitar métodos cuantitativos más avanzados.</p>
+        <h3>Ingeniero de datos</h3>
+        <p>Bases de datos, programación, arquitectura, modelado, pipelines, orquestación, calidad, infraestructura de nube, seguridad y confiabilidad.</p>
+        <h3>Científico de datos</h3>
+        <p>Probabilidad, estadística, programación, machine learning, experimentación, evaluación de modelos y conocimiento del dominio. También puede crear análisis descriptivos, reportes y visualizaciones cuando el problema lo exige.</p>
+        <p>La profundidad cambia con el sector, la posición y la seniority. En los tres caminos conviene aprender a formular preguntas, verificar resultados y explicar límites.</p>
+      </section>
+
+      <section id="elegir">
+        <h2>¿Cuál carrera deberías elegir?</h2>
+        <h3>Considera análisis de datos si disfrutas</h3>
+        <p>Comprender problemas de negocio, hacer preguntas, encontrar patrones, trabajar con stakeholders, construir reportes o dashboards y explicar resultados.</p>
+        <h3>Considera ingeniería de datos si disfrutas</h3>
+        <p>Construir sistemas, programar, trabajar con bases de datos, automatizar, diseñar arquitectura y resolver problemas de confiabilidad e infraestructura.</p>
+        <h3>Considera ciencia de datos si disfrutas</h3>
+        <p>La estadística, el razonamiento matemático, la experimentación, los modelos predictivos, machine learning y problemas con un componente de investigación.</p>
+        <p>Estas son tendencias, no una prueba de personalidad. Puedes disfrutar más de un campo, y una práctica pequeña en cada uno ofrece mejor evidencia que elegir solo por el título. Si buscas tu primera oportunidad, consulta también la guía para <a href="/academy/blog/como-conseguir-empleo-analista-de-datos-rd/">prepararte y demostrar habilidades en análisis de datos</a>.</p>
+      </section>
+
+      <section>
+        <h2>¿Debo comenzar como analista para convertirme en ingeniero o científico de datos?</h2>
+        <p><strong>No.</strong> Empezar en análisis puede ser una forma práctica de familiarizarse con datos, SQL y problemas de negocio, y después complementar programación, arquitectura, matemáticas o machine learning. Pero ingeniería y ciencia de datos tienen fundamentos adicionales que también pueden aprenderse directamente por otras rutas académicas y profesionales.</p>
+        <p>Pasar de un campo a otro exige aprendizaje y experiencia; no es un ascenso automático. Para construir una base analítica puedes revisar el <a href="/academy/blog/como-ser-analista-de-datos/">roadmap para comenzar como analista de datos</a> y los cursos de <a href="/academy/cursos/excel-para-analisis-de-datos/">Excel</a>, <a href="/academy/cursos/sql-para-analisis-de-datos/">SQL</a> y <a href="/academy/cursos/power-bi-para-analisis-de-datos/">Power BI para análisis</a>. Esos fundamentos no sustituyen la formación adicional necesaria para ingeniería o ciencia de datos.</p>
+        <p>La inteligencia artificial también cambia tareas en los tres campos. La guía sobre <a href="/academy/blog/ia-reemplazara-analistas-de-datos/">IA y el futuro del analista de datos</a> explica por qué automatizar una tarea no equivale necesariamente a eliminar una profesión.</p>
+      </section>
+
+      <section id="preguntas">
+        <h2>Preguntas frecuentes</h2>
+        <div class="academy-article-faq">
+          <details><summary>¿Qué diferencia hay entre analista de datos y científico de datos?</summary><p>El analista suele enfocarse en comprender el desempeño y apoyar decisiones; el científico aplica con mayor frecuencia estadística, experimentación y machine learning para investigar y modelar problemas. Hay tareas compartidas y los límites varían.</p></details>
+          <details><summary>¿Un ingeniero de datos necesita saber SQL?</summary><p>SQL es muy útil y frecuente para consultar, transformar y modelar datos relacionales, aunque la profundidad y otras tecnologías dependen de la arquitectura y el puesto.</p></details>
+          <details><summary>¿Un analista de datos necesita saber Python?</summary><p>No en todos los puestos. Python amplía opciones de automatización y análisis, pero algunos roles se desarrollan principalmente con SQL, hojas de cálculo y plataformas de BI.</p></details>
+          <details><summary>¿Un científico de datos también utiliza SQL?</summary><p>Sí, puede usarlo para localizar, combinar y preparar información. También puede trabajar con archivos, APIs, datos no estructurados y otras interfaces.</p></details>
+          <details><summary>¿Cuál de las tres carreras requiere más matemáticas?</summary><p>Ciencia de datos suele exigir mayor profundidad en probabilidad, estadística y álgebra para modelar y evaluar. Sin embargo, el nivel real varía y los tres roles usan razonamiento cuantitativo.</p></details>
+          <details><summary>¿Cuál es mejor para alguien que está comenzando?</summary><p>Depende de sus intereses y fundamentos. Análisis ofrece una entrada práctica a preguntas de negocio, pero no es un requisito previo para las otras rutas.</p></details>
+          <details><summary>¿Puedo pasar de análisis de datos a ingeniería de datos?</summary><p>Sí, desarrollando programación, bases de datos, arquitectura, pipelines, nube y operación. La transición requiere aprendizaje deliberado y experiencia, no ocurre automáticamente.</p></details>
+          <details><summary>¿Las tres profesiones utilizan inteligencia artificial?</summary><p>Pueden utilizarla para asistir código, documentación, análisis o modelos, pero no todos los puestos lo hacen ni ciencia de datos equivale completamente a IA.</p></details>
+        </div>
+      </section>
+
+      <section class="academy-article-cta" aria-labelledby="roles-cta-title">
+        <span class="academy-kicker">Formación para el rol</span><h2 id="roles-cta-title">¿Quieres comenzar una carrera en el mundo de los datos?</h2>
+        <p>Aprende fundamentos prácticos de análisis de datos con Excel, SQL y Power BI y desarrolla habilidades para comprender información y resolver problemas de negocio.</p>
+        <a class="academy-btn academy-btn-primary" href="/academy/cursos/">Explorar cursos de WILLDUET Academy</a>
+      </section>
+
+      <section class="academy-article-sources" aria-labelledby="roles-sources-title">
+        <h2 id="roles-sources-title">Fuentes y alcance</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/training/career-paths/data-analyst" target="_blank" rel="noopener noreferrer">Microsoft Learn: Training for Data Analysts</a>.</li>
+          <li><a href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/pl-300" target="_blank" rel="noopener noreferrer">Microsoft Learn: Study guide for Exam PL-300</a>.</li>
+          <li><a href="https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/" target="_blank" rel="noopener noreferrer">Kimball Group: Dimensional Modeling Techniques</a> y <a href="https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/star-schema-olap-cube/" target="_blank" rel="noopener noreferrer">Star Schemas and OLAP Cubes</a>.</li>
+          <li><a href="https://cloud.google.com/discover/what-is-a-data-lakehouse" target="_blank" rel="noopener noreferrer">Google Cloud: What is a Data Lakehouse?</a>.</li>
+          <li><a href="https://www.ibm.com/think/topics/data-science" target="_blank" rel="noopener noreferrer">IBM: What is Data Science?</a>.</li>
+        </ul>
+        <p><small>Las responsabilidades y tecnologías son ejemplos típicos, no requisitos universales. Las fuentes de proveedores se usan para definiciones técnicas concretas; no respaldan afirmaciones de salario, demanda laboral ni resultados garantizados.</small></p>
+      </section>
+    </div>
+  </div>
+</AcademyArticleLayout>

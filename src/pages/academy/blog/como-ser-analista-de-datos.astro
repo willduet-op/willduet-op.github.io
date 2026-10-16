@@ -1,7 +1,8 @@
 ---
 import AcademyArticleLayout from "../../../components/AcademyArticleLayout.astro";
 import { academyArticles } from "../../../config/academyBlog";
-const article = academyArticles[0];
+const article = academyArticles.find(({ slug }) => slug === "como-ser-analista-de-datos");
+if (!article) throw new Error("Academy article metadata not found");
 const canonicalPath = "/academy/blog/como-ser-analista-de-datos/";
 const title = "Cómo ser analista de datos desde cero | WILLDUET Academy";
 const description = "Aprende cómo convertirte en analista de datos desde cero con un roadmap práctico: fundamentos de datos, Excel, SQL, Power BI y habilidades de negocio.";

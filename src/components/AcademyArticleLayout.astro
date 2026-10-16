@@ -13,7 +13,7 @@ const { title, description, canonicalPath, article, structuredData } = Astro.pro
     <header class="academy-article-hero">
       <div class="academy-container">
         <div class="academy-article-hero-grid">
-          <div>
+          <div class="academy-article-hero-copy">
             <span class="academy-kicker">{article.category}</span>
             <h1>{article.title}</h1>
             <p class="academy-article-deck">{article.description}</p>
@@ -23,7 +23,7 @@ const { title, description, canonicalPath, article, structuredData } = Astro.pro
               <span>{article.readingTime}</span>
             </div>
           </div>
-          <img src={article.image} alt={article.imageAlt} width="1774" height="887" loading="eager" decoding="async" />
+          <img src={article.image} alt={article.imageAlt} width={article.imageWidth} height={article.imageHeight} loading="eager" decoding="async" />
         </div>
       </div>
     </header>
