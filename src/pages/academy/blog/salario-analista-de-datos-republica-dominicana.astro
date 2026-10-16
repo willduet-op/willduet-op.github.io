@@ -1,0 +1,127 @@
+---
+import AcademyArticleLayout from "../../../components/AcademyArticleLayout.astro";
+import { academyArticles } from "../../../config/academyBlog";
+const article = academyArticles.find(({ slug }) => slug === "salario-analista-de-datos-republica-dominicana");
+if (!article) throw new Error("Academy article metadata not found");
+const canonicalPath = "/academy/blog/salario-analista-de-datos-republica-dominicana/";
+const title = "Salario de un analista de datos en RD | WILLDUET Academy";
+const description = "Conoce cuánto puede ganar un analista de datos en República Dominicana, qué factores influyen en su salario y qué oportunidades existen para trabajar remoto.";
+const articleUrl = `https://willduet.com${canonicalPath}`;
+const structuredData = [
+  {
+    "@context": "https://schema.org", "@type": "BlogPosting", headline: article.title, description,
+    url: articleUrl, mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+    image: `https://willduet.com${article.image}`, datePublished: article.datePublished, dateModified: article.datePublished,
+    inLanguage: "es-DO",
+    author: { "@type": "Organization", name: "WILLDUET Academy", url: "https://willduet.com/academy/" },
+    publisher: { "@type": "Organization", name: "WILLDUET CORP.", logo: { "@type": "ImageObject", url: "https://willduet.com/logo-willduet-sin-fondo.png" } },
+  },
+  {
+    "@context": "https://schema.org", "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://willduet.com/" },
+      { "@type": "ListItem", position: 2, name: "Academy", item: "https://willduet.com/academy/" },
+      { "@type": "ListItem", position: 3, name: "Blog", item: "https://willduet.com/academy/blog/" },
+      { "@type": "ListItem", position: 4, name: article.title, item: articleUrl },
+    ],
+  },
+];
+---
+<AcademyArticleLayout {title} {description} {canonicalPath} {article} {structuredData}>
+  <div class="academy-article-shell academy-container">
+    <aside class="academy-article-toc" aria-label="Contenido del artículo">
+      <strong>En esta guía</strong>
+      <nav><a href="#salario-rd">Salario en RD</a><a href="#experiencia">Experiencia y posición</a><a href="#factores">Factores de compensación</a><a href="#remoto">Trabajo remoto</a><a href="#freelance">Freelance</a><a href="#crecimiento">Crecimiento profesional</a></nav>
+    </aside>
+    <div class="academy-article-content">
+      <p class="academy-article-intro">No existe una cifra oficial, única y verificable que describa cuánto gana cada analista de datos en República Dominicana. La evidencia pública específica es limitada y las responsabilidades cambian entre empresas. Sí podemos usar vacantes con salario publicado como referencia, siempre que expliquemos exactamente qué representan.</p>
+
+      <section id="salario-rd">
+        <h2>¿Cuánto gana un analista de datos en República Dominicana?</h2>
+        <p>Al verificar esta guía, el observatorio salarial de <a href="https://rumbo.do/salarios/tecnologia-informatica/analista-de-datos" target="_blank" rel="noopener noreferrer">Rumbo mostraba una mediana de RD$62,701 mensuales</a>, calculada a partir de 13 vacantes dominicanas de analista de datos que publicaban compensación. Es la mediana de esa muestra concreta, no un promedio nacional ni una garantía de lo que recibirá una persona.</p>
+        <div class="academy-callout"><strong>Cómo interpretar el dato</strong><p>La mediana indica que la mitad de los valores observados quedó a cada lado de RD$62,701. La muestra es pequeña, cambia cuando el portal incorpora vacantes y solo incluye anuncios que revelan salario. Tampoco confirma el sueldo finalmente negociado ni permite separar con precisión experiencia, beneficios, sector o responsabilidades.</p></div>
+        <p>WILLDUET Academy también ha observado referencias informales cercanas a RD$45,000 mensuales en etapas iniciales y superiores a RD$100,000 en algunos perfiles experimentados. No proceden de una encuesta representativa: no deben interpretarse como mínimos, promedios ni escalas salariales. Sirven únicamente para mostrar que la compensación puede variar ampliamente.</p>
+        <p>Experiencia, empresa, industria, responsabilidades, habilidades técnicas, comprensión del negocio y modalidad contractual influyen en una oferta. Para planificar una carrera, consulta varias vacantes comparables, pregunta si el monto es bruto o neto y evalúa beneficios junto con el salario.</p>
+        <p>Si todavía estás construyendo tu ruta, consulta <a href="/academy/blog/como-ser-analista-de-datos/">cómo convertirse en analista de datos desde cero</a>. Si ya estás aplicando, revisa la guía sobre <a href="/academy/blog/como-conseguir-empleo-analista-de-datos-rd/">cómo conseguir empleo como analista de datos en República Dominicana</a>.</p>
+      </section>
+
+      <section id="experiencia">
+        <h2>Salarios según la experiencia y el tipo de posición</h2>
+        <p>La evidencia encontrada no permite publicar rangos confiables y comparables para cada nivel. En lugar de inventar una tabla junior, intermedia y senior, conviene entender cómo suele cambiar el alcance del trabajo.</p>
+        <h3>Posiciones junior o de entrada</h3>
+        <p>Suelen requerir más acompañamiento y concentrarse en limpieza, reportes recurrentes, validación y análisis definidos por otras personas. Un mismo título puede describir desde preparación de archivos en Excel hasta consultas SQL y dashboards.</p>
+        <h3>Posiciones intermedias</h3>
+        <p>Normalmente incorporan mayor autonomía: traducir preguntas del negocio, definir métricas, combinar fuentes, explicar resultados y mantener soluciones. La experiencia no se mide solo en años, sino en problemas resueltos y responsabilidad asumida.</p>
+        <h3>Roles senior o especializados</h3>
+        <p>Pueden incluir diseño analítico, mentoría, coordinación con líderes, modelado, automatización, gobierno de datos o propiedad de productos de BI. “Senior Data Analyst”, “BI Analyst” y “Analytics Engineer” no son equivalentes en todas las organizaciones; compara funciones, no solo títulos.</p>
+      </section>
+
+      <section id="factores">
+        <h2>¿Qué factores pueden aumentar el salario de un analista de datos?</h2>
+        <h3>Dominio técnico aplicado</h3>
+        <p>Conocer <a href="/academy/cursos/excel-para-analisis-de-datos/">Excel para análisis</a>, <a href="/academy/cursos/sql-para-analisis-de-datos/">SQL</a> y <a href="/academy/cursos/power-bi-para-analisis-de-datos/">Power BI</a> puede ampliar los problemas que resuelves. Modelado, automatización y otras tecnologías añaden valor cuando mejoran calidad, velocidad o mantenibilidad. Enumerar herramientas sin demostrar aplicación práctica no produce por sí solo una mejor compensación.</p>
+        <h3>Capacidad de resolver problemas de negocio</h3>
+        <p>Un profesional gana relevancia cuando comprende procesos, cuestiona métricas, detecta causas posibles y comunica acciones. Esto puede fortalecer su valor para una organización, aunque la evidencia disponible no permite asignar una prima salarial específica a esa habilidad.</p>
+        <h3>Industria, empresa y responsabilidad</h3>
+        <p>Presupuestos, estructuras de beneficios y complejidad de datos varían entre organizaciones. También importa si la posición ejecuta reportes definidos o es responsable de diseñar soluciones, gestionar expectativas y sostenerlas en producción.</p>
+        <h3>Inglés y acceso a oportunidades internacionales</h3>
+        <p>El inglés puede ampliar el acceso a equipos y clientes internacionales, facilitar documentación técnica y permitir participar en procesos remotos. No garantiza empleo ni una tarifa determinada.</p>
+      </section>
+
+      <section id="remoto">
+        <h2>¿Cuánto puede ganar un analista de datos trabajando remoto para el extranjero?</h2>
+        <p>No encontramos una fuente verificable que establezca una tarifa representativa para analistas dominicanos remotos. WILLDUET Academy ha observado informalmente algunos acuerdos iniciales alrededor de US$6 por hora y referencias superiores a US$15 para ciertos perfiles con experiencia. Estas observaciones no tienen una muestra documentada y no constituyen benchmarks del mercado.</p>
+        <p>La siguiente tabla solo muestra la multiplicación de cuatro tarifas hipotéticas por 160 horas:</p>
+        <div class="academy-table-wrap" tabindex="0" role="region" aria-label="Ejemplo ilustrativo de tarifa por 160 horas mensuales">
+          <table class="academy-salary-table"><thead><tr><th>Tarifa hipotética</th><th>160 horas al mes</th></tr></thead><tbody><tr><td>US$6/h</td><td>US$960</td></tr><tr><td>US$10/h</td><td>US$1,600</td></tr><tr><td>US$15/h</td><td>US$2,400</td></tr><tr><td>US$20/h</td><td>US$3,200</td></tr></tbody></table>
+        </div>
+        <p><small><strong>Ejemplo matemático ilustrativo, no una escala salarial del mercado.</strong> Supone 160 horas pagadas o facturables. No descuenta impuestos, comisiones, periodos sin proyectos, equipo, seguros u otros gastos; tampoco incluye beneficios laborales ni establece ingreso neto.</small></p>
+        <p>Un empleado y un contratista independiente pueden recibir montos brutos parecidos con condiciones muy diferentes. Revisa moneda, estabilidad, horario, exclusividad, forma de pago, beneficios, obligaciones fiscales y terminación del contrato antes de comparar.</p>
+      </section>
+
+      <section>
+        <h2>¿Es el análisis de datos una carrera atractiva económicamente?</h2>
+        <p>El análisis de datos puede representar una opción profesional atractiva por la combinación de habilidades empresariales, oportunidades tecnológicas y posibilidades de especialización. Sus conocimientos se aplican en distintas industrias y pueden apoyar empleo local, trabajo remoto o servicios independientes.</p>
+        <p>Eso no significa que sea siempre mejor pagado que administración, contabilidad, derecho u otra profesión. Sin datos comparables por experiencia, fecha, geografía y definición de compensación, esa comparación sería engañosa. La decisión también debe considerar intereses, capacidad, condiciones laborales, aprendizaje y demanda real de los puestos que encuentres.</p>
+      </section>
+
+      <section id="freelance">
+        <h2>¿Se puede trabajar como analista de datos freelance desde República Dominicana?</h2>
+        <p>Sí es posible ofrecer desarrollo de dashboards, reporting en Power BI, automatización de Excel, análisis SQL, limpieza de datos, KPIs, análisis de ventas y reportes operativos a clientes locales o internacionales. Conseguir proyectos exige portafolio, comunicación, definición de alcance y adquisición de clientes; no hay ingresos garantizados.</p>
+        <p><a href="https://www.freelancer.com/" target="_blank" rel="noopener noreferrer">Freelancer</a> es un marketplace donde profesionales pueden buscar proyectos por habilidades. Cada plataforma tiene sus propios procesos, comisiones, condiciones y mecanismos de protección; compruébalos antes de crear una cuenta o aceptar un proyecto.</p>
+        <p>Antes de participar, revisa competencia, tarifas y comisiones vigentes, métodos de pago disponibles, impuestos en República Dominicana, restricciones contractuales, protección de datos y expectativas de comunicación. Nunca compartas datos confidenciales de un cliente en tu portafolio sin autorización.</p>
+      </section>
+
+      <section id="crecimiento">
+        <h2>¿Cómo puede crecer profesionalmente un analista de datos?</h2>
+        <p>El análisis ofrece fundamentos transferibles, pero las siguientes rutas son especializaciones posibles, no ascensos automáticos ni garantías salariales.</p>
+        <div class="academy-career-path" aria-label="Posibles rutas de crecimiento desde análisis de datos">
+          <div class="academy-career-origin"><strong>Analista de Datos</strong><span>Fundamentos, análisis y comunicación</span></div>
+          <div class="academy-career-options">
+            <article><strong>Senior Data Analyst / BI Analyst</strong><p>Mayor complejidad analítica, comunicación con stakeholders y propiedad de soluciones de inteligencia de negocios.</p></article>
+            <article><strong>Data Engineering</strong><p>Pipelines, almacenamiento, orquestación, infraestructura y confiabilidad de datos.</p></article>
+            <article><strong>Analytics Engineering</strong><p>Transformación, modelado analítico, pruebas, documentación y conjuntos de datos confiables.</p></article>
+            <article><strong>Data Science</strong><p>Estadística, experimentación, modelos predictivos y métodos analíticos avanzados.</p></article>
+            <article><strong>Machine Learning</strong><p>Desarrollo, evaluación y despliegue de modelos, con responsabilidades científicas o de ingeniería adicionales.</p></article>
+          </div>
+        </div>
+        <p>Cada camino requiere competencias adicionales. Elige según los problemas que disfrutas resolver, revisa vacantes reales y construye proyectos que te permitan comprobar si la especialización encaja contigo.</p>
+      </section>
+
+      <section class="academy-article-cta" aria-labelledby="salary-cta-title">
+        <span class="academy-kicker">Formación para el rol</span><h2 id="salary-cta-title">¿Quieres comenzar una carrera en análisis de datos?</h2>
+        <p>Desarrolla habilidades prácticas en Excel, SQL y Power BI para aprender a resolver problemas de negocio utilizando datos.</p>
+        <a class="academy-btn academy-btn-primary" href="/academy/cursos/">Explorar cursos</a>
+      </section>
+
+      <section class="academy-article-sources" aria-labelledby="salary-sources-title">
+        <h2 id="salary-sources-title">Fuentes y nota metodológica</h2>
+        <ul>
+          <li><a href="https://rumbo.do/salarios/tecnologia-informatica/analista-de-datos" target="_blank" rel="noopener noreferrer">Observatorio Rumbo: salario de Analista de Datos en RD</a>. Mediana de una muestra dinámica de vacantes que publican salario; consultada el 15 de octubre de 2026.</li>
+          <li><a href="https://www.freelancer.com/" target="_blank" rel="noopener noreferrer">Freelancer</a>. Página oficial del marketplace, utilizada únicamente para describir su función general.</li>
+        </ul>
+        <p><small>No se localizó una estadística oficial dominicana específica y comparable para el salario de “Analista de Datos”. Las observaciones de WILLDUET Academy indicadas en el texto son informales, no representativas y no sustituyen una encuesta salarial.</small></p>
+      </section>
+    </div>
+  </div>
+</AcademyArticleLayout>

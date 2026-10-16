@@ -1,5 +1,16 @@
 export const academyArticles = [
   {
+    slug: "salario-analista-de-datos-republica-dominicana",
+    title: "¿Cuánto gana un analista de datos en República Dominicana?",
+    description: "Una guía transparente sobre salarios publicados, factores de compensación, trabajo remoto, servicios freelance y crecimiento profesional en datos.",
+    category: "Salarios y carrera",
+    datePublished: "2026-10-15",
+    dateLabel: "15 de octubre de 2026",
+    readingTime: "13 min de lectura",
+    image: "/academia/academy-hero.webp",
+    imageAlt: "Profesional revisando información para desarrollar una carrera en análisis de datos",
+  },
+  {
     slug: "como-conseguir-empleo-analista-de-datos-rd",
     title: "Cómo conseguir empleo como analista de datos en República Dominicana, incluso sin experiencia",
     description: "Una guía práctica para demostrar tus habilidades, crear un portafolio, adaptar tu CV y medir tu búsqueda de empleo en análisis de datos.",
