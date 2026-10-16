@@ -1,0 +1,182 @@
+---
+import AcademyArticleLayout from "../../../components/AcademyArticleLayout.astro";
+import { academyArticles } from "../../../config/academyBlog";
+const article = academyArticles.find(({ slug }) => slug === "como-conseguir-empleo-analista-de-datos-rd");
+if (!article) throw new Error("Academy article metadata not found");
+const canonicalPath = "/academy/blog/como-conseguir-empleo-analista-de-datos-rd/";
+const title = "Cómo conseguir empleo como analista de datos en RD | WILLDUET Academy";
+const description = "Descubre cómo conseguir tu primer empleo como analista de datos en RD: crea un portafolio, mejora tu CV y aprende a medir tu búsqueda laboral.";
+const articleUrl = `https://willduet.com${canonicalPath}`;
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: article.title,
+    description,
+    url: articleUrl,
+    mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+    image: `https://willduet.com${article.image}`,
+    datePublished: article.datePublished,
+    dateModified: article.datePublished,
+    inLanguage: "es-DO",
+    author: { "@type": "Organization", name: "WILLDUET Academy", url: "https://willduet.com/academy/" },
+    publisher: { "@type": "Organization", name: "WILLDUET CORP.", logo: { "@type": "ImageObject", url: "https://willduet.com/logo-willduet-sin-fondo.png" } },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://willduet.com/" },
+      { "@type": "ListItem", position: 2, name: "Academy", item: "https://willduet.com/academy/" },
+      { "@type": "ListItem", position: 3, name: "Blog", item: "https://willduet.com/academy/blog/" },
+      { "@type": "ListItem", position: 4, name: article.title, item: articleUrl },
+    ],
+  },
+];
+---
+<AcademyArticleLayout {title} {description} {canonicalPath} {article} {structuredData}>
+  <div class="academy-article-shell academy-container">
+    <aside class="academy-article-toc" aria-label="Contenido del artículo">
+      <strong>En esta guía</strong>
+      <nav>
+        <a href="#conocimientos">Conocimientos necesarios</a>
+        <a href="#portafolio">Portafolio</a>
+        <a href="#cv">CV y posicionamiento</a>
+        <a href="#medir">Búsqueda con datos</a>
+        <a href="#donde-buscar">Dónde buscar en RD</a>
+        <a href="#comunidad">Comunidad</a>
+      </nav>
+    </aside>
+    <div class="academy-article-content">
+      <p class="academy-article-intro">Para conseguir tu primer empleo como analista de datos necesitas más que completar cursos: debes demostrar que puedes entender un problema, trabajar con información y comunicar una conclusión útil. Después, aplica esa misma mentalidad analítica para evaluar y mejorar tu búsqueda laboral.</p>
+      <p>Este plan tiene ocho pasos: desarrolla las habilidades necesarias, construye dos o tres proyectos, preséntalos en un portafolio accesible, alinea tu CV con el puesto, aplica con criterio, mide cada etapa del proceso, mejora con evidencia y aprende junto a una comunidad profesional.</p>
+
+      <section id="conocimientos">
+        <h2>¿Qué necesitas para conseguir empleo como analista de datos?</h2>
+        <p>Primero necesitas conocimiento práctico. Una ruta posible comienza con fundamentos de estructuras de datos y continúa con Excel, SQL y Power BI, mientras desarrollas matemática básica, estadística aplicada, comunicación y comprensión del negocio. Nuestro <a href="/academy/blog/como-ser-analista-de-datos/">roadmap para aprender análisis de datos desde cero</a> explica qué aporta cada etapa.</p>
+        <p>Esta combinación no es un requisito universal. Algunas empresas trabajan con Google Sheets, Tableau, Looker, Python, R u otras bases de datos. Lee las responsabilidades de las posiciones que te interesan y prioriza las habilidades que aparecen de forma coherente con el trabajo, no una lista interminable de tecnologías.</p>
+        <p>Los cursos de <a href="/academy/cursos/excel-para-analisis-de-datos/">Excel</a>, <a href="/academy/cursos/sql-para-analisis-de-datos/">SQL</a> y <a href="/academy/cursos/power-bi-para-analisis-de-datos/">Power BI para Análisis de Datos</a> están organizados alrededor de tareas del rol. Pero estudiar es solo la primera parte: una persona sin experiencia profesional necesita convertir ese aprendizaje en evidencia visible.</p>
+      </section>
+
+      <section id="portafolio">
+        <h2>Sin experiencia laboral, tu portafolio es tu evidencia</h2>
+        <p>Un portafolio permite observar cómo piensas. Debe mostrar que puedes entender una pregunta de negocio, identificar datos relevantes, limpiarlos, analizarlos, producir hallazgos, comunicar resultados y recomendar acciones cuando la evidencia lo justifica.</p>
+        <p>La prioridad es el valor analítico, no la decoración ni la complejidad técnica. Un dashboard llamativo sin una pregunta clara dice menos que un análisis sencillo que documenta sus decisiones y limitaciones.</p>
+
+        <h3>¿Dónde crear tu portafolio?</h3>
+        <p>Una página sencilla en Notion, Google Sites o un sitio publicado con GitHub Pages puede funcionar como presentación principal. Un reclutador debería entender rápidamente quién eres, qué tipo de puesto buscas y qué problemas resolviste, sin explorar carpetas técnicas para encontrar la explicación.</p>
+        <p>GitHub sí es valioso para código fuente, control de versiones, documentación técnica y archivos reproducibles. La distinción importante es esta: un repositorio por sí solo puede resultar poco accesible para una persona no técnica; GitHub Pages, en cambio, permite hospedar un sitio web. Puedes usar una landing page como capa de presentación y enlazar los repositorios para quien quiera revisar el detalle técnico.</p>
+
+        <h3>¿Qué debe incluir cada proyecto?</h3>
+        <p>Dos o tres proyectos bien desarrollados suelen comunicar mejor tu capacidad que muchos ejemplos superficiales. Cada caso debería explicar:</p>
+        <ol>
+          <li><strong>Problema de negocio:</strong> qué situación intentas comprender.</li>
+          <li><strong>Objetivo:</strong> qué pregunta responderás.</li>
+          <li><strong>Datos:</strong> origen, estructura y restricciones.</li>
+          <li><strong>Herramientas y enfoque:</strong> cómo limpiaste y analizaste.</li>
+          <li><strong>Hallazgos:</strong> qué patrones encontraste.</li>
+          <li><strong>Recomendaciones:</strong> qué acción sería razonable y por qué.</li>
+          <li><strong>Limitaciones:</strong> qué no puede concluirse con esos datos.</li>
+        </ol>
+        <p>Podrías analizar desempeño de ventas, segmentar clientes, monitorear inventario o diseñar un reporte operativo. Si el caso es hipotético, identifica los resultados como simulados. No presentes aumentos de ingresos, ahorros o clientes ficticios como logros profesionales reales.</p>
+        <div class="academy-example"><strong>Ejemplo de razonamiento de negocio</strong><p>En lugar de limitarte a “creé un dashboard de ventas”, explica que evaluaste qué categorías explicaban una variación mensual, separaste el efecto de unidades y precios, detectaste limitaciones en los datos y propusiste preguntas para continuar la investigación.</p></div>
+
+        <h3>¿Cómo encontrar problemas reales para tus proyectos?</h3>
+        <p>Habla con personas que trabajan en empresas y pregúntales qué reportes preparan repetidamente, qué información les cuesta conseguir o qué decisiones toman con poca visibilidad. Algunas de esas situaciones pueden convertirse en casos de estudio: define la pregunta, identifica las métricas, consigue un conjunto de datos apropiado y construye una solución demostrativa.</p>
+        <p>No uses información confidencial sin autorización. Trabaja con datos públicos, sintéticos, anonimizados o expresamente autorizados. Si generaste datos sintéticos, indícalo de forma clara y evita atribuir el proyecto a una empresa que no participó.</p>
+
+        <h3>Presenta tus proyectos en video</h3>
+        <p>Un recorrido breve en video puede explicar la pregunta, la solución, el dashboard, los hallazgos y tu forma de comunicar. Es opcional, no un requisito de contratación. Prioriza audio claro, visuales legibles, una estructura concisa y subtítulos cuando sea posible. El video complementa la documentación; no garantiza entrevistas.</p>
+      </section>
+
+      <section id="cv">
+        <h2>Adapta tu CV al puesto de analista de datos</h2>
+        <p>Tu CV debe facilitar que alguien relacione tu preparación con las responsabilidades de un analista junior. No te presentes como Data Engineer o Data Scientist si tu evidencia está concentrada en análisis y reporting. Esto no significa borrar títulos o cualificaciones legítimas: significa describir tu objetivo y tus capacidades con precisión, sin inflar experiencia.</p>
+
+        <h3>¿Qué destacar si no tienes experiencia?</h3>
+        <p>Prioriza habilidades analíticas relevantes, herramientas, proyectos, preguntas de negocio resueltas, métodos, hallazgos, recomendaciones y formación relacionada. Etiqueta cada proyecto como personal, académico o simulado cuando corresponda; no lo presentes como un servicio profesional pagado.</p>
+        <div class="academy-example"><strong>Descripción hipotética para el CV</strong><p><strong>Proyecto personal — Análisis de ventas con SQL y Power BI:</strong> limpié y relacioné datos sintéticos de pedidos, productos y devoluciones; definí métricas de ingresos, margen y frecuencia; analicé variaciones por categoría y documenté hallazgos, limitaciones y recomendaciones para seguimiento.</p></div>
+
+        <h3>¿Debes eliminar tus experiencias laborales anteriores?</h3>
+        <p>No automáticamente. Puedes resumir u omitir experiencias poco relevantes cuando el espacio lo exija, pero trabajos en ventas, operaciones, finanzas, servicio al cliente, administración o logística pueden demostrar conocimiento de procesos, comunicación y criterio comercial. Destaca habilidades transferibles y logros verdaderos que ayuden a entender tu perfil.</p>
+
+        <h3>Conecta tu CV con tu portafolio</h3>
+        <p>Incluye un enlace funcional y fácil de identificar en el CV. Desde el portafolio, permite acceder o solicitar el CV y contactar contigo. Ambos materiales deben usar una descripción profesional consistente y mostrar el mismo objetivo laboral. Revisa los enlaces desde un teléfono y desde una ventana privada antes de aplicar.</p>
+      </section>
+
+      <section id="medir">
+        <h2>Busca empleo como un analista: utiliza datos para mejorar tus resultados</h2>
+        <p>Enviar solicitudes sin registrar resultados impide saber qué funciona. Trata tu búsqueda como un proceso: captura aplicaciones, respuestas iniciales, entrevistas, etapas finales y ofertas. El objetivo no es alcanzar una cuota arbitraria, sino encontrar patrones y tomar mejores decisiones.</p>
+
+        <h3>Construye tu propio embudo de búsqueda laboral</h3>
+        <div class="academy-job-funnel" aria-label="Embudo de búsqueda laboral">
+          <span>Aplicaciones</span><span>Respuestas de reclutadores</span><span>Entrevistas</span><span>Ofertas</span>
+        </div>
+        <p>Calcula cada conversión con el denominador de la etapa anterior. Por ejemplo, la tasa de respuesta es respuestas ÷ aplicaciones; la tasa de entrevista desde respuesta es entrevistas ÷ respuestas; y la tasa de oferta desde entrevista es ofertas ÷ entrevistas. No uses ofertas ÷ aplicaciones para diagnosticar exactamente dónde se pierde el proceso.</p>
+        <p>Evita conclusiones firmes con pocas observaciones. Cinco aplicaciones sin respuesta no prueban que el CV esté mal; pueden influir competencia, requisitos, tiempos internos o condiciones del mercado. Registra suficiente contexto y busca tendencias durante un periodo razonable.</p>
+
+        <h3>Muchas aplicaciones, pocas llamadas</h3>
+        <p>Investiga la relevancia del CV, la claridad del portafolio, el ajuste entre tu experiencia y los requisitos, la selección de vacantes y la presencia de habilidades pertinentes en tu descripción. También considera elegibilidad, nivel solicitado, competencia y procesos de contratación. El CV es una hipótesis posible, no la única causa.</p>
+
+        <h3>Recibes llamadas, pero no avanzas</h3>
+        <p>Revisa cómo explicas tu perfil y proyectos, si comprendiste el puesto, tus expectativas, disponibilidad y desempeño en el filtro inicial. Practica una presentación breve y honesta: qué sabes hacer, qué evidencia tienes y por qué esa posición corresponde con tu etapa profesional.</p>
+
+        <h3>Consigues entrevistas, pero no ofertas</h3>
+        <p>Después de cada conversación documenta preguntas, respuestas, temas técnicos difíciles, escenarios de negocio, observaciones de comunicación y áreas para reforzar. Busca patrones antes de cambiarlo todo. Una decisión negativa no siempre significa un desempeño deficiente: pueden existir candidatos con más experiencia, cambios de presupuesto o criterios internos que no controlas.</p>
+
+        <h3>Mejora tu estrategia mediante pequeños experimentos</h3>
+        <p>Imagina que una persona aplica principalmente a posiciones con requisitos avanzados de ingeniería y recibe poco interés. Decide concentrar durante varias semanas una parte de sus aplicaciones en puestos junior de análisis y reporting que correspondan con su portafolio. Mantiene constantes sus materiales principales, registra las respuestas y compara el comportamiento antes de decidir el siguiente ajuste.</p>
+        <p>Prueba un cambio identificable a la vez cuando sea posible: mejorar la descripción de proyectos, reorganizar el CV o refinar el tipo de vacante. Así será más fácil aprender qué pudo influir, sin confundir coincidencia con causalidad.</p>
+
+        <h3>Crea un registro de tus aplicaciones</h3>
+        <p>Puedes copiar esta estructura en Excel o Google Sheets. Actualízala después de cada aplicación y entrevista.</p>
+        <div class="academy-table-wrap" tabindex="0" role="region" aria-label="Ejemplo de registro de búsqueda de empleo">
+          <table>
+            <thead><tr><th>Empresa</th><th>Posición</th><th>Fecha</th><th>Fuente</th><th>Estado</th><th>Último contacto</th><th>Próximo paso</th><th>Observaciones</th></tr></thead>
+            <tbody><tr><td>Empresa de ejemplo</td><td>Analista de Datos Junior</td><td>15/10/2026</td><td>Portal de empleo</td><td>Aplicación enviada</td><td>—</td><td>Dar seguimiento</td><td>Registro hipotético</td></tr></tbody>
+          </table>
+        </div>
+        <p><a class="academy-resource-link" href="/downloads/registro-busqueda-empleo.csv" download>Descargar plantilla CSV del registro</a></p>
+      </section>
+
+      <section id="donde-buscar">
+        <h2>¿Dónde buscar empleo como analista de datos en República Dominicana?</h2>
+        <p>Combina canales; ninguna plataforma garantiza oportunidades. En <a href="https://do.linkedin.com/jobs/" target="_blank" rel="noopener noreferrer">LinkedIn Jobs para República Dominicana</a> puedes buscar y crear alertas. <a href="https://www.rdtrabaja.mt.gob.do/" target="_blank" rel="noopener noreferrer">RD Trabaja</a> es el portal oficial de empleo del Ministerio de Trabajo. <a href="https://do.computrabajo.com/" target="_blank" rel="noopener noreferrer">Computrabajo República Dominicana</a> también mantiene una versión específica para el país.</p>
+        <p>Revisa además las páginas de carreras de empresas verificadas, servicios de carrera de tu universidad, comunidades profesionales y contactos que puedan informarte sobre procesos reales. Una referencia puede ayudarte a conocer una oportunidad, pero no sustituye la preparación ni garantiza selección.</p>
+        <p>Busca variaciones como <strong>Analista de Datos</strong>, <strong>Data Analyst</strong>, <strong>BI Analyst</strong>, <strong>Reporting Analyst</strong>, <strong>Analista de Reportes</strong> y <strong>Analista de Operaciones</strong>. Lee las funciones: dos posiciones con títulos parecidos pueden exigir trabajos diferentes, y una posición de operaciones puede incluir análisis relevante aunque no diga “datos” en el título.</p>
+      </section>
+
+      <section id="comunidad" class="academy-article-cta" aria-labelledby="community-title">
+        <span class="academy-kicker">Comunidad WILLDUET Academy</span>
+        <h2 id="community-title">Aprende de otras personas que también buscan oportunidades</h2>
+        <p>Comparte tus dudas, conoce a otras personas interesadas en análisis de datos y aprende de sus experiencias mientras desarrollas tu perfil profesional.</p>
+        <a class="academy-btn academy-btn-primary" href="https://chat.whatsapp.com/LPBpgtznpfj6IYvqbenVdy" target="_blank" rel="noopener noreferrer">Únete a nuestra comunidad de análisis de datos</a>
+      </section>
+
+      <section>
+        <h2>Tu plan de acción</h2>
+        <ol>
+          <li>Desarrolla fundamentos y herramientas relevantes.</li>
+          <li>Construye dos o tres proyectos con preguntas de negocio claras.</li>
+          <li>Preséntalos en un portafolio fácil de entender.</li>
+          <li>Alinea tu CV con el puesto que realmente buscas.</li>
+          <li>Aplica a posiciones compatibles con tu preparación.</li>
+          <li>Mide cada etapa del proceso de selección.</li>
+          <li>Mejora mediante evidencia y experimentos pequeños.</li>
+          <li>Aprende de una comunidad y comparte experiencias.</li>
+        </ol>
+        <p>Conseguir el primer empleo depende de factores que no controlas por completo. Lo que sí puedes hacer es presentar evidencia honesta de tu capacidad, elegir oportunidades con criterio y usar datos para aprender de tu propio proceso.</p>
+      </section>
+
+      <section class="academy-article-sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">Fuentes y recursos</h2>
+        <ul>
+          <li><a href="https://www.rdtrabaja.mt.gob.do/" target="_blank" rel="noopener noreferrer">RD Trabaja — Ministerio de Trabajo de la República Dominicana</a>: portal oficial de empleo.</li>
+          <li><a href="https://do.linkedin.com/jobs/" target="_blank" rel="noopener noreferrer">LinkedIn Jobs República Dominicana</a>: búsqueda y alertas de empleo para el país.</li>
+          <li><a href="https://do.computrabajo.com/" target="_blank" rel="noopener noreferrer">Computrabajo República Dominicana</a>: portal con versión local.</li>
+        </ul>
+        <p><small>Canales verificados el 15 de octubre de 2026. Su disponibilidad y contenido pueden cambiar.</small></p>
+      </section>
+    </div>
+  </div>
+</AcademyArticleLayout>

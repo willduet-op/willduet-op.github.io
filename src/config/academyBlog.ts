@@ -1,5 +1,16 @@
 export const academyArticles = [
   {
+    slug: "como-conseguir-empleo-analista-de-datos-rd",
+    title: "Cómo conseguir empleo como analista de datos en República Dominicana, incluso sin experiencia",
+    description: "Una guía práctica para demostrar tus habilidades, crear un portafolio, adaptar tu CV y medir tu búsqueda de empleo en análisis de datos.",
+    category: "Empleo en datos",
+    datePublished: "2026-10-15",
+    dateLabel: "15 de octubre de 2026",
+    readingTime: "16 min de lectura",
+    image: "/academia/academy-hero.webp",
+    imageAlt: "Profesional preparando su perfil para trabajar en análisis de datos",
+  },
+  {
     slug: "como-ser-analista-de-datos",
     title: "Cómo ser analista de datos desde cero: roadmap completo",
     description: "Una ruta práctica para desarrollar fundamentos de datos, Excel, SQL, Power BI y criterio de negocio antes de buscar tu primera oportunidad.",
